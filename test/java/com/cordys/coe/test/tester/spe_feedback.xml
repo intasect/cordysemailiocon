@@ -1,0 +1,181 @@
+    <emailbox xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+      <name>SPE_customer_feedback</name>
+      <host>erlh1nma.ww005.siemens.net</host>
+      <port>110</port>
+      <type>POP3</type>
+      <username>spefeedback@erlh1nma.ww005.siemens.net</username>
+      <password>QlBNLVRlc3QwOA==</password>
+      <pollinterval>360000</pollinterval>
+      <folders>
+        <folder>Inbox</folder>
+      </folders>
+      <triggers>
+        <trigger appliesTo="INBOX">
+          <name>Customer_Feedback_Error</name>
+          <description>This trigger fires when there is no dynamic trigger found for the incoming email.</description>
+          <combineemails>false</combineemails>
+          <priority>20</priority>
+          <rules>
+            <rule section="SUBJECT">
+              <pattern type="REGEX">
+                <value>ETA Feedback</value>
+              </pattern>
+            </rule>
+            <rule section="MULTIPART">
+              <pattern type="CUSTOM">
+                <value>com.cordys.coe.ac.emailio.custompatterns.ExecMessageGetter</value>
+                <custom>
+                  <field>SentDate</field>
+                </custom>
+                <store>
+                  <token>
+                    <name>SentDate</name>
+                    <value>string</value>
+                  </token>
+                </store>
+              </pattern>
+              <pattern type="CUSTOM">
+                <value>com.cordys.coe.ac.emailio.custompatterns.SplitFromAddressPattern</value>
+                <store>
+                  <token>
+                    <name>FromEmailAddress</name>
+                    <value>string</value>
+                  </token>
+                  <token>
+                    <name>FromDisplayName</name>
+                    <value>string</value>
+                  </token>
+                </store>
+              </pattern>
+              <pattern type="CUSTOM">
+                <value>com.cordys.coe.ac.emailio.custompatterns.StoreRawMailContent</value>
+                <store>
+                  <token>
+                    <name>MyRawMail</name>
+                    <value>string</value>
+                  </token>
+                </store>
+              </pattern>
+            </rule>
+          </rules>
+          <message>
+            <method>ExecuteProcess</method>
+            <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            <user>cn=prompt.med,cn=organizational users,o=SiemensHC,cn=cordys,o=ww005.siemens.net</user>
+            <sync>true</sync>
+            <namespacemappings>
+              <namespacemapping>
+                <prefix>ns</prefix>
+                <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+              </namespacemapping>
+              <namespacemapping>
+                <prefix>bpm</prefix>
+                <namespace>http://schemas.cordys.com/bpm/BPM_HandleMailError</namespace>
+              </namespacemapping>
+            </namespacemappings>
+            <input>
+              <type>definition</type>
+              <receiver>3.Business Process Models/GeneralTasks/BPM_HandleMailError_SiemensHC1.0.bpm</receiver>
+              <message>
+                <InputMessage xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">
+                  <SubjectParameterName xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">spe.customerfeedback.errormail.subject</SubjectParameterName>
+                  <BodyParameterName xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">spe.customerfeedback.errormail.body</BodyParameterName>
+                  <FromNameParameterName xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">spe.customerfeedback.senderName</FromNameParameterName>
+                  <FromAddressParameterName xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">spe.customerfeedback.senderEmail</FromAddressParameterName>
+                  <To xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">
+                    <address>
+                      <emailAddress>FromEmailAddress</emailAddress>
+                      <displayName>FromDisplayName</displayName>
+                    </address>
+                  </To>
+                  <OriginalMail xmlns="http://schemas.cordys.com/bpm/BPM_HandleMailError">PARAMETER</OriginalMail>
+                </InputMessage>
+              </message>
+              <source/>
+            </input>
+            <mappings>
+              <mapping>
+                <source>.//To/address/emailAddress</source>
+                <value src="FromEmailAddress"/>
+              </mapping>
+              <mapping>
+                <source>.//To/address/displayName</source>
+                <value src="FromDisplayName"/>
+              </mapping>
+              <mapping>
+                <source>.//OriginalMail</source>
+                <value src="MyRawMail"/>
+              </mapping>
+            </mappings>
+          </message>
+        </trigger>
+        <trigger appliesTo="INBOX" onetimeonly="true" xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+    <name>{DA4B2893-A6D9-42FD-8D16-EBC6359775DB}-DynamicTrigger ETA Feedback</name>
+    <description>DynamicTrigger for ETA Feedback Mails</description>
+    <combineemails>false</combineemails>
+    <priority>10</priority>
+    <rules>
+        <rule section="SUBJECT">
+            <pattern type="REGEX">
+                <value>ETA Feedback identifier:e0VGREMwMkY5LUFBQ0ItNDRGNC1CMkZFLUJDQzQyQUZCQjczNn0=\s+choice:(.+)</value>
+                <store>
+                    <token>
+                        <name>ETAChoice</name>
+                        <value src="PATTERN">1</value>
+                    </token>
+                </store>
+            </pattern>
+        </rule>
+        <rule section="MULTIPART">
+            <pattern type="REGEX">
+                <value>(.+)--</value>
+                <store>
+                    <token>
+                        <name>ETAComment</name>
+                        <value src="PATTERN">1</value>
+                    </token>
+                </store>
+            </pattern>
+        </rule>
+    </rules>
+    <message>
+        <method>ExecuteProcess</method>
+        <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+        <user>cn=endtth6q,cn=organizational users,o=SiemensHC,cn=cordys,o=ww005.siemens.net</user>
+        <sync>true</sync>
+        <timeout>30000</timeout>
+        <namespacemappings>
+            <namespacemapping>
+                <prefix>ns</prefix>
+                <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            </namespacemapping>
+            <namespacemapping>
+                <prefix>bpm</prefix>
+                <namespace>http://schemas.cordys.com/bpm/SendAndCheckEmail</namespace>
+            </namespacemapping>
+        </namespacemappings>
+        <input intValue="12">
+            <type>instance</type>
+            <receiver>{EFDC02F9-AACB-44F4-B2FE-BCC42AFBB736}</receiver>
+            <message intValue="4">
+                <ETAFeedbackIntermediate xmlns="http://schemas.cordys.com/bpm/SendAndCheckEmail">
+                    <ETAChoice/>
+                    <ETAComment/>
+                </ETAFeedbackIntermediate>
+            </message>
+            <source>DynamicTrigger ETA Feedback</source>
+        </input>
+        <mappings>
+            <mapping>
+                <source>.//bpm:ETAChoice</source>
+                <value operation="STRING_REPLACE" src="ETAChoice"/>
+            </mapping>
+            <mapping>
+                <source>.//bpm:ETAComment</source>
+                <value operation="STRING_REPLACE" src="ETAComment"/>
+            </mapping>
+        </mappings>
+    </message>
+</trigger>
+      </triggers>
+    </emailbox>

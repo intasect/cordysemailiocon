@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classregistry
+	xmlns="http://schemas.cordys.com/1.0/xmlstore"
+	xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	<namespace>http://emailiolconnector.coe.cordys.com/1.1/storage/database</namespace>
+	<class>
+		<tag>CONTEXT_CONTAINER</tag>
+		<classname>com.cordys.coe.ac.emailio.storage.db.DBContextContainer</classname>
+		<templateid>acf723dc-0a01-1ea1-01dc-0e7a2ba548e0</templateid>
+	</class>
+	<class>
+		<tag>EMAIL</tag>
+		<classname>com.cordys.coe.ac.emailio.storage.db.DBEmail</classname>
+		<templateid>acf723fc-0a01-1ea1-01dc-0e7aada2be65</templateid>
+	</class>
+	<class>
+		<tag>EMAIL_BOX</tag>
+		<classname>com.cordys.coe.ac.emailio.storage.db.DBEmailBox</classname>
+		<templateid>acf723fc-0a01-1ea1-01dc-0e7a0ecaf0a3</templateid>
+	</class>
+	<class>
+		<tag>TRIGGER_STORE</tag>
+		<classname>com.cordys.coe.ac.emailio.storage.db.DBTrigger</classname>
+		<templateid>acf723fc-0a01-1ea1-01dc-0e7accbd7be6</templateid>
+	</class>
+</classregistry>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<role
+	name="Email IO Connector Administrator"
+	description="Email IO Connector Administrator">
+	<menu>/Cordys/WCP/Menu/CoE/EmailIOConnector/iec_administrator</menu>
+	<acl
+		name="Custom-Email IO Connector Administrator"
+		description=""
+		acl="cn=Email IO Connector Administrator,cn=organizational roles,o=EmailIO2_0,cn=cordys,o=vanenburg.com"
+		organizationalobject=""
+		service="">
+		<acobjecttree>
+			<object>
+				<object
+					id="http://emailioconnector.coe.cordys.com/2.0/configuration"
+					acl="open"
+				/>
+				<object
+					id="http://emailioconnector.coe.cordys.com/2.0/objects"
+					acl="open"
+				/>
+				<object
+					id="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic"
+					acl="open"
+				/>
+				<object
+					id="http://emailioconnector.coe.cordys.com/2.0/outbound"
+					acl="open"
+				/>
+			</object>
+		</acobjecttree>
+	</acl>
+</role>

@@ -1,0 +1,25 @@
+<keymanager xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+	<name>MainKeyStore</name>
+	<class>com.cordys.coe.ac.emailio.keymanager.BCKeyManagerImpl</class>
+	<parameters>
+		<parameter name="location" type="string">.\test\java\com\cordys\coe\test\smime\cordys_server.jks</parameter>
+		<parameter name="password" type="string">c2VjcmV0</parameter>
+		<parameter name="type" type="string">JKS</parameter>
+		<parameter name="certificatepasswords" type="xml">
+			<certificates>
+				<certificate>
+					<alias>cordys test user 1 (root testca)</alias>
+					<password>Y29yZHlzdGVzdHVzZXIx</password>
+				</certificate>
+				<certificate>
+					<alias>cordys test user 2 (root testca)</alias>
+					<password>Y29yZHlzdGVzdHVzZXIy</password>
+				</certificate>
+				<certificate>
+					<alias>test program user (root testca)</alias>
+					<password>dGVzdHByb2dyYW0=</password>
+				</certificate>
+			</certificates>
+		</parameter>
+	</parameters>
+</keymanager>

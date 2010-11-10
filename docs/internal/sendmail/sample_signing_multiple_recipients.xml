@@ -1,0 +1,44 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP:Body>
+		<SendMail xmlns="http://emailioconnector.coe.cordys.com/2.0/outbound">
+			<from>
+				<address>
+					<displayname>Source User</displayname>
+					<emailaddress>source@ces70.cordys.com</emailaddress>
+				</address>
+			</from>
+			<to>
+				<address>
+					<emailaddress>destination@ces70.cordys.com</emailaddress>
+					<displayname>Destination user</displayname>
+				</address>
+			</to>
+			<cc>
+				<address>
+					<emailaddress>intermediate@ces70.cordys.com</emailaddress>
+					<displayname>Intermediate user</displayname>
+				</address>
+			</cc>
+			<subject>Sample signed and possibly encrypted.</subject>
+			<content>
+				<contenttype>alternative</contenttype>
+				<mimepart>
+					<contenttype>text/plain</contenttype>
+					<data source="PLAIN">This is the plain text version of the encrypted and possibly signed message</data>
+				</mimepart>
+				<mimepart>
+					<contenttype>text/html; charset="iso-8859-1"</contenttype>
+					<data source="XML">
+						<HTML>
+							<BODY bgColor="#ffffff">
+								<DIV>
+									<FONT face="Arial" size="2">This is the HTML version of the encrypted and possibly signed message</FONT>
+								</DIV>
+							</BODY>
+						</HTML>
+					</data>
+				</mimepart>
+			</content>
+		</SendMail>
+	</SOAP:Body>
+</SOAP:Envelope>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <title>Email IO Connector Changelog</title>
+        <author email="pgussow@cordys.com">Phillip Gussow</author>
+    </properties>
+    <template>
+        <release date="YYYY-MM-DD" description="OPTIONAL DESCRIPTION" version="x.y.z">
+            <action dev="USER" type="add|fix|update|change">
+				Description about the action.
+			</action>
+        </release>
+    </template>
+    <body>
+        <release description="Development release" version="@NEXT@">
+				</release>
+<release date="2010-11-10" description="Development release" version="2.0.10">
+				</release>
+<release date="2010-11-10" description="Development release" version="2.0.9">
+				</release>
+<release date="2010-05-21" description="Development release" version="2.0.8">
+            <action dev="pgussow" type="fix">If the subject was empty and there was a rule defined for the subject that the mail could not be processed.</action>
+            <action dev="pgussow" type="fix">In some cases the message 'failure in Node.setAttribute' was observed in the log files. These have been fixed.</action>
+        </release>
+        <release date="2010-04-08" description="Development release" version="2.0.7">
+            <action dev="pgussow" type="add"><![CDATA[The details about the storage are now also exposed in the RuleContext under the variable sysXMLStorageDetails.
+
+The XML structure looks like this:
+<container xmlns="http://emailioconnector.coe.cordys.com/2.0/data">
+	<id>{9082AA4B-D77E-45B9-BD38-B908D3B23EE1}</id>
+	<emails>
+		<email>
+			<id>{86CD4560-B760-48D5-A58B-57CCA99DF7EF}</id>
+		</email>
+	</emails>
+</container>
+
+NOTE: this only applies to the DBStorage provider!!]]></action>
+            <action dev="pgussow" type="fix">The flag 'Compress Data' on the DB Storage provider now works.
+
+Also there is a global option to override this:
+-Dcom.cordys.coe.ac.emailio.nocompression=false/true
+
+If this property is set the 'Compress Data' on the DBStorageProvider is ignored.</action>
+        </release>
+        <release date="2010-04-01" description="Development release" version="2.0.6">
+            <action dev="pgussow" type="add">Added tested support for POP3 connections using SSL</action>
+        </release>
+        <release date="2009-10-14" description="Development release" version="2.0.5">
+            <action dev="pgussow" type="add">Added proper ACL to the roles to open up the methods based on the role</action>
+        </release>
+        <release date="2009-10-13" description="Development release" version="2.0.4">
+            <action dev="mpoyhone" type="change">keymanagers/keymanager element is no longer mandatory.</action>
+            <action dev="pgussow" type="fix">The value for the bypass smime was ignored. This is fixed.</action>
+        </release>
+        <release date="2009-07-27" description="Development release" version="2.0.3">
+            <action dev="pgussow" type="fix">Fixed a bug in the configuration.xsd</action>
+            <action dev="pgussow" type="update">By default now S/MIME is not enabled</action>
+            <action dev="pgussow" type="fix">Fixed a bug when BypassSMIME was enabled and no private key was found.</action>
+        </release>
+        <release date="2009-07-27" description="Development release" version="2.0.2">
+            <action dev="pgussow" type="add">Added S/MIME support to the inbound part as well. When the connector receives a mail that is encrypted it will decrypt the message and then continute processing. If it detecs a mail is signed it will verify the signature</action>
+            <action dev="pgussow" type="fix">Fixed a bug in the compatibility mode.</action>
+        </release>
+        <release date="2009-07-23" description="Development release" version="2.0.1">
+            <action dev="pgussow" type="change">Renamed the Connector from Inbound Email Connector to Email IO connector</action>
+            <action dev="pgussow" type="add">Added outbound capabilities to the connector. Now it's possible to send mails using this connector as well.
+
+Note: you can also attach the standard Cordys SendMail method to this connector.</action>
+        </release>
+        <release date="2009-06-08" description="Development release" version="1.1.10">
+            <action dev="pgussow" type="update">Changed all varchar fields to nvarchar</action>
+        </release>
+        <release date="2009-05-11" description="Development release" version="1.1.9">
+            <action dev="pgussow" type="add">Added some additional logging for tracing and troubleshooting.</action>
+        </release>
+        <release date="2009-04-17" description="Development release" version="1.1.8">
+            <action dev="pgussow" type="add">Added a new custom pattern called StoreRawMailContent. This pattern can be used to get the original text of the mail into the pattern context.
+
+Example configuration:
+&lt;pattern type="CUSTOM"&gt;
+  &lt;value&gt;com.cordys.coe.ac.emailio.custompatterns.StoreRawMailContent&lt;/value&gt;
+  &lt;store&gt;
+&lt;token&gt;
+  &lt;name&gt;MyRawMail&lt;/name&gt;
+  &lt;value&gt;string&lt;/value&gt;
+&lt;/token&gt;
+  &lt;/store&gt;
+&lt;/pattern&gt;</action>
+        </release>
+        <release date="2009-04-17" description="Development release" version="1.1.7">
+            <action dev="pgussow" type="fix">Did some change to the XSD to make sure the name of the mailbox cannot be over 50 characters and the the name of a trigger cannot be more then 200 characters. This is to be consistent with the DB schema.</action>
+            <action dev="pgussow" type="update">When the from address, to address or subject of a mail is over 200 chars then they will be truncated instead of throwing exceptions.</action>
+        </release>
+        <release date="2009-04-16" description="Development release" version="1.1.6">
+            <action dev="pgussow" type="fix">If the configuration contained an invalid action reference there was no clear error message.</action>
+            <action dev="pgussow" type="add">Added the feature to check the configuration XML against the XSD to be able to find problems in an earlier stage.</action>
+        </release>
+        <release date="2009-04-15" description="Development release" version="1.1.5">
+            <action dev="pgussow" type="add">There was a problem with the configuration XSD and the ExecMessageGetter. There is now a tag called <custom/> under which custom patterns need to put their custom variables. This means the configuration has to be changed.</action>
+        </release>
+        <release date="2009-04-15" description="Development release" version="1.1.4">
+            <action dev="pgussow" type="fix">The database scripts were not packaged properly</action>
+        </release>
+        <release date="2009-04-09" description="Development release" version="1.1.3">
+            <action dev="pgussow" type="fix">The IEC did not support XPaths like string(......) or boolean(....). This has been corrected.</action>
+        </release>
+        <release date="2009-04-08" description="Development release" version="1.1.2">
+            <action dev="pgussow" type="fix">The XPathPattern did not obey the character encoding. It always assumed UTF-8 even though the encoding was declared differently in the XML.
+
+So instead of using the doc.parseString() method we switched to the doc.load() using the encoding within the XML.</action>
+        </release>
+        <release date="2009-04-06" description="Development release" version="1.1.1">
+            <action dev="pgussow" type="change">Completely abstracted the storage needs. This allows multiple storage providers to be implemented. The aim is to deliver a working File-based and DB-based storage provider.</action>
+            <action dev="pgussow" type="update">If the connector cannot start up an email box it will now log which mailbox it cannot start.</action>
+            <action dev="pgussow" type="add">Added a management UI to see what was going on within the connector.
+It is also the place to restart failed messages.</action>
+            <action dev="pgussow" type="add">Added archiving to the connector. Now it's possible to archive messages which are older then a certain date or have a certain status. 
+There are 2 archive implementations available: write everything to the file system or write all data to a seperate database. 
+
+Note: the archiving only works when you use a database for storage.</action>
+            <action dev="pgussow" type="add">The connector will not start up if a message is configured which can never be sent. This might happen because:
+
+1. If the organization DN exists.
+2. If the user DN exists.
+3. If there is a SOAP node actaully implementing the given method.
+4. If the Soap processor/node exists.</action>
+        </release>
+        <release date="2009-04-06" description="Development release" version="1.0.14">
+            <action dev="pgussow" type="fix">The trigger.toXML did not include the actions.</action>
+            <action dev="pgussow" type="add">Added a priority tag to the trigger definition. This allows the user to control the sequence in which triggers are executed.</action>
+            <action dev="pgussow" type="fix">It was possible that even though there was a onetimeonly trigger that it was applied to 2 different emails if they were processed in the same polling cycle. This will not happen anymore.</action>
+        </release>
+        <release date="2009-03-26" description="Development release" version="1.0.13">
+            <action dev="pgussow" type="update">When the thread that polls the email box was interrupted it would log an error. This message is now logged as a warning.</action>
+        </release>
+        <release date="2009-03-17" description="Development release" version="1.0.12">
+            <action dev="pgussow" type="fix">If you used xml:space="preserve" somewhere in the emailbox configuration you couldn't save the configuration anymore. This has been fixed.</action>
+        </release>
+        <release date="2009-03-10" description="Development release" version="1.0.11">
+            <action dev="pgussow" type="fix">Made sure that a MIME part can also be handled properly. It is now handled the same way as a multipart.</action>
+        </release>
+        <release date="2009-03-06" description="Development release" version="1.0.10">
+            <action dev="pgussow" type="add">In case of an error SendMail action the exception details will be put in the body of the mail.</action>
+            <action dev="pgussow" type="add">Added support for data with is offered as a stream from the JavaMail API</action>
+        </release>
+        <release date="2009-03-04" description="Development release" version="1.0.9">
+            <action dev="pgussow" type="add">Added a pattern which will split the from address into a from email address and from display name and store it in the context. 
+The name of the class is com.cordys.coe.ac.emailio.custompatterns.SplitFromAddressPattern and an example can be found in the docs/samples/std_custom_patterns.txt</action>
+            <action dev="pgussow" type="add">Added a pattern which will execute any getter method on the javax.mail.Message object and store it into the rule context. 
+The name of the class is com.cordys.coe.ac.emailio.custompatterns.ExecMessageGetter and an example can be found in the docs/samples/std_custom_patterns.txt</action>
+        </release>
+        <release date="2009-03-04" description="Development release" version="1.0.8">
+            <action dev="pgussow" type="fix">Fixed a small bug in the SendSOAPAction with regard to organizational context</action>
+            <action dev="pgussow" type="add">Added functionality to cope with UnsupportedEncoding exceptions. When the mail has some part with an unsupported encoding the connector will remove the mail from the inbox, write it to the error folder and trigger the error actions defined on the trigger.</action>
+        </release>
+        <release date="2008-12-10" description="Development release" version="1.0.7">
+            <action dev="gottmann" type="add">Updated the local FileTriggerStore</action>
+            <action dev="gottmann" type="change">Some cosmetic changes (logging, small code refactoring)</action>
+        </release>
+        <release date="2008-12-10" description="Development release" version="1.0.6">
+            <action dev="pgussow" type="fix">The GetConfiguration method did not return the name of the emailbox in the XML structure.</action>
+            <action dev="pgussow" type="add">Added the source to the distribution</action>
+            <action dev="0" type="change">It's not mandatory anymore for an emailbox to have static trigger definitions.</action>
+            <action dev="0" type="add">Added the triggerstore concept to be able to persist the dymanic triggers. For now no implementation is packaged, but the framework is there.</action>
+        </release>
+        <release date="2008-11-03" description="Development release" version="1.0.5">
+            <action dev="pgussow" type="add">Added OK and ERROR events to the processing. You can have 1 of these 3 actions executed when either a mail was processed successfully or not:
+1. Forward the mail to an emailbox
+2. Send a SOAP call
+3. Write a custom action</action>
+            <action dev="pgussow" type="add">Added a new folder: errorfolder. Mails that are in this folder meet 1 of the following criteria:
+1. The email is currently being processed.
+2. The Soap Call has failed and there are no error actions defined.
+3. The Soap Call has failed and none of the error actions was executed successfully.</action>
+        </release>
+        <release date="2008-10-30" description="Development release" version="1.0.4">
+            <action dev="pgussow" type="add">Added support for streamed content.</action>
+            <action dev="pgussow" type="add">Added different options to the mappings. Also added the option to build custom mappings</action>
+            <action dev="pgussow" type="add">Added support for optional patterns</action>
+        </release>
+        <release date="2008-10-27" description="Development release" version="1.0.3">
+            <action dev="pgussow" type="fix">Fixed the configuration XSD and the sample XMLs so that they properly validate.</action>
+            <action dev="pgussow" type="fix">Fixed some packaging issues</action>
+            <action dev="pgussow" type="add">Added a Demo flow for the dynamic triggers</action>
+        </release>
+        <release date="2008-10-24" description="Development release" version="1.0.2">
+            <action dev="pgussow" type="update">Upgraded connector to C3</action>
+            <action dev="pgussow" type="update">Updated coelib to version 1.1.6</action>
+        </release>
+    </body>
+</document>
