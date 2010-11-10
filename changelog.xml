@@ -14,6 +14,9 @@
     <body>
         <release description="Development release" version="@NEXT@">
 				</release>
+				<release date="2010-11-10" description="Migration release" version="2.0.11">
+        <action dev="srkrishnan" type="migration">Moved EmailIO connector source code base to opensource model.</action>
+	</release>
 <release date="2010-11-10" description="Development release" version="2.0.10">
 				</release>
 <release date="2010-11-10" description="Development release" version="2.0.9">
