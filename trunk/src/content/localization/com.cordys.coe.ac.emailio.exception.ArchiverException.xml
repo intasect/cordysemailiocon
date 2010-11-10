@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<MessageBundle id="com.cordys.coe.ac.emailio.exception.ArchiverException">
+    <Message id="ARE_COULD_NOT_FIND_THE_DATABASE_CONNECTION_POOL_CONFIGURATION">
+        <MessageText><![CDATA[Could not find the database connection pool configuration.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_COULD_NOT_GET_THE_DETAILS_OF_EMAIL_BOX_0_FROM_THE_STORAGE_PROVIDER">
+        <MessageText><![CDATA[Could not get the details of email box {0} from the storage provider ({1})]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_ERROR_ARCHIVING_CONTAINER_0">
+        <MessageText><![CDATA[Error archiving container {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_ERROR_ARCHIVING_MESSAGES">
+        <MessageText><![CDATA[Error archiving messages]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_ERROR_REMOVING_CONTEXT_CONTAINER_0_FROM_THE_STORAGE">
+        <MessageText><![CDATA[Error removing context container {0} from the storage.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_ERROR_ZIPPING_ALL_ARCHIVE_FILES">
+        <MessageText><![CDATA[Error zipping all archive files.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_INVALID_ARCHIVE_DATABASE">
+        <MessageText><![CDATA[Invalid archive database]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_TABLE_ARC_CONTEXT_CONTAINER_DOES_NOT_EXISTN0">
+        <MessageText><![CDATA[Table ARC_CONTEXT_CONTAINER does not exist:\n{0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_TABLE_ARC_EMAIL_DOES_NOT_EXISTN0">
+        <MessageText><![CDATA[Table ARC_EMAIL does not exist.\n{0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERROR_GETTING_THE_CONTAINERS_TO_ARCHIVE">
+        <MessageText><![CDATA[Error getting the containers to archive. Search criteria:
+EmailBoxID: {0}
+ProcessingStatus: {1}
+FromCreateDate: {2,date}
+ToCreateDate: {3,date}
+FromCompleteDate: {4,date}
+ToCompleteDate: {5,date}
+FromStatusChangeDate: {6,date}
+ToStatusChangeDate: {7,date}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_ERROR_INSTANTIATING_CLASS">
+        <MessageText><![CDATA[Error instantiating class {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_THE_CLASS_0_DOES_NOT_IMPLEMENT_INTERFACE">
+        <MessageText><![CDATA[The class {0} does not implement interface {1}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ARE_COULD_NOT_LOAD_CLASS_0">
+        <MessageText><![CDATA[Could not load class {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

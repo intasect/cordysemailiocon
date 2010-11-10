@@ -1,0 +1,43 @@
+<schema elementFormDefault="qualified"
+	targetNamespace="http://emailioconnector.coe.cordys.com/2.0/data"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://emailioconnector.coe.cordys.com/2.0/data"
+	attributeFormDefault="unqualified">
+
+    <element name="container" type="tns:ctContainer"></element>
+
+	<complexType name="ctContainer">
+		<sequence>
+			<element name="id" type="string" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="emails" type="tns:ctEmails" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<any processContents="skip">
+				<annotation>
+					<documentation>This allows the data to be extended by any storage
+						provider</documentation>
+				</annotation>
+			</any>
+		</sequence>
+	</complexType>
+
+    <complexType name="ctEmails">
+    	<sequence>
+    		<element name="email" type="tns:ctEmail"
+    			maxOccurs="unbounded" minOccurs="1">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="ctEmail">
+    	<sequence>
+    		<element name="id" type="string" maxOccurs="1"
+    			minOccurs="1">
+    		</element>
+    		<any processContents="skip">
+    			<annotation>
+    				<documentation>This allows the data to be extended by any storage provider</documentation>
+    			</annotation></any>
+    	</sequence>
+    </complexType>
+</schema>

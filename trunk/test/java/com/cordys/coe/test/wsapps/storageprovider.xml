@@ -1,0 +1,27 @@
+<storage xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+    <class>com.cordys.coe.ac.emailio.storage.DBStorageProvider</class>
+    <parameters>
+      <parameter name="compressdata" type="string">true</parameter>
+      <parameter name="dbconfig" type="xml">
+        <component name="EmailIOConnectionPool"
+          xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+          <server>srv-nl-ces70</server>
+          <userName>emailio</userName>
+          <password>aW5ib3VuZGVtYWls</password>
+          <defaultDatabase>emailio</defaultDatabase>
+          <operatingsystem>windows</operatingsystem>
+          <maximumReadConnections>3</maximumReadConnections>
+          <maximumWriteConnections>7</maximumWriteConnections>
+          <queryCacheSize>50</queryCacheSize>
+          <queryCacheRefreshInterval>3600</queryCacheRefreshInterval>
+          <cursorCacheSize>50</cursorCacheSize>
+          <cursorCacheRefreshInterval>3600</cursorCacheRefreshInterval>
+          <driverName>OLEDB</driverName>
+          <provider>SQLOLEDB</provider>
+          <xmlEncoding>false</xmlEncoding>
+          <multibyte>false</multibyte>
+          <auditInfo/>
+        </component>
+      </parameter>
+    </parameters>
+  </storage>

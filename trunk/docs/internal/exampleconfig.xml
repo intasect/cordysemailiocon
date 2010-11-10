@@ -1,0 +1,152 @@
+<emailboxes>
+	<emailbox>
+		<name>imap's mailbox</name>
+		<host>cnd0986</host>
+		<port>143</port>
+		<type>IMAP</type>
+		<username>imap</username>
+		<password>aW1hcA==</password>
+		<pollinterval>10000</pollinterval>
+		<folders>
+			<folder>Inbox</folder>
+			<folder>Sent Items</folder>
+		</folders>
+		<triggers>
+			<trigger appliesTo="Inbox,Sent Items">
+				<name>ProcessOrder</name>
+				<description>This rule processes each and every email that comes in.</description>
+				<combineemails>true</combineemails>
+				<rules>
+					<rule section="subject">
+						<pattern type="regex">
+							<value>Order (\d+) from customer (\d+)</value>
+							<store>
+								<token>
+									<name>OrderID</name>
+									<value>1</value>
+								</token>
+								<token>
+									<name>CustomerID</name>
+									<value>2</value>
+								</token>
+							</store>
+						</pattern>
+					</rule>
+					<rule section="multipart">
+						<pattern type="header">
+							<name>Content-Type</name>
+							<value>text/plain;.*</value>
+						</pattern>
+						<pattern type="regex">
+							<value>.+Order %%OrderID%%.+</value>
+							<replacement>
+								<token>
+									<name>%%OrderID%%</name>
+									<value src="storage">OrderID</value>
+								</token>
+							</replacement>
+						</pattern>
+					</rule>
+					<rule section="multipart">
+						<pattern type="header">
+							<name>Content-Type</name>
+							<value>text/xml;.+</value>
+						</pattern>
+						<pattern type="header">
+							<name>Content-Disposition</name>
+							<value>attachment;\s*filename="*([^"\r\n]+)</value>
+							<store>
+								<token>
+									<name>FileName</name>
+									<value>1</value>
+								</token>
+							</store>
+						</pattern>
+						<pattern type="xpath">
+							<value>.[//OrderID="%%OrderID%%"]</value>
+							<replacement>
+								<token>
+									<name>%%OrderID%%</name>
+									<value src="storage">OrderID</value>
+								</token>
+							</replacement>
+						</pattern>
+						<pattern type="xpath">
+							<value>.[//OrderID="%%OrderID%%"]//OrderDate/text()</value>
+							<replacement>
+								<token>
+									<name>%%OrderID%%</name>
+									<value src="storage">OrderID</value>
+								</token>
+							</replacement>
+							<store>
+								<token>
+									<name>OrderDate</name>
+									<value>value</value>
+								</token>
+							</store>
+						</pattern>
+						<pattern type="xpath">
+							<value>.[//OrderID="%%OrderID%%"]//Lines</value>
+							<replacement>
+								<token>
+									<name>%%OrderID%%</name>
+									<value src="storage">OrderID</value>
+								</token>
+							</replacement>
+							<store>
+								<token>
+									<name>OrderLines</name>
+									<value>xml</value>
+								</token>
+							</store>
+						</pattern>
+					</rule>
+				</rules>
+				<message>
+					<user>cn=pgussow,cn=organizational users,o=MRO,cn=cordys,o=vanenburg.com</user>
+					<method>HandleSalesOrder</method>
+					<namespace>http://coe.schemas.cordys.com/SO</namespace>
+					<sync>true</sync>
+					<repeatingxpath>./SalesOrder</repeatingxpath>
+					<input>
+						<SalesOrder>
+							<SalesOrderID/>
+							<SalesOrderDate/>
+							<SalesOrderCustomerID/>
+							<SalesOrderLines/>
+							<FileName/>
+							<EmailContent/>
+						</SalesOrder>
+					</input>
+					<mappings>
+						<mapping>
+							<source>./SalesOrderID</source>
+							<value src="OrderID"/>
+						</mapping>
+						<mapping>
+							<source>./SalesOrderDate</source>
+							<value src="OrderDate"/>
+						</mapping>
+						<mapping>
+							<source>./SalesOrderCustomerID</source>
+							<value src="CustomerID"/>
+						</mapping>
+						<mapping>
+							<source>./SalesOrderLines</source>
+							<value src="OrderLines"/>
+						</mapping>
+						<mapping>
+							<source>./FileName</source>
+							<value src="FileName"/>
+						</mapping>
+						<mapping>
+							<source>./EmailContent</source>
+							<value src="sysXMLEmail"/>
+						</mapping>
+					</mappings>
+				</message>
+			</trigger>
+		</triggers>
+	</emailbox>
+</emailboxes>

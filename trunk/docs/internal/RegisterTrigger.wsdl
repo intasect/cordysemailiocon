@@ -1,0 +1,63 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RegisterTrigger"
+	targetNamespace="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic"
+	xmlns:tns="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic"
+			attributeFormDefault="unqualified" elementFormDefault="qualified">
+			<xsd:include schemaLocation="emailbox.xsd"></xsd:include>
+			<xsd:element name="RegisterTrigger"
+				type="tns:ctRegisterTrigger" />
+			<xsd:element name="RegisterTriggerResponse"
+				type="tns:ctRegisterTriggerResponse" />
+			<xsd:complexType name="ctRegisterTriggerResponse">
+				<xsd:sequence>
+					<xsd:element name="status" type="xsd:string"
+						maxOccurs="1" minOccurs="1" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ctRegisterTrigger">
+				<xsd:sequence>
+					<xsd:element name="emailbox" type="xsd:string"
+						maxOccurs="1" minOccurs="1" />
+					<xsd:element name="trigger" type="tns:ctTrigger"
+						maxOccurs="1" minOccurs="1" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="RegisterTriggerInput">
+		<wsdl:part element="tns:RegisterTrigger" name="body" />
+	</wsdl:message>
+	<wsdl:message name="RegisterTriggerOutput">
+		<wsdl:part element="tns:RegisterTriggerResponse" name="body" />
+	</wsdl:message>
+	<wsdl:portType name="RegisterTriggerPortType">
+		<wsdl:operation name="RegisterTriggerOperation">
+			<wsdl:input message="tns:RegisterTriggerInput" />
+			<wsdl:output message="tns:RegisterTriggerOutput" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="RegisterTriggerBinding"
+		type="tns:RegisterTriggerPortType">
+		<soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+			style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="RegisterTriggerOperation">
+			<soap:operation soapAction="" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RegisterTriggerService">
+		<wsdl:port binding="tns:RegisterTriggerBinding"
+			name="RegisterTriggerPort">
+			<soap:address
+				location="http://cnd0986/cordys/com.eibus.web.soap.Gateway.wcp?organization=o=MRO,cn=cordys,o=vanenburg.com" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,94 @@
+<applicationconnector>
+    <step>
+        <url>/cordys/coe/emailioconnector/ac/EmailIOConnectorConfig.htm</url>
+        <description>Email IO Connector</description>
+        <caption>Email IO Connector</caption>
+        <isv>Cordys CoE</isv>
+        <product>EmailIOConnector</product>
+        <image>/cordys/wcp/images/admin/configurationconnector.png</image>
+        <implementation>com.cordys.coe.ac.emailio.EmailIOConnector</implementation>
+        <sharejvm>true</sharejvm>
+        <loggercategory>
+            <categorygroup displayname="Email IO Connector">
+                <category>com.cordys.coe.ac.emailio</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Configuration">
+                <category>com.cordys.coe.ac.emailio.config</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Connection">
+                <category>com.cordys.coe.ac.emailio.connection</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Monitor">
+                <category>com.cordys.coe.ac.emailio.monitor</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Trigger Engine">
+                <category>com.cordys.coe.ac.emailio.monitor.TriggerEngine</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Trigger Work">
+                <category>com.cordys.coe.ac.emailio.monitor.TriggerWork</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Rule Context">
+                <category>com.cordys.coe.ac.emailio.monitor.RuleContext</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Box Monitor Thread">
+                <category>com.cordys.coe.ac.emailio.monitor.MonitorEmailBoxThread</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Messaging">
+                <category>com.cordys.coe.ac.emailio.config.message</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Token handling">
+                <category>com.cordys.coe.ac.emailio.config.token</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Util">
+                <category>com.cordys.coe.ac.emailio.util</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Storage Provider">
+                <category>com.cordys.coe.ac.emailio.storage</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Database Storage Provider">
+                <category>com.cordys.coe.ac.emailio.storage.db</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Database Storage Provider Content Util">
+                <category>com.cordys.coe.ac.emailio.storage.db.ContentUtil</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Actions">
+                <category>com.cordys.coe.ac.emailio.action</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO SOAP Methods">
+                <category>com.cordys.coe.ac.emailio.method</category>
+            </categorygroup>
+            <categorygroup displayname="Email IO Key Manager">
+                <category>com.cordys.coe.ac.emailio.keymanager</category>
+            </categorygroup>
+            <categorygroup displayname="CoELib exceptions">
+                <category>com.cordys.coe.exception</category>
+            </categorygroup>
+            <categorygroup displayname="CoELibrary">
+                <category>com.cordys.coe.util</category>
+            </categorygroup>
+            <categorygroup displayname="SOAP Wrapper">
+                <category>com.cordys.coe.util.soap.SOAPWrapper</category>
+            </categorygroup>
+            <categorygroup displayname="NOM Logger">
+                <category>com.eibus.util.logger.NOMLogger</category>
+            </categorygroup>
+            <categorygroup displayname="Embedded WsApp Server">
+                <category>com.cordys.cpc.bsf</category>
+            </categorygroup>
+            <categorygroup displayname="Cordys DB layer">
+                <category>com.eibus.applicationconnector.sql</category>
+            </categorygroup>
+        </loggercategory>
+        <classpath>
+            <location>coe/emailioconnector/emailioconnector.jar</location>
+            <location>coe/emailioconnector/lib/coelib.jar</location>
+            <location>coe/emailioconnector/lib/bcmail-jdk16-143.jar</location>
+            <location>coe/emailioconnector/lib/bcprov-jdk16-143.jar</location>
+            <location>ext/mail.jar</location>
+            <location>ext/activation.jar</location>
+            <location>components/wsappserver/wsappserver.jar</location>
+            <location>components/ruleengine/ruleengine.jar</location>
+            <location>coe/emailioconnector/classes</location>
+        </classpath>
+    </step>
+</applicationconnector>

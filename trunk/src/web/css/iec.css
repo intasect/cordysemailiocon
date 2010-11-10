@@ -1,0 +1,750 @@
+/*
+1=dark; 6=light
+blue1: #003366
+blue2: #0F6190
+blue3: #83ACC7
+blue4: #CDDFEF
+blue5: #D6E2EC
+blue6: #EBF0F5
+red:   #FF0000
+red background:  #FFC6C6
+yellow background: #F3F48B
+disabled: #E7E5E3
+*/
+
+/*For the FB PoC*/
+.clsErrors
+{
+	color: red !important;
+	font-weight: bold;
+	font-size: 1em;	
+}
+
+.clsErrorHeader
+{
+	color: white;
+}
+
+.clsErrorHeader .groupheader
+{
+	color: white !important;
+	background-color: #AF0000 !important;
+	font-weight: bold;
+	font-size: 1em;	
+}
+
+.choicebox label
+{	
+	font-size : 1em !important;
+	
+}
+
+
+/*This is for the Global Container around the tab page*/
+#gbGlobalContainer
+{
+	background-color : #EBF0F5;
+}
+
+#whiteContainer
+{
+	background-color : #FFFFFF;
+}
+
+/*This is for any group around inputs and textareas (if we don't do this the inputs inside boxes are super small)*/
+.groupcontent
+{
+	font-family : Arial;
+	font-size: 1em;
+}
+
+.headerRight
+{
+	align: right;
+}
+
+.groupheader
+{
+	font-size: 1em !important;
+	font-weight: bold;
+	padding: 0.1em 0.2em !important;
+	height: 20px !important;
+	/*background-color: #D9DEDF;*/
+	background-color: #DFDFDF;
+	color: black;
+}
+
+.groupbox .groupheader
+{
+	font-size: 1em !important;
+	font-weight: bold;
+	padding: 0.1em 0.2em !important;
+	height: 20px !important;
+	/*background-color: #D9DEDF;*/
+	background-color: #DFDFDF;
+	color: #00287A;
+}
+
+/*This is for the two labels at the top of the UI*/
+#lblRegisterRequest, #lblError
+{
+	font-family : Arial;
+	font-size: 0.8em;
+	color: #0f6190;
+	font-weight: bold;
+}
+body {
+	background-color : #FFFFFF;
+	font-family: Arial;
+	font-size: 0.7em; /* equivalent to ..px*/
+	color: #000000;
+	overflow: hidden;
+	vertical-align: top;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	height: 100%;
+	scrollbar-track-color : #FFFFFF;
+	scrollbar-face-color : #D6E2EC;
+}
+
+/* headings */
+
+h1 {
+	font-family: Arial;
+	font-size: 1.27em; /* equivalent to 14px*/
+	color: #0F6190;
+	padding: 10px 0px 10px 20px;
+	margin: 0px 0px 0px 0px;
+	vertical-align: center;
+}
+
+/* inputs */
+input, select, textarea{
+	font-family: Arial;
+	font-size: 1em; /* equivalent to 11px */
+	color: #003366;
+}
+
+td
+{
+	color: black;
+}
+
+.input
+{	
+    font-family: Arial;
+	font-size: 1em; 
+    color : #000000;
+	background-color: #EBF2F9;
+    border-width : 1px;
+	border-style : solid;
+	border-color : #6b90be;
+	scrollbar-track-color : #fff;
+	scrollbar-darkshadow-color : #fff;
+	scrollbar-3dlight-color : #fff;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+/* Not for buttons */
+input.output, textarea.output
+{
+	border-right-color : #f1efe2;
+	border-bottom-color : #f1efe2;
+	border-top-color : #aca899;
+	border-left-color : #aca899;
+	border-style : solid !important;
+	border-width : 1px !important;
+	background-color : transparent !important;	
+	color : #003758;
+}
+
+.selectbox, fieldsbox
+{
+	/*border: none !important;*/
+
+}
+
+label, .h_label, .v_label
+{	
+	color: black;
+	font-family : Arial;
+	font-size: 1em;
+}
+
+.selectbox, eibus\:dropdown
+{	padding : 0;
+	margin : 0;
+	border : 0;
+	overflow : hidden;
+	border : 1px solid #6b90be;
+	background-color : #FFFFFF;
+	filter : progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr= '#80ffffff' ,EndColorStr= '#30a4a4a4' );
+	font : normal 14px arial;
+	line-height : 1.3;
+	font-family : Arial;
+	font-size: 1em;
+}
+
+
+
+button, .h_button, .v_button
+{	color : #000000;        /*#233e64;*/
+    cursor : hand;
+	background-color : #D6E2EC;
+	font-family : Arial;
+	font-size : 1em;
+	font-weight : bold;
+	border : 2px outset;
+	filter : none;
+	margin-left : .2em;
+	margin-right : .2em;
+}
+.tabstripattop
+{	/*This contains the properties for the top tab strip. Part of .tabcontainer. Contains activetabattop and inactiveatbattop */
+	padding : 0 .32em;/* padding on sides, to support old pages*/
+	padding-top : .3em;
+	display : inline;
+	background-color: #EBF0F5;
+}
+
+.tabcontent
+{	/*This contains the tab content and sets the border around it. Common to top and bottom tabs, and part of tabcontainer. ~~~~border not specified to support old pages~~~~~~~~*/
+	background-color : #FFFFFF;
+	scrollbar-track-color : #FFFFFF;
+	scrollbar-darkshadow-color : #eeeee6;
+	scrollbar-3dlight-color : #eeeee6;
+	border-width : .08em;
+	border-style : solid;
+	border-color : #4e73b7;
+}
+
+/* |||||||||||| Grid styles |||||||||||| */
+
+.oddrow, .evenrow
+{	height : 24px;
+}
+.data thead, .navigational thead, .display thead
+{	
+	height : 21px;
+	text-align: left;
+}
+/*~~~~~~~~~data grid~~~~~~~~~*/
+th
+{
+	font-size: 1em !important;
+}
+
+.data
+{
+	border : 1px solid #83acc7;
+}
+
+.data td
+{	border : 1px solid lightgray;
+	padding : 0;
+	margin : 0;
+	/*background-color : #FFFFFF;*/
+}
+
+.data th
+{	
+	font-weight: bold !important;
+	color: #00287A;
+	/*background-color: #D9DEDF;*/
+	background-color: #DFDFDF;
+	vertical-align: top;
+	padding: 1px 3px 1px 3px;
+	margin: 0px 0px 0px 0px;
+	border-top: #83ACC7 1px solid;
+	border-bottom: #83ACC7 1px solid;
+	border-left: 0px;
+	border-right: 0px;
+	filter : none;
+}
+
+.data .cbcontainer
+{	width : 100%;
+	height : 100%;
+	padding-top : 3px;
+	border : 0 !important; 
+	background-color : transparent;
+}
+
+.data label
+{
+	color: #003366;
+}
+
+.data .oddrow
+{	
+	color : #000;
+	background-color : #FFFFFF;
+	cursor: hand;
+}
+.data .evenrow
+{	
+	color : #000;
+	background-color : #FFFFFF;
+	cursor: hand;
+}
+.data .generalrow td
+{	
+	border-top: .08em solid darkgray;
+	border-bottom: .08em solid darkgray;
+	border-left: none !important;
+	border-right: none !important;
+	background-color : #FFFFFF;
+}
+
+.data .input
+{	
+	margin-top : 2px; 
+	margin-bottom : 2px; 
+	border : none !important;
+	font-size: 1em;
+}
+
+.navigational
+{
+	border : 1px solid #83acc7;
+}
+
+.navigational td
+{	border : none;
+	padding : 0;
+	margin : 0;
+}
+
+.navigational th
+{	
+	font-weight: bold !important;
+	color: #000000 !important;
+	background-color: #DFDFDF;
+	vertical-align: top;
+	padding: 1px 3px 1px 3px;
+	margin: 0px 0px 0px 0px;
+	border-top: #83ACC7 1px solid;
+	border-bottom: #83ACC7 1px solid;
+	border-left: 0px;
+	border-right: 0px;
+	filter : none;
+}
+
+.navigational .cbcontainer
+{	width : 100%;
+	height : 100%;
+	padding-top : 3px;
+	border : 0 !important; 
+	background-color : transparent;
+}
+
+.navigational .oddrow
+{	
+	color : #000;
+	background-color : #FFFFFF;
+	cursor: hand;
+}
+.navigational .evenrow
+{	
+	color : #000;
+	background-color : #FFFFFF;
+	cursor: hand;
+}
+.navigational .generalrow td
+{	
+	border-top: .08em solid darkgray;
+	border-bottom: .08em solid darkgray;
+	border-left: none !important;
+	border-right: none !important;
+	background-color : #FFFFFF;
+}
+
+
+
+.navigational .input
+{	
+	margin-top : 3px; 
+	border : none !important;
+	background-color : #FFFFFF;	
+	height : 20px;
+}
+
+.activetabattop
+{	/*This contains is the tab caption selected, appearing at top. */
+	margin-top : 0;
+	margin-right : .0.8em;
+	margin-bottom : 0em;
+	margin-left : 0;
+	padding : .08em .52em 0em .52em;
+	padding-left : .8em;
+	padding-right : .8em;
+	padding-bottom : .8em;
+	height : 1.7em;
+	position : relative;
+	top : 1px;
+	left : 0;
+	border : .06em solid #4e73b7;
+	border-bottom : 0;
+	border-top : .1em solid #4e73b7;
+	background-color : #EAF0F7;
+	color : #0F6190;
+	cursor : hand;
+	z-index : 1;
+	font : menu;
+}
+.inactivetabattop
+{	/*This contains is the tab caption at inactive state, appearing at top. */
+	margin-top : 0;
+	margin-right : .0.8em;
+	margin-bottom : 0em;
+	margin-left : 0;
+	padding : .08em .52em 0em .52em;
+	padding-left : .8em;
+	padding-right : .8em;
+	padding-bottom : .8em;
+	height : 1.7em;
+	position : relative;
+	top : 1px;
+	left : 0;
+	border : .06em solid #4e73b7;
+	border-bottom : 0;
+	border-top : .1em solid #4e73b7;
+	cursor : hand;
+	color : #83ACC7;
+	font : menu;
+	filter : progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr= '#F6F9FC' ,EndColorStr= '#F4F7FB' );
+}
+
+.textboxlabel {
+	border: 0px;
+	font-family: Arial;
+	font-size: 0.8em; /* equivalent to 11px */
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	color: #000000;
+	backgound-color: #D6E2EC;
+}
+
+.disabled {
+	background-color: #E7E5E3;
+}
+
+.txtDate {
+	text-align: right;
+}
+
+.submit {
+	font-weight: bold;
+	cursor: hand;
+	background-color: #D6E2EC;
+}
+
+.mandatory label{
+	color: red !important;
+}
+
+.mandatory{
+	color: red !important;
+}
+
+.label {
+	vertical-align: center;
+}
+
+.groupname {
+	font-weight: bold;
+	color: #83ACC7;
+	padding: 0px 0px 0px 3px;
+	margin: 0px 0px 0px 3px;
+	z-index: 999;
+}
+
+.groupname label
+{
+	color: #83ACC7;
+}
+
+div#group {
+	border: #83ACC7 1px solid;
+	padding: 3px 3px 3px 3px;
+	margin: 0px 0px 0px 0px;
+}
+
+/* tables */
+table {
+	border-collapse: collapse;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	border: 0px;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.alignmenttable{
+	border-collapse: collapse;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	width: 99%;
+	background-color: transparent;
+}
+
+.bluetable{
+	border-collapse: collapse;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	border: 5px #EBF0F5;
+	width: 99%;
+	background-color: #EBF0F5;
+}
+.bgDefault {
+	background-color: #FFFFFF;
+	cursor: hand;
+}
+.bgHighlight {
+	background-color: #0F6190;
+	cursor: hand;
+	color: #EBF0F5;
+}
+
+td {
+	font-size: 1em; /* equivalent to 11px*/
+	vertical-align: top;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+td.xslPadding {
+	padding: 2px !important;
+}
+
+.errorcell {
+	font-family: Arial;
+	/*font-size: 10px; /* equivalent to 11px*/
+	color: #FF0000;
+	font-weight: bold;
+	background-color: #FFC6C6;
+	border: #FF0000 1px solid;
+	padding: 2px 2px 2px 2px;
+	margin: 1px 1px 1px 1px;
+}
+
+.errorcell span {
+	font-family: Arial;
+	/*font-size: 0,910px; /* equivalent to 10px*/
+	color: #8C8C90;
+}
+
+.totalcell {
+	text-align: right;
+	font-weight: bold;
+	background-color: #E3E5E6;
+}
+
+/* styles for helppage and helpbutton */
+div#helpmargin {
+	background-color: #EBF0F5;
+	padding: 30px 5px 30px 13px;
+	margin: 0px 0x 0px 0px;
+	text-align: right;
+	overflow: none;
+	font-weight: bold;
+
+}
+
+div#helpcontent {
+	text-align: left;
+	font-weight: normal;
+	overflow: auto;
+	background-color: #FFFFFF;
+	padding: 5px 5px 5px 5px;
+	margin: 0px 0px 0px 0px;
+}
+
+.help {
+	cursor: hand;
+}
+
+/* styles for popup */
+div#popupmargin {
+	background-color: #EBF0F5;
+	padding: 30px 5px 30px 13px;
+	margin: 0px 0x 0px 0px;
+	text-align: right;
+	overflow: none;
+	font-weight: bold;
+}
+
+div#popupcontent {
+	text-align: left;
+	font-weight: normal;
+	overflow: auto;
+	background-color: #FFFFFF;
+	padding: 5px 5px 5px 5px;
+	margin: 0px 0px 0px 0px;
+}
+
+/* styles for statusinformation */
+div#statusinfo{
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 27px;
+	margin: 5px 0px 1px 3px;
+	border: #000000 1px solid;
+	background: url("../img/icnalert.gif") no-repeat;
+	background-color: #FAFBB7;
+}
+
+/* trees */
+/* Put this inside a @media qualifier so Netscape 4 ignores it */
+@media screen, print {
+	ul.mktree, ul.mktree ul {
+		list-style-image: url("../img/empty.gif");
+	}
+
+	ul.mktree  li {
+		list-style: none;
+	}
+
+	ul.mktree {
+		margin-left: 0px;
+		padding:0px;
+	}
+
+	ul.mktree ul , ul.mktree li {
+		margin-left: 5px;
+		padding:0px;
+	}
+
+		ul.mktree  li .bullet {
+		padding-left: 15px;
+	}
+
+	ul.mktree  li.liOpen .bullet {
+		cursor: pointer;
+		background: url(../img/treeminus.gif) center left no-repeat;
+	}
+
+	ul.mktree  li.liClosed .bullet {
+		cursor: pointer;
+		background: url(../img/treeplus.gif) center left no-repeat;
+	}
+	ul.mktree  li.liBullet .bullet {
+		cursor: default;
+		background: url(../img/treebullet.gif) center left no-repeat;
+	}
+
+	ul.mktree  li.liOpen    ul {
+		display: block;
+	}
+
+	ul.mktree  li.liClosed  ul {
+		display: none;
+	}
+
+}
+
+/* boxover styles */
+/* colors defined in boxover.js functions: defHdrStyle (headerstyle) and defBdyStyle (bodystyle) */
+.boxover {
+	cursor: hand;
+}
+
+/* datepicker styles */
+.currentdate {
+	background-color: #FFC6C6;
+	cursor: hand;
+}
+
+.weekenddate {
+	background-color: #EBF0F5;
+	cursor: hand;
+}
+
+.date{
+	cursor: hand;
+}
+
+.othermonth {
+	color: #B8BABD;
+}
+
+/* other */
+.breadcrumbbackground {
+	display: block;
+	line-height: 26px;
+	background: url("../img/breadcrumb.gif") left top;
+	border-top: 1px solid #8C8C90;
+	border-bottom: 1px solid #B8BABD;
+	margin: 10px 0px 0px 0px;
+}
+
+.breadcrumb {
+	font-size: 0.8em; /* equivalent to 10px*/
+	color: #999;
+	text-decoration: none;
+	margin: 0px 0px 0px 20px;
+	padding: 0px 0px 0px 0px;
+}
+.breadcrumblink {
+	/*font-size: 10px; /* equivalent to 10px*/
+	color: #999;
+	text-decoration: none;
+}
+
+.footer {
+	font-family: Arial;
+	/*font-size: 10px; /* equivalent to 11px*/
+	color: #999999;
+}
+
+a {
+	font-family: Arial;
+	/*font-size: 10px; /* equivalent to 11px*/
+	color: #3269AE;
+
+}
+
+i {
+	font-style: normal;
+}
+
+img {
+	border: none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 4px;
+	vertical-align: top;
+}
+
+ul {
+	list-style-position: outside;
+	list-style-image: url("../img/bullet.gif");
+	padding: 0px 0px 0px 17px;
+	margin: 0px 0px 0px 0px;
+}
+
+/*~~~~~~~~~always last~~~~~~~~~*/
+.highlight, .data .highlight, .navigational .highlight, .display .highlight, .selectbox .highlight
+{	color : #000;
+	/*background-color : #c3e1ff !important;*/
+	background-color : #D9DEDF !important;
+}
+
+#tabgroup1
+{
+	background-color: white;
+}
+
+.radio
+{
+   font-style: normal;
+   font-family: Arial;
+   font-size: 1.27em;
+}
+
+
+
