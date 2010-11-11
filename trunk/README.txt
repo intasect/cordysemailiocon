@@ -1,12 +1,14 @@
 ====================================
-Welcome to the Cordys File Connector
+Welcome to the Cordys E-mail IO Connector
 ====================================
-Cordys connector for reading and writing files. Supports simple flat files 
-and XML files. Also file copying, moving and deletion are supported.
+This connector can be used to react to inbound mail traffic. Sometimes you need to start a flow (or call any web service) based on an email that was received.
+You'd also like to get the details of an attachment, parse it and get data from it to feed to the process. This is all possible with this connector.
+The second feature for this connector is that it is also able to send mails. 
+It is compatible with the standard Cordys email web services, so it can function as a substitute for the standard Cordys email connector.
 
 License (see also LICENSE.txt)
 ==============================
-Collective work: Copyright 2005 Cordys R&D B.V.
+Collective work: Copyright 2007 Cordys R&D B.V.
 
 Licensed to Cordys R&D B.V. under one or more contributor license agreements.  
 See the NOTICE file distributed with this work for additional information 
@@ -28,10 +30,10 @@ Latest development
 ==================
 The latest Cordys File Connector source code is available via Subversion at
 
-   http://code.google.com/p/cordysfilecon
+   http://code.google.com/p/cordysemailiocon
 
 Credits
 =======
-See http://code.google.com/p/cordysfilecon/people/list for the list of connector 
-committers and main contributors. Special credits to Mikko Pöyhönen, the 
+See http://code.google.com/p/cordysemailiocon/people/list for the list of connector 
+committers and main contributors. Special credits to Phillip Gussow, the 
 original developer. 
