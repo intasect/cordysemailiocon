@@ -1,0 +1,121 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://emailioconnector.coe.cordys.com/2.0/outbound" xmlns:tns="http://emailioconnector.coe.cordys.com/2.0/outbound">
+  <xsd:element name="address" type="tns:ctEmailAddress" />
+  <xsd:element name="SendMail" type="tns:ctSendMail" />
+  <xsd:element name="SendMailResponse" type="xsd:string" />
+  <xsd:complexType name="ctSendMail">
+    <xsd:sequence>
+      <xsd:element name="options" type="tns:ctSendOptions" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="from" minOccurs="1" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:address" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="replyto" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:address" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="to" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:address" minOccurs="0" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="cc" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:address" minOccurs="0" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="bcc" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:address" minOccurs="0" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="headers" type="tns:ctHeaders" maxOccurs="1" minOccurs="0" />
+      <xsd:element name="subject" type="xsd:string" maxOccurs="1" minOccurs="0" />
+      <xsd:choice maxOccurs="1" minOccurs="1">
+        <xsd:element name="data" type="tns:ctData" maxOccurs="1" minOccurs="1" />
+        <xsd:element name="multipart" type="tns:ctMultiPart" maxOccurs="1" minOccurs="1" />
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ctEmailAddress">
+    <xsd:sequence>
+      <xsd:element name="emailaddress" type="xsd:string" minOccurs="0" />
+      <xsd:element name="displayname" minOccurs="0" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ctMultiPart">
+    <xsd:choice>
+      <xsd:sequence>
+        <xsd:element name="subtype" maxOccurs="1" minOccurs="0" default="mixed">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="mixed" />
+              <xsd:enumeration value="alternative" />
+              <xsd:enumeration value="message" />
+              <xsd:enumeration value="digest" />
+              <xsd:enumeration value="related" />
+              <xsd:enumeration value="signed" />
+              <xsd:enumeration value="report" />
+              <xsd:enumeration value="form-data" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="multipart" type="tns:ctMultiPart" maxOccurs="unbounded" minOccurs="1" />
+      </xsd:sequence>
+      <xsd:sequence>
+        <xsd:element name="data" type="tns:ctData" maxOccurs="1" minOccurs="1" />
+      </xsd:sequence>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="ctHeaders">
+    <xsd:sequence>
+      <xsd:element name="header" type="tns:ctHeader" maxOccurs="unbounded" minOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ctHeader">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string" maxOccurs="1" minOccurs="1" />
+      <xsd:element name="value" type="xsd:string" maxOccurs="1" minOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ctData">
+    <xsd:sequence>
+      <xsd:element name="contenttype" type="xsd:string" maxOccurs="1" minOccurs="1" />
+      <xsd:element name="contentdisposition" type="xsd:string" maxOccurs="1" minOccurs="0" />
+      <xsd:element name="source" type="tns:ctDataSourceType" maxOccurs="1" minOccurs="1" />
+      <xsd:element name="detail" type="tns:ctDataDetail" maxOccurs="1" minOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ctDataSourceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PLAIN" />
+      <xsd:enumeration value="BASE64" />
+      <xsd:enumeration value="XML" />
+      <xsd:enumeration value="LOCAL_FILE_BIN" />
+      <xsd:enumeration value="LOCAL_FILE_TEXT" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ctDataDetail" mixed="true">
+    <xsd:sequence>
+      <xsd:any processContents="skip" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ctSendOptions">
+    <xsd:sequence>
+      <xsd:element name="smtpserver" type="xsd:string" maxOccurs="1" minOccurs="0" />
+      <xsd:element name="signmail" type="xsd:boolean" maxOccurs="1" minOccurs="0" />
+      <xsd:element name="encryptmail" type="xsd:boolean" maxOccurs="1" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

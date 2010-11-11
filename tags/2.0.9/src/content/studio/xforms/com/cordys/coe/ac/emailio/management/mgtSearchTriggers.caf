@@ -1,0 +1,349 @@
+
+<caf>
+	<documentProperties>
+		<name>mgtSearchTriggers</name>
+		<description>Search Trigger Definitions</description>
+		<caption/>
+		<mimeType>caf</mimeType>
+		<notes/>
+		<version>vcmdemo10</version>
+		<revision/>
+		<createdBy></createdBy>
+		<creationDate></creationDate>
+		<lastModifiedBy></lastModifiedBy>
+		<lastModificationDate></lastModificationDate>
+		<customProperties>
+			<published></published>
+			<publishDate></publishDate>
+			<publishUser></publishUser>
+			<publishPath>/cordys/com/cordys/coe/ac/emailio/management/mgtSearchTriggers.caf</publishPath>
+		</customProperties>
+	</documentProperties>
+	<content>
+		<xformhtml
+			xformsversion="1"
+			key="/mgtSearchTriggers_vcmdemo10.caf"
+			focusatstartup="true"
+			wcpforms:vcmVersion="vcmdemo10"
+			xmlns="http://schemas.cordys.com/1.0/xform"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xmlns:eibus="http://schemas.cordys.com/wcp/webframework">
+			<xhead>
+				<script
+					src="/cordys/coe/emailioconnector/js/debugusers.js"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/mgtSearchTriggers.js"
+					xmlns=""
+				/>
+				<style
+					src="/cordys/coe/emailioconnector/css/iec.css"
+					xmlns=""
+				/>
+				<xforms:model
+					id="TriggerDefinitionModel"
+					wcpforms:businessElement="TriggerDefinition"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+						<wcpforms:dataset
+							src="http://emailioconnector.coe.cordys.com/2.0/objects/SearchTriggerDefinitions"
+							type="get">
+							<Name
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<EmailBoxID
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<Definition
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://emailioconnector.coe.cordys.com/2.0/objects</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://emailioconnector.coe.cordys.com/2.0/objects</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+			</xhead>
+			<xbody>
+				<xforms:group
+					wcpforms:layout="free"
+					id="xbody_group"
+					wcpforms:labelalign="left">
+					<xforms:group
+						appearance="box"
+						id="Find_TriggerDefinitionModelGroup"
+						requestModel="TriggerDefinitionModel"
+						wcpforms:collapsible="false"
+						wcpforms:expanded="false"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 110"
+						wcpforms:anchors="5px 5px 5px null"
+						wcpforms:position="5 5"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">Search trigger definitions</xforms:label>
+						<xforms:input
+							id="txtTriggerName"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="420 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Name</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtEmailBoxID"
+							ref="EmailBoxID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="420 null"
+							wcpforms:position="5 22">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Email box ID</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtDefinition"
+							ref="Definition"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="420 null"
+							wcpforms:position="5 39">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Definition</xforms:label>
+						</xforms:input>
+						<xforms:group
+							appearance="controlbox"
+							id="controlbox1"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="right_align"
+							wcpforms:size="183 22"
+							wcpforms:anchors="5px null null 5px"
+							wcpforms:position="5 61">
+							<xforms:trigger
+								id="button1"
+								wcpforms:class="h_button"
+								wcpforms:size="179 22">
+								<xforms:label>Search Trigger definitions</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:button1_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+					</xforms:group>
+					<xforms:repeat
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						id="TriggerDefinitionTable"
+						model="TriggerDefinitionModel"
+						synchronizedDialogFrame="main"
+						fixedWidth="true"
+						wcpforms:gridtype="navgrid"
+						wcpforms:checkboxes="true"
+						wcpforms:layout="vertical"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 250"
+						wcpforms:anchors="5px 120px 5px null"
+						wcpforms:position="5 120">
+						<xforms:group
+							appearance="elementbar"
+							id="_elementBar">
+							<xforms:group
+								appearance="paginationbar"
+								id="_paginationBar"
+								wcpforms:class="paginationbar">
+								<xforms:trigger
+									id="navFirst3"
+									standardid="navFirst">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/first_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>First</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navPrevious3"
+									standardid="navPrevious">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/previous_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Previous</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navNext3"
+									standardid="navNext">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/next_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Next</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navLast3"
+									standardid="navLast">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/last_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Last</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navAll1"
+									standardid="navAll">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/interface/gridexpand_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Show All</xforms:hint>
+								</xforms:trigger>
+							</xforms:group>
+						</xforms:group>
+						<xforms:input
+							id="id"
+							ref="ID"
+							wcpforms:textalign="left_align"
+							wcpforms:size="250 null">
+							<xforms:label>ID</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="_name1"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:size="370 null">
+							<xforms:label>Name</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="emailboxid1"
+							ref="EmailBoxID"
+							wcpforms:textalign="left_align">
+							<xforms:label>EmailBoxID</xforms:label>
+						</xforms:input>
+					</xforms:repeat>
+					<xforms:group
+						appearance="box"
+						id="TriggerDefinitionTable1"
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						model="TriggerDefinitionModel"
+						synchronizedDialogFrame="main"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 502"
+						wcpforms:anchors="5px 380px 5px 5px"
+						wcpforms:position="5 380"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">Trigger details</xforms:label>
+						<xforms:output
+							id="id1"
+							ref="ID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="380 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="56 null">ID</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="_name"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="520 null"
+							wcpforms:position="5 23">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="56 null">Name</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="emailboxid"
+							ref="EmailBoxID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="380 null"
+							wcpforms:position="5 41">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="56 null">EmailBoxID</xforms:label>
+						</xforms:output>
+						<xforms:textarea
+							id="txtTriggerDefinition"
+							ref="Definition"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="1033 415"
+							wcpforms:anchors="5px 60px 5px 5px"
+							wcpforms:position="5 60">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="56 null">Definition</xforms:label>
+						</xforms:textarea>
+					</xforms:group>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[function button1_Click(eventObject)
+{
+    searchTriggerDefinitions();
+}
+function Form_InitDone(eventObject)
+{
+    handleInitDone(eventObject);
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+		</xformhtml>
+	</content>
+</caf>

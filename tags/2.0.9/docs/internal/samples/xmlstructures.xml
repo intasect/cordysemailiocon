@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://emailioconnector.coe.cordys.com/2.0/configuration ../../external/configuration.xsd ">
+	<inbound>
+		<emailboxes/>
+		<maxworkers>10</maxworkers>
+	</inbound>
+	<outbound>
+		<keymanagers>
+			<keymanager>
+				<name>MainKeyStore</name>
+				<class>com.cordys.coe.ac.emailio.keymanager.BCKeyManagerImpl</class>
+				<parameters>
+					<parameter
+						name="location"
+						type="string">e:/Cordys/ESB/coe/emailioconnector/keystore/secret.jks</parameter>
+					<parameter
+						name="password"
+						type="string">c2VjcmV0</parameter>
+					<parameter
+						name="type"
+						type="string">JKS</parameter>
+					<parameter
+						name="certificatepasswords"
+						type="xml">
+						<certificates>
+							<certificate>
+								<alias>destination user (root testca)</alias>
+								<password>ZGVzdGluYXRpb24=</password>
+							</certificate>
+							<certificate>
+								<alias>source user (root testca)</alias>
+								<password>c291cmNl</password>
+							</certificate>
+						</certificates>
+					</parameter>
+				</parameters>
+			</keymanager>
+		</keymanagers>
+		<smtpservers>
+			<tns:smtpserver
+				xmlns:tns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+				<tns:name>default</tns:name>
+				<tns:host>srv-nl-ces70</tns:host>
+				<tns:port>25</tns:port>
+				<tns:ssl>false</tns:ssl>
+				<tns:useconnectionpool>true</tns:useconnectionpool>
+				<tns:maxconnections>2</tns:maxconnections>
+			</tns:smtpserver>
+		</smtpservers>
+		<smimeenabled>true</smimeenabled>
+		<signmails>true</signmails>
+		<checkcrl>false</checkcrl>
+		<bypasssmime>true</bypasssmime>
+	</outbound>
+	<general>
+		<storage>
+			<class>com.cordys.coe.ac.emailio.storage.DefaultMemoryStore</class>
+			<parameters/>
+		</storage>
+	</general>
+</configuration>

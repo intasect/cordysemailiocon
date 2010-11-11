@@ -1,0 +1,81 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP:Body>
+		<SendMail xmlns="http://emailioconnector.coe.cordys.com/2.0/outbound">
+			<from>
+				<address>
+					<emailaddress>source@ces70.cordys.com</emailaddress>
+				</address>
+			</from>
+			<replyto>
+				<address>
+					<emailaddress>intermediate@ces70.cordys.com</emailaddress>
+					<displayname>Intermediate User</displayname>
+				</address>
+			</replyto>
+			<to>
+				<address>
+					<emailaddress>destination@ces70.cordys.com</emailaddress>
+					<displayname>Destination user</displayname>
+				</address>
+			</to>
+			<cc>
+				<address>
+					<emailaddress>cc@ces70.cordys.com</emailaddress>
+				</address>
+			</cc>
+			<bcc>
+				<address>
+					<emailaddress>bcc@ces70.cordys.com</emailaddress>
+				</address>
+			</bcc>
+			<subject>My test subject</subject>
+			<content>
+				<contenttype>multipart/mixed</contenttype>
+				<headers>
+					<header>
+						<name>MyCustomHeader</name>
+						<value>someweirdvalue</value>
+					</header>
+				</headers>
+				<mimepart>
+					<contenttype>alternative</contenttype>
+					<mimepart>
+						<contenttype>text/plain</contenttype>
+						<data source="PLAIN">This is the plain text version</data>
+					</mimepart>
+					<mimepart>
+						<contenttype>text/html; charset="iso-8859-1"</contenttype>
+						<data source="XML">
+							<HTML>
+								<BODY bgColor="#ffffff">
+									<DIV>
+										<FONT face="Arial" size="2">This is the HTML version</FONT>
+									</DIV>
+								</BODY>
+							</HTML>
+						</data>
+					</mimepart>
+				</mimepart>
+				<mimepart>
+					<contenttype>text/xml</contenttype>
+					<data source="XML">
+         				<root>
+         					<tag>bla</tag>
+         					<othertag>fhfhf</othertag>
+         				</root>
+					</data>
+				</mimepart>
+				<mimepart>
+					<contenttype>image/jpg; name="point.jpg"</contenttype>
+					<headers>
+						<header>
+							<name>Content-Disposition</name>
+							<value>attachment; filename="point.jpg"</value>
+						</header>
+					</headers>
+					<data source="BASE64">/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAUABQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDo/in8ULzw9qI0PQJUjvUUNdzvDuMRO1kCbuCSuc5UjDDBznHnmnfF7xnYTq76kl5GGdjDcwqVYsSeSoDAAngAgDAHQYqb4y6beWnxDvLye3dLa9WNreU/dkCxorYPqCOR15B6EZ8/rhqTlzvU+pwmFoOhH3U7o+yNC1uz8R6Ja6tYM5trlSy712sCCQQR6ggjjI44JHNFYnwz0280n4eaTZ39u9vcosjNE/DKGkZhkdjhhweR0ODRXbFtpNnzVaMY1JRjsmzY1zw3o/iS1FvrGnw3aL9wuMOnIJ2sMMudozgjOMGsSz+FvgqxukuItBhZ0zgTSySpyMcq7FT17j3oopOMW7tBGtUiuWMml6nX0UUVRmf/2Q==</data>
+				</mimepart>
+			</content>
+		</SendMail>
+	</SOAP:Body>
+</SOAP:Envelope>

@@ -1,0 +1,11 @@
+<ExecuteProcess xmlns="http://schemas.cordys.com/bpm/execution/1.0">
+	<type>instance</type>
+	<receiver>3.Business Process Models/SiemensHC/SPE/BPM_SPE_MainProcess_SiemensHC10.bpm</receiver>
+	<message intValue="4">
+		<ETAFeedbackIntermediate xmlns="http://schemas.cordys.com/bpm/SendAndCheckEmail">
+			<ETAChoice/>
+			<ETAComment />
+		</ETAFeedbackIntermediate>
+	</message>
+	<source>DynamicTrigger ETA Feedback</source>
+</ExecuteProcess>

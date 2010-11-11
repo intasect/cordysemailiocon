@@ -1,0 +1,4 @@
+<menus>
+    <menu file="${src.content.menus}/CoE/EmailIOConnector/iec_administrator" key="/Cordys/WCP/Menu/CoE/EmailIOConnector/iec_administrator"
+          name="iec_administrator"/>
+</menus>
