@@ -1,2244 +1,0 @@
-
-<caf>
-	<documentProperties>
-		<name>acsimpleconfig</name>
-		<description>acsimpleconfig</description>
-		<caption/>
-		<mimeType>caf</mimeType>
-		<notes/>
-		<version>vcmdemo10</version>
-		<revision/>
-		<createdBy></createdBy>
-		<creationDate></creationDate>
-		<lastModifiedBy></lastModifiedBy>
-		<lastModificationDate></lastModificationDate>
-		<customProperties>
-			<published></published>
-			<publishDate></publishDate>
-			<publishUser></publishUser>
-			<publishPath>/cordys/com/cordys/coe/ac/emailio/acsimpleconfig.caf</publishPath>
-		</customProperties>
-	</documentProperties>
-	<content>
-		<xformhtml
-			xformsversion="1"
-			key="/acsimpleconfig_vcmdemo10.caf"
-			focusatstartup="true"
-			wcpforms:vcmVersion="vcmdemo10"
-			xmlns:eibus="http://schemas.cordys.com/wcp/webframework"
-			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
-			xmlns:ev="http://www.w3.org/2001/xml-events"
-			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
-			xmlns="http://schemas.cordys.com/1.0/xform">
-			<xhead>
-				<script
-					src="/cordys/coe/emailioconnector/js/debugusers.js"
-					xmlns=""
-				/>
-				<script
-					src="/cordys/coe/emailioconnector/js/coelib.js"
-					xmlns=""
-				/>
-				<style
-					src="/cordys/coe/emailioconnector/style/iec.css"
-					xmlns=""
-				/>
-				<script
-					src="/cordys/coe/emailioconnector/js/acsimpleconfig.js"
-				/>
-				<xforms:model
-					associatedmodel=""
-					id="mdlDatabase"
-					instanceSchema="false"
-					isApplyAccessControl="false"
-					isConstraintValidation="false"
-					isInitializationRequired="false"
-					promptToSave="false"
-					singleTransaction="false"
-					wcpforms:automatic="true"
-					wcpforms:businessElement="component"
-					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
-					wcpforms:nontransactional="true">
-					<xforms:instance
-						wcpforms:iteratorSize="50"
-						wcpforms:timeout="30000"
-						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
-						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
-					/>
-					<wcpforms:instanceschema/>
-				</xforms:model>
-				<xforms:model
-					associatedmodel=""
-					id="mdlCustom"
-					isApplyAccessControl="false"
-					isConstraintValidation="false"
-					isInitializationRequired="false"
-					promptToSave="false"
-					singleTransaction="false"
-					wcpforms:automatic="true"
-					wcpforms:businessElement="parameter"
-					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
-					wcpforms:nontransactional="true">
-					<xforms:instance
-						wcpforms:iteratorSize="50"
-						wcpforms:timeout="30000"
-						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
-						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
-					/>
-					<wcpforms:instanceschema/>
-				</xforms:model>
-				<xforms:model
-					associatedmodel=""
-					id="mdlConfiguration"
-					instanceSchema="true"
-					isApplyAccessControl="false"
-					isConstraintValidation="false"
-					isInitializationRequired="false"
-					promptToSave="false"
-					singleTransaction="false"
-					wcpforms:automatic="true"
-					wcpforms:businessElement="configuration"
-					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
-					wcpforms:nontransactional="true">
-					<xforms:instance
-						wcpforms:iteratorSize="50"
-						wcpforms:timeout="30000"
-						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
-						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
-					/>
-					<wcpforms:instanceschema>
-						<schema
-							targetNamespace="http://emailioconnector.coe.cordys.com/2.0/configuration"
-							xmlns="http://www.w3.org/2001/XMLSchema"
-							xmlns:tns="http://emailioconnector.coe.cordys.com/2.0/configuration">
-							<element
-								name="emailboxes"
-								type="tns:ctEmailBoxes"
-							/>
-							<complexType
-								name="ctEmailBoxes">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="emailbox"
-										type="tns:ctEmailBox"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctEmailBox">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="name"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="host"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="port"
-										type="int"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="type"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="username"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="password"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="pollinterval"
-										type="int"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="folders"
-										type="tns:ctFolders"
-									/>
-									<element
-										name="triggers"
-										type="tns:ctTriggers"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctFolders">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="folder"
-										type="string"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctTriggers">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="trigger"
-										type="tns:ctTrigger"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctTrigger">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="appliesTo"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="name"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="description"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="combineemails"
-										type="boolean"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="rules"
-										type="tns:ctRules"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="message"
-										type="tns:ctMessage"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctRules">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="rule"
-										type="tns:ctRule"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctRule">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="section"
-										type="string"
-									/>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="pattern"
-										type="tns:ctPattern"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctPattern">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="type"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="value"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="name"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="replacement"
-										type="tns:ctReplacement"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="store"
-										type="tns:ctStore"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctReplacement">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="token"
-										type="tns:ctReplacementToken"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctStore">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="token"
-										type="tns:ctStoreToken"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctReplacementToken">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="name"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="value"
-										type="tns:ctReplacementTokenValue"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctStoreToken">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="name"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="value"
-										type="string"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctReplacementTokenValue">
-								<attribute
-									name="src"
-									type="string"
-								/>
-							</complexType>
-							<complexType
-								name="ctMessage">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="method"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="namespace"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="user"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="sync"
-										type="boolean"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="repeatingxpath"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="organization"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="soapdn"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="timeout"
-										type="long"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="0"
-										name="mappings"
-										type="tns:ctMappings"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctMappings">
-								<sequence>
-									<element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="mapping"
-										type="tns:ctMapping"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctMapping">
-								<sequence>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="source"
-										type="string"
-									/>
-									<element
-										maxOccurs="1"
-										minOccurs="1"
-										name="value"
-										type="tns:ctMappingValue"
-									/>
-								</sequence>
-							</complexType>
-							<complexType
-								name="ctMappingValue">
-								<attribute
-									name="src"
-									type="string"
-								/>
-							</complexType>
-							<element
-								name="configuration"
-								type="tns:ctConnectorConfig"
-							/>
-							<complexType
-								name="ctConnectorConfig">
-								<sequence>
-									<element
-										ref="tns:emailboxes"
-									/>
-									<element
-										name="maxworkers"
-										type="int"
-									/>
-								</sequence>
-							</complexType>
-							<element
-								name="triggers"
-								type="tns:ctTriggers"
-							/>
-							<element
-								name="rules"
-								type="tns:ctRules"
-							/>
-						</schema>
-					</wcpforms:instanceschema>
-				</xforms:model>
-				<xml
-					xmlns="">
-					<xml
-						id="xmlBaseObject">
-						<configuration
-							xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
-							<inbound>
-								<emailboxes/>
-								<maxworkers>10</maxworkers>
-							</inbound>
-							<outbound>
-								<keymanagers/>
-								<smtpservers/>
-							</outbound>
-							<general/>
-						</configuration>
-					</xml>
-					<xml
-						id="xmlBaseComponent">
-						<dbconfig
-							xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
-							<component
-								name="EmailIOConnectionPool">
-								<server/>
-								<userName/>
-								<password/>
-								<defaultDatabase/>
-								<operatingsystem>windows</operatingsystem>
-								<maximumReadConnections>3</maximumReadConnections>
-								<maximumWriteConnections>7</maximumWriteConnections>
-								<queryCacheSize>50</queryCacheSize>
-								<queryCacheRefreshInterval>3600</queryCacheRefreshInterval>
-								<cursorCacheSize>50</cursorCacheSize>
-								<cursorCacheRefreshInterval>3600</cursorCacheRefreshInterval>
-								<driverName>OLEDB</driverName>
-								<provider>SQLOLEDB</provider>
-								<xmlEncoding>false</xmlEncoding>
-								<multibyte>false</multibyte>
-								<auditInfo/>
-							</component>
-						</dbconfig>
-					</xml>
-					<xml
-						id="xmlTestEntry">
-						<configuration
-							clientattr:sync_id="1"
-							xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration"
-							xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-							<inbound>
-								<emailboxes>
-									<emailbox>
-										<name>siemens_spe</name>
-										<host>srv-nl-ces70</host>
-										<port>110</port>
-										<type>POP3</type>
-										<username>siemens</username>
-										<password>c2llbWVucw==</password>
-										<pollinterval>60000</pollinterval>
-										<folders>
-											<folder>Inbox</folder>
-										</folders>
-										<storage>
-											<class>com.cordys.coe.ac.emailio.storage.FileStorageProvider</class>
-											<parameters>
-												<parameter
-													name="logincomingmessages"
-													type="string">true</parameter>
-												<parameter
-													name="logfolder"
-													type="string">coe/emailioconnector/archive_fs</parameter>
-												<parameter
-													name="errorfolder"
-													type="string">coe/emailioconnector/error_fs</parameter>
-												<parameter
-													name="triggerfolder"
-													type="string">coe/emailioconnector/trigger_fs</parameter>
-											</parameters>
-										</storage>
-										<actions>
-											<action
-												id="siemens_ok"
-												type="SENDMAIL">
-												<sendmail>
-													<host>srv-nl-ces70</host>
-													<port>25</port>
-													<fromaddress>siemens@ces70.cordys.com</fromaddress>
-													<toaddress>ok@ces70.cordys.com</toaddress>
-													<subject>Message handled ok</subject>
-												</sendmail>
-											</action>
-											<action
-												id="siemens_error"
-												type="SENDMAIL">
-												<sendmail>
-													<host>srv-nl-ces70</host>
-													<port>25</port>
-													<fromaddress>siemens@ces70.cordys.com</fromaddress>
-													<toaddress>error@ces70.cordys.com</toaddress>
-												</sendmail>
-											</action>
-											<action
-												id="siemens_error_flow"
-												type="SENDSOAP">
-												<sendsoap>
-													<method>ExecuteProcess</method>
-													<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-													<user>cn=pgussow,cn=organizational users,o=InboundEmail,cn=cordys,o=vanenburg.com</user>
-													<sync>true</sync>
-													<namespacemappings>
-														<namespacemapping>	<prefix>ns</prefix>	<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-														</namespacemapping>
-														<namespacemapping>	<prefix>bpm</prefix>	<namespace>http://schemas.cordys.com/bpm/GeneralError</namespace>
-														</namespacemapping>
-													</namespacemappings>
-													<input>
-														<type>definition</type>
-														<receiver>com/cordys/coe/ac/emailio/sample/GeneralError_vcmdemo10.bpm</receiver>
-														<message>	<GeneralErrorInput
-		xmlns="http://schemas.cordys.com/bpm/GeneralError">
-		<exceptionreport/>
-		<maildetails/>	</GeneralErrorInput>
-														</message>
-														<source>General Error</source>
-													</input>
-													<mappings>
-														<mapping>	<source>.//bpm:GeneralErrorInput/bpm:exceptionreport</source>	<value
-		src="sysExceptionReport"	/>
-														</mapping>
-														<mapping>	<source>.//bpm:GeneralErrorInput/bpm:maildetails</source>	<value
-		class="com.cordys.coe.ac.emailio.sample.DumpMailContextMapping"
-		operation="CUSTOM"	/>
-														</mapping>
-													</mappings>
-												</sendsoap>
-											</action>
-										</actions>
-										<triggers>
-											<trigger
-												appliesTo="INBOX">
-												<name>SPE process</name>
-												<description>This trigger determines the SPE process.</description>
-												<combineemails>false</combineemails>
-												<rules>
-													<rule
-														section="MULTIPART">
-														<namespacemappings>	<namespacemapping>
-		<prefix>xfdf</prefix>
-		<namespace>http://ns.adobe.com/xfdf/</namespace>	</namespacemapping>
-														</namespacemappings>
-														<pattern	type="HEADER">	<name>Content-Type</name>	<value>application/vnd.adobe.xfdf</value>
-														</pattern>
-														<pattern	type="HEADER">	<name>Content-Disposition</name>	<value>attachment;\s+filename=&quot;([^&quot;]+)</value>	<store>
-		<token>
-				<name>FileName</name>
-				<value>1</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrProcessName&quot;]/xfdf:value[.=&quot;Spare Parts Escalation&quot;]/text()</value>	<store>
-		<token>
-				<name>ProcessName</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	optional="true"	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;Mail&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>InitiatorOfEscalation</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vblnOthers&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vblnOthers</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vblnSystemDown&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vblnSystemDown</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vblnTaxiCost&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vblnTaxiCost</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vblnVIP&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vblnVIP</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vmemErrorDescr&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vmemErrorDescr</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vnumEscQty&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vnumEscQty</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vnumMatNo&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vnumMatNo</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrCSE&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrCSE</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrCSEPhone&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrCSEPhone</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrContactUSC&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrContactUSC</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrContactUSCPhone&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrContactUSCPhone</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrCountryCode&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrCountryCode</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrCustomer&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrCustomer</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrFax&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrFax</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrNotifID&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrNotifID</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrSerialNo&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrSerialNo</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrSystem&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrSystem</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrSystemNo&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrSystemNo</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrTechnicalManager&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrTechnicalManager</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrTechnicalManagerEmail&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrTechnicalManagerEmail</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrSDPurchOrderNo&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrSDPurchOrderNo</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-													</rule>
-												</rules>
-												<message>
-													<method>ExecuteProcess</method>
-													<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-													<user>cn=pgussow,cn=organizational users,o=InboundEmail,cn=cordys,o=vanenburg.com</user>
-													<sync>true</sync>
-													<namespacemappings>
-														<namespacemapping>	<prefix>ns</prefix>	<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-														</namespacemapping>
-														<namespacemapping>	<prefix>bpm</prefix>	<namespace>http://schemas.cordys.com/bpm/TestSiemens</namespace>
-														</namespacemapping>
-														<namespacemapping>	<prefix>spe</prefix>	<namespace>http://schemas.cordys.com/bpm/BPM_SPE_XFormStart</namespace>
-														</namespacemapping>
-													</namespacemappings>
-													<input>
-														<type>definition</type>
-														<receiver>3.Business Process Models/GeneralTasks/SPETest_SiemensHC1.0.bpm</receiver>
-														<message>	<SAPDataCheck
-		xmlns="http://schemas.cordys.com/bpm/BPM_SPE_XFormStart">
-		<RegionalUnit>
-				<ServiceNotification/>
-				<Customer/>
-				<FAX/>
-				<EscalationDateAndTime/>
-				<CountryCode/>
-				<CountryPurchaseReference/>
-				<SAPOrderNumber/>
-				<SAPPositionNumber/>
-				<MaterialNumber/>
-				<EscalatedOrderQty/>
-				<MaterialDescription/>
-				<SystemDescription/>
-				<SystemSerialNumber/>
-				<SystemMaterialNumber/>
-				<ErrorDescription/>
-				<CostsAccepted/>
-				<TypeOfEscalation>
-						<SystemDown/>
-						<VIP/>
-						<Others/>
-						<DescriptionEscalationType/>
-				</TypeOfEscalation>
-				<ResponsiblePersons>
-						<TechnicalManagerServiceManager/>
-						<ManagerEmail/>
-						<CSEName/>
-						<CSEPhone/>
-						<MailRecipientsForFeedback/>
-						<USCName/>
-						<USCPhone/>
-						<InitiatorOfEscalation/>
-				</ResponsiblePersons>
-		</RegionalUnit>
-		<SAPResult>
-				<ErrorCode/>
-				<ErrorMessage/>
-				<SAPOrderList>
-						<Item>
-								<Kunnr/>
-								<Vbeln/>
-								<Land/>
-						</Item>
-				</SAPOrderList>
-				<MaterialList>
-						<Item>
-								<MaterialPos/>
-								<MaterialNumber/>
-								<OrderNumber/>
-						</Item>
-				</MaterialList>
-		</SAPResult>
-		<MMData>
-				<MMMaterialNumber/>
-				<MMMaterialDescription/>
-				<Division/>
-				<MaterialInfoText/>
-				<MrpController/>
-				<DChainSpecStatus/>
-				<ItemCategoryGroup/>
-				<EOSDate/>
-				<EODDate/>
-				<SparePart/>
-				<Update/>
-				<RepairablePart/>
-				<SupplyRetCirc/>
-				<LastTimeBuy/>
-				<Meas/>
-				<StatusAccInst/>
-				<ProductStatus/>
-				<TechnCritic/>
-				<ProcurementPlant/>
-				<FixedVendor/>
-				<SystemDivision/>
-		</MMData>
-		<SDData>
-				<Ordernumber/>
-				<OrderType/>
-				<DocumentDate/>
-				<RequestedDeliveryDate/>
-				<PurchaseOrderNumber/>
-				<ShippingCondition/>
-				<DeliveryPriority/>
-				<OldDeliveryPriority/>
-				<OverallStatus/>
-				<ShippingPoint/>
-				<DeliveryStatus/>
-				<SalesStatus/>
-				<OrderQuantity/>
-				<EscalatedQuantity/>
-				<DistributionChannel/>
-				<SalesOrg/>
-				<Plant/>
-				<Langu/>
-				<LanguIso/>
-				<SchedLine/>
-				<InitialQuantity/>
-				<SoldToParty>
-						<Role/>
-						<Customer/>
-						<CountryIso/>
-						<Address>
-								<Name/>
-								<Street/>
-								<Region/>
-								<City/>
-								<PostalCode/>
-								<Summary/>
-						</Address>
-				</SoldToParty>
-				<ShipToParty>
-						<Role/>
-						<Customer/>
-						<CountryIso/>
-						<Address>
-								<Name/>
-								<Street/>
-								<Region/>
-								<City/>
-								<PostalCode/>
-								<Summary/>
-						</Address>
-				</ShipToParty>
-		</SDData>
-		<SparePartEscalation>
-				<SparePartEscalation>
-						<RegionalUnit>
-								<ServiceNotification/>
-								<Customer/>
-								<FAX/>
-								<EscalationDateAndTime/>
-								<CountryCode/>
-								<CountryPurchaseReference/>
-								<SAPOrderNumber/>
-								<SAPPositionNumber/>
-								<MaterialNumber/>
-								<EscalatedOrderQty/>
-								<MaterialDescription/>
-								<SystemDescription/>
-								<SystemSerialNumber/>
-								<SystemMaterialNumber/>
-								<ErrorDescription/>
-								<CostsAccepted/>
-								<TypeOfEscalation>
-										<SystemDown/>
-										<VIP/>
-										<Others/>
-										<DescriptionEscalationType/>
-								</TypeOfEscalation>
-								<ResponsiblePersons>
-										<TechnicalManagerServiceManager/>
-										<ManagerEmail/>
-										<CSEName/>
-										<CSEPhone/>
-										<MailRecipientsForFeedback/>
-										<USCName/>
-										<USCPhone/>
-										<InitiatorOfEscalation/>
-										<InitiatorOfEscalationEmail/>
-										<InitiatorOfEscalationDN/>
-								</ResponsiblePersons>
-						</RegionalUnit>
-						<WarehouseProvider>
-								<PartIsAvailable/>
-								<AvailabilityCheckedBy/>
-								<AvailabilityCheckDate/>
-								<AvailabilityCheckComment/>
-						</WarehouseProvider>
-						<OrderFulfillment>
-								<EscalationStatus/>
-								<ETAAtPointOfDelivery/>
-								<SPEOrderDelivered/>
-								<ETAToBeConfirmed/>
-								<EscalationStatusComment/>
-								<CommentForCustomer/>
-								<NumberOfSimilarEscalations/>
-								<EscalationApproved/>
-								<EscalationApprovedBy/>
-								<EscalationApprovedDate/>
-								<SalesStatus/>
-								<SalesStatusToBeCheckedBy/>
-								<SendToWarehouseProvider/>
-								<SalesStatusCheckedBy/>
-								<SalesStatusComment/>
-								<CheckStandardStockingLocation/>
-								<CheckStandardStockingLocationsComment/>
-								<StartDropShipment/>
-								<DropShipmentParentID/>
-								<DropShipmentChildID/>
-								<CustomerComment/>
-								<ResourceNotFound/>
-								<DropShipmentSAPOrderNo/>
-								<DropShipmentParentEscalationIdentifier/>
-								<DropShipmentChildEscalationIdentifier/>
-								<CustomerFeedback/>
-								<DoDeliveryCheck/>
-								<ResponsibleOFDepartment/>
-						</OrderFulfillment>
-						<ETAatWDC/>
-						<ETAAtPointOfDelivery/>
-						<InventoryManagement>
-								<NonStandardStockingLocations>
-										<ConsignmentStocksChecked/>
-										<ConsignmentStocksETAAvailable/>
-										<ConsignmentStocksETA/>
-										<SupplierChecked/>
-										<SupplierETAAvailable/>
-										<SupplierETA/>
-										<OtherMedLocationChecked/>
-										<OtherMedLocationETAAvailable/>
-										<OtherMedLocationETA/>
-										<BULogisticsChecked/>
-										<BULogisticsETAAvailable/>
-										<BULogisticsETA/>
-										<HSCSolutionChecked/>
-										<HSCSolutionETAAvailable/>
-										<HSCSolutionETA/>
-										<PreferredOption/>
-										<NonStandardStockingLocationsComment/>
-								</NonStandardStockingLocations>
-								<ETAConfirmed/>
-								<ForwardToHSCRSC/>
-						</InventoryManagement>
-						<RSC>
-								<DatetimeAtRSC/>
-								<EscalationSolvedStatus/>
-								<ExtendedSourcingApproved/>
-								<CurrentResponsibleRSCDepartment/>
-								<RSCComment/>
-						</RSC>
-						<HSC>
-								<ExtendedSourcesCheckedByHSC/>
-								<ResponsibleHSCDepartment/>
-								<DateTimeAtHSC/>
-								<ExtendedSourcingComment/>
-								<ReplenishmentIsNeeded/>
-								<ReplenishmentContactName/>
-								<ReplenishmentAddress/>
-								<PlaceWherePartCanBeCollected/>
-								<PartAvailableAtDate/>
-								<PartAvailableAtTime/>
-						</HSC>
-						<MMData>
-								<MMMaterialNumber/>
-								<MMMaterialDescription/>
-								<Division/>
-								<MaterialInfoText/>
-								<MrpController/>
-								<DChainSpecStatus/>
-								<ItemCategoryGroup/>
-								<EOSDate/>
-								<EODDate/>
-								<SparePart/>
-								<Update/>
-								<RepairablePart/>
-								<SupplyRetCirc/>
-								<LastTimeBuy/>
-								<Meas/>
-								<StatusAccInst/>
-								<ProductStatus/>
-								<TechnCritic/>
-								<ProcurementPlant/>
-								<FixedVendor/>
-								<SystemDivision/>
-						</MMData>
-						<SDData>
-								<Ordernumber/>
-								<OrderType/>
-								<DocumentDate/>
-								<RequestedDeliveryDate/>
-								<PurchaseOrderNumber/>
-								<ShippingCondition/>
-								<DeliveryPriority/>
-								<OldDeliveryPriority/>
-								<OverallStatus/>
-								<ShippingPoint/>
-								<DeliveryStatus/>
-								<SalesStatus/>
-								<OrderQuantity/>
-								<EscalatedQuantity/>
-								<DistributionChannel/>
-								<SalesOrg/>
-								<Plant/>
-								<Langu/>
-								<LanguIso/>
-								<SchedLine/>
-								<InitialQuantity/>
-								<SoldToParty>
-										<Role/>
-										<Customer/>
-										<CountryIso/>
-										<Address>
-												<Name/>
-												<Street/>
-												<Region/>
-												<City/>
-												<PostalCode/>
-												<Summary/>
-										</Address>
-								</SoldToParty>
-								<ShipToParty>
-										<Role/>
-										<Customer/>
-										<CountryIso/>
-										<Address>
-												<Name/>
-												<Street/>
-												<Region/>
-												<City/>
-												<PostalCode/>
-												<Summary/>
-										</Address>
-								</ShipToParty>
-						</SDData>
-						<InvolvedPersons/>
-				</SparePartEscalation>
-				<ProcessData>
-						<EscalationSolved/>
-						<EscalationCancelled/>
-						<OrderDelivered/>
-						<OrderCancelled/>
-						<EstimatedTimeOfAvail/>
-						<EstimatedTimeOfAvailLast/>
-						<ETAChanged/>
-						<ETAReached/>
-						<Debug/>
-						<Region/>
-						<EscalationIdentifier/>
-				</ProcessData>
-		</SparePartEscalation>
-		<DropShipmentParentID/>	</SAPDataCheck>
-														</message>
-														<source>Siemens Inbound Mail</source>
-													</input>
-													<mappings>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:InitiatorOfEscalation</source>	<value
-		src="InitiatorOfEscalation"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:TypeOfEscalation/spe:Others</source>	<value
-		src="vblnOthers"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:TypeOfEscalation/spe:SystemDown</source>	<value
-		src="vblnSystemDown"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:CostsAccepted</source>	<value
-		src="vblnTaxiCost"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:TypeOfEscalation/spe:VIP</source>	<value
-		src="vblnVIP"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ErrorDescription</source>	<value
-		src="vmemErrorDescr"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:EscalatedOrderQty</source>	<value
-		src="vnumEscQty"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:MaterialNumber</source>	<value
-		src="vnumMatNo"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:CSEName</source>	<value
-		src="vstrCSE"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:CSEPhone</source>	<value
-		src="vstrCSEPhone"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:USCName</source>	<value
-		src="vstrContactUSC"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:USCPhone</source>	<value
-		src="vstrContactUSCPhone"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:CountryCode</source>	<value
-		src="vstrCountryCode"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:Customer</source>	<value
-		src="vstrCustomer"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:FAX</source>	<value
-		src="vstrFax"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ServiceNotification</source>	<value
-		src="vstrNotifID"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:SystemSerialNumber</source>	<value
-		src="vstrSerialNo"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:SystemDescription</source>	<value
-		src="vstrSystem"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:SystemMaterialNumber</source>	<value
-		src="vstrSystemNo"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:TechnicalManagerServiceManager</source>	<value
-		src="vstrTechnicalManager"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:ResponsiblePersons/spe:ManagerEmail</source>	<value
-		src="vstrTechnicalManagerEmail"	/>
-														</mapping>
-														<mapping>	<source>.//spe:SAPDataCheck/spe:RegionalUnit/spe:CountryPurchaseReference</source>	<value
-		src="vstrSDPurchOrderNo"	/>
-														</mapping>
-													</mappings>
-												</message>
-												<events>
-													<event
-														type="SUCCESS">
-														<actionref	id="siemens_ok"
-														/>
-														<action	id="siemens_ok_local"	type="SENDMAIL">	<sendmail>
-		<host>srv-nl-ces70</host>
-		<port>25</port>
-		<fromaddress>siemens@ces70.cordys.com</fromaddress>
-		<toaddress>user1@ces70.cordys.com</toaddress>
-		<subject>Message handled perfectly</subject>	</sendmail>
-														</action>
-													</event>
-													<event
-														type="ERROR">
-														<actionref	id="siemens_error"
-														/>
-														<actionref	id="siemens_error_flow"
-														/>
-													</event>
-												</events>
-											</trigger>
-										</triggers>
-									</emailbox>
-									<emailbox>
-										<name>siemens_rte</name>
-										<host>srv-nl-ces70</host>
-										<port>110</port>
-										<type>POP3</type>
-										<username>siemens</username>
-										<password>c2llbWVucw==</password>
-										<pollinterval>60000</pollinterval>
-										<folders>
-											<folder>Inbox</folder>
-										</folders>
-										<storage>
-											<class>com.cordys.coe.ac.emailio.storage.DBStorageProvider</class>
-											<parameters>
-												<parameter
-													name="dbconfig"
-													type="xml">
-													<component
-														name="InboundEmailConnectionPool">
-														<server>srv-nl-ces70</server>
-														<userName>emailio</userName>
-														<password>aW5ib3VuZGVtYWls</password>
-														<defaultDatabase>emailio</defaultDatabase>
-														<operatingsystem>windows</operatingsystem>
-														<maximumReadConnections>3</maximumReadConnections>
-														<maximumWriteConnections>7</maximumWriteConnections>
-														<queryCacheSize>50</queryCacheSize>
-														<queryCacheRefreshInterval>3600</queryCacheRefreshInterval>
-														<cursorCacheSize>50</cursorCacheSize>
-														<cursorCacheRefreshInterval>3600</cursorCacheRefreshInterval>
-														<driverName>OLEDB</driverName>
-														<provider>SQLOLEDB</provider>
-														<xmlEncoding>false</xmlEncoding>
-														<multibyte>false</multibyte>
-														<auditInfo/>
-													</component>
-												</parameter>
-												<parameter
-													name="errorfolder"
-													type="string">coe/emailioconnector/error_fs</parameter>
-											</parameters>
-										</storage>
-										<actions>
-											<action
-												id="siemens_ok"
-												type="SENDMAIL">
-												<sendmail>
-													<host>srv-nl-ces70</host>
-													<port>25</port>
-													<fromaddress>siemens@ces70.cordys.com</fromaddress>
-													<toaddress>ok@ces70.cordys.com</toaddress>
-													<subject>Message handled ok</subject>
-												</sendmail>
-											</action>
-											<action
-												id="siemens_error"
-												type="SENDMAIL">
-												<sendmail>
-													<host>srv-nl-ces70</host>
-													<port>25</port>
-													<fromaddress>siemens@ces70.cordys.com</fromaddress>
-													<toaddress>error@ces70.cordys.com</toaddress>
-												</sendmail>
-											</action>
-											<action
-												id="siemens_error_flow"
-												type="SENDSOAP">
-												<sendsoap>
-													<method>ExecuteProcess</method>
-													<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-													<user>cn=pgussow,cn=organizational users,o=InboundEmail,cn=cordys,o=vanenburg.com</user>
-													<sync>true</sync>
-													<namespacemappings>
-														<namespacemapping>	<prefix>ns</prefix>	<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-														</namespacemapping>
-														<namespacemapping>	<prefix>bpm</prefix>	<namespace>http://schemas.cordys.com/bpm/GeneralError</namespace>
-														</namespacemapping>
-													</namespacemappings>
-													<input>
-														<type>definition</type>
-														<receiver>com/cordys/coe/ac/emailio/sample/GeneralError_vcmdemo10.bpm</receiver>
-														<message>	<GeneralErrorInput
-		xmlns="http://schemas.cordys.com/bpm/GeneralError">
-		<exceptionreport/>
-		<maildetails/>	</GeneralErrorInput>
-														</message>
-														<source>General Error</source>
-													</input>
-													<mappings>
-														<mapping>	<source>.//bpm:GeneralErrorInput/bpm:exceptionreport</source>	<value
-		src="sysExceptionReport"	/>
-														</mapping>
-														<mapping>	<source>.//bpm:GeneralErrorInput/bpm:maildetails</source>	<value
-		class="com.cordys.coe.ac.emailio.sample.DumpMailContextMapping"
-		operation="CUSTOM"	/>
-														</mapping>
-													</mappings>
-												</sendsoap>
-											</action>
-										</actions>
-										<triggers>
-											<trigger
-												appliesTo="INBOX">
-												<name>RTE process</name>
-												<description>This trigger determines the RTE process.</description>
-												<combineemails>false</combineemails>
-												<rules>
-													<rule
-														section="MULTIPART">
-														<namespacemappings>	<namespacemapping>
-		<prefix>xfdf</prefix>
-		<namespace>http://ns.adobe.com/xfdf/</namespace>	</namespacemapping>
-														</namespacemappings>
-														<pattern	type="HEADER">	<name>Content-Type</name>	<value>application/vnd.adobe.xfdf</value>
-														</pattern>
-														<pattern	type="HEADER">	<name>Content-Disposition</name>	<value>attachment;\s+filename=&quot;([^&quot;]+)</value>	<store>
-		<token>
-				<name>FileName</name>
-				<value>1</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrProcessName&quot;]/xfdf:value[.=&quot;Return Time Extension&quot;]/text()</value>	<store>
-		<token>
-				<name>ProcessName</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.//xfdf:fields/xfdf:field[@name=&quot;vstrReason&quot;]/xfdf:value/text()</value>	<store>
-		<token>
-				<name>vstrReason</name>
-				<value>value</value>
-		</token>	</store>
-														</pattern>
-														<pattern	type="XPATH">	<value>.</value>	<store>
-		<token>
-				<name>FullXDF</name>
-				<value>xml</value>
-		</token>	</store>
-														</pattern>
-													</rule>
-												</rules>
-												<message>
-													<method>ExecuteProcess</method>
-													<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-													<user>cn=pgussow,cn=organizational users,o=InboundEmail,cn=cordys,o=vanenburg.com</user>
-													<sync>true</sync>
-													<namespacemappings>
-														<namespacemapping>	<prefix>ns</prefix>	<namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
-														</namespacemapping>
-														<namespacemapping>	<prefix>rte</prefix>	<namespace>http://schemas.cordys.com/bpm/BPM_RTE_PDF_Start</namespace>
-														</namespacemapping>
-													</namespacemappings>
-													<input>
-														<type>definition</type>
-														<receiver>3.Business Process Models/GeneralTasks/NonExistant_SiemensHC1.0.bpm</receiver>
-														<message>	<BPM_XFDF_IN
-		xmlns="http://schemas.cordys.com/bpm/BPM_RTE_PDF_Start">
-		<xfdf/>
-		<another/>
-		<mail
-				xmlns="http://schemas.cordys.com/bpm/BPM_RTE_PDF_Start">
-				<emailAddress>PARAMETER</emailAddress>
-				<displayName>PARAMETER</displayName>
-				<sentDate>PARAMETER</sentDate>
-		</mail>	</BPM_XFDF_IN>
-														</message>
-														<source>Siemens Inbound Mail</source>
-													</input>
-													<mappings>
-														<mapping>	<source>.//rte:BPM_XFDF_IN/rte:xfdf</source>	<value
-		operation="XML_REPLACE"
-		src="FullXDF"	/>
-														</mapping>
-														<mapping>	<source>.//rte:BPM_XFDF_IN/rte:another</source>	<value
-		operation="XML_REPLACE_WITH_TARGET_NS"
-		src="FullXDF"	/>
-														</mapping>
-													</mappings>
-												</message>
-												<events>
-													<event
-														type="SUCCESS">
-														<actionref	id="siemens_ok"
-														/>
-														<action	id="siemens_ok_local"	type="SENDMAIL">	<sendmail>
-		<host>srv-nl-ces70</host>
-		<port>25</port>
-		<fromaddress>siemens@ces70.cordys.com</fromaddress>
-		<toaddress>user1@ces70.cordys.com</toaddress>
-		<subject>Message handled perfectly</subject>	</sendmail>
-														</action>
-													</event>
-													<event
-														type="ERROR">
-														<actionref	id="siemens_error"
-														/>
-														<actionref	id="siemens_error_flow"
-														/>
-													</event>
-												</events>
-											</trigger>
-										</triggers>
-									</emailbox>
-								</emailboxes>
-								<maxworkers>10</maxworkers>
-							</inbound>
-							<general>
-								<storage>
-									<class>com.cordys.coe.ac.emailio.storage.DBStorageProvider</class>
-									<parameters>
-										<parameter
-											name="compressdata"
-											type="string">true</parameter>
-										<parameter
-											name="dbconfig"
-											type="xml">
-											<component
-												name="InboundEmailConnectionPool">
-												<server>srv-nl-ces70</server>
-												<userName>emailio</userName>
-												<password>aW5ib3VuZGVtYWls</password>
-												<defaultDatabase>emailio</defaultDatabase>
-												<operatingsystem>windows</operatingsystem>
-												<maximumReadConnections>3</maximumReadConnections>
-												<maximumWriteConnections>7</maximumWriteConnections>
-												<queryCacheSize>50</queryCacheSize>
-												<queryCacheRefreshInterval>3600</queryCacheRefreshInterval>
-												<cursorCacheSize>50</cursorCacheSize>
-												<cursorCacheRefreshInterval>3600</cursorCacheRefreshInterval>
-												<driverName>OLEDB</driverName>
-												<provider>SQLOLEDB</provider>
-												<xmlEncoding>false</xmlEncoding>
-												<multibyte>false</multibyte>
-												<auditInfo/>
-											</component>
-										</parameter>
-									</parameters>
-								</storage>
-							</general>
-						</configuration>
-					</xml>
-				</xml>
-			</xhead>
-			<xbody>
-				<xforms:group
-					wcpforms:layout="free"
-					id="xbody_group"
-					wcpforms:labelalign="ontop">
-					<xforms:group
-						appearance="tabgroup"
-						id="tgConfiguration"
-						model="mdlConfiguration"
-						wcpforms:class="f_layout"
-						wcpforms:size="1103 863"
-						wcpforms:anchors="5px 5px 5px 5px"
-						wcpforms:position="5 5">
-						<xforms:group
-							appearance="tabpage"
-							id="tabpage1"
-							ref="general"
-							wcpforms:textalign="left_align"
-							wcpforms:layout="free"
-							wcpforms:class="simplecontainer"
-							wcpforms:labelalign="ontop">
-							<xforms:label>General configuration</xforms:label>
-							<xforms:group
-								id="group1"
-								wcpforms:layout="vertical"
-								wcpforms:class="f_layout"
-								wcpforms:size="1050 932"
-								wcpforms:anchors="0px 35px -6px -116px"
-								wcpforms:position="0 35"
-								wcpforms:labelalign="ontop">
-								<xforms:group
-									appearance="box"
-									id="gbSPDatabase"
-									model="mdlDatabase"
-									ref="component"
-									wcpforms:textalign="left_align"
-									wcpforms:layout="free"
-									wcpforms:class="v_layout_i"
-									wcpforms:size="1007 250"
-									wcpforms:labelalign="left">
-									<xforms:label
-										wcpforms:class="groupheader">Database details</xforms:label>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtDBServer"
-										ref="server"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="290 null"
-										wcpforms:position="5 10">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">Server name</xforms:label>
-									</xforms:input>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtDBUsername"
-										ref="userName"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="290 null"
-										wcpforms:position="5 30">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">DB Username</xforms:label>
-									</xforms:input>
-									<xforms:secret
-										doEBIValidate="false"
-										id="txtDBPassword"
-										ref="password"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="290 null"
-										wcpforms:position="5 50">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">DB Password</xforms:label>
-									</xforms:secret>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtDefaultDB"
-										ref="defaultDatabase"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="290 null"
-										wcpforms:position="5 69">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">Default DB</xforms:label>
-									</xforms:input>
-									<xforms:select1
-										doEBIValidate="false"
-										id="input_10"
-										initializeValueSets="0"
-										multiple="false"
-										ref="operatingsystem"
-										wcpforms:dataType="string"
-										wcpforms:enumerated="false"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="685 null"
-										wcpforms:anchors="310px 50px 10px null"
-										wcpforms:position="310 50">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">Operating system</xforms:label>
-										<xforms:item
-											xmlns:xforms="http://www.w3.org/2002/xforms/cr">
-											<xforms:label>Windows</xforms:label>
-											<xforms:value>windows</xforms:value>
-										</xforms:item>
-										<xforms:item>
-											<xforms:label>Linux</xforms:label>
-											<xforms:value>linux</xforms:value>
-										</xforms:item>
-									</xforms:select1>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtDriverName"
-										ref="driverName"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="686 null"
-										wcpforms:anchors="309px 9px 10px null"
-										wcpforms:position="309 9">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">Driver name</xforms:label>
-									</xforms:input>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtProvider"
-										ref="provider"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="686 null"
-										wcpforms:anchors="309px 29px 10px null"
-										wcpforms:position="309 29"
-										xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="110 null">Provider</xforms:label>
-									</xforms:input>
-									<xforms:group
-										appearance="box"
-										id="groupbox2"
-										wcpforms:collapsible="true"
-										wcpforms:expanded="false"
-										wcpforms:layout="free"
-										wcpforms:class="f_layout"
-										wcpforms:size="986 120"
-										wcpforms:anchors="9px 99px 10px null"
-										wcpforms:position="9 99"
-										wcpforms:labelalign="left">
-										<xforms:label
-											wcpforms:class="groupheader expand">Details</xforms:label>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtMaximumReadConnections"
-											ref="maximumReadConnections"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="320 null"
-											wcpforms:position="10 10">
-											<xforms:label
-												wcpforms:class="h_label left_align"
-												wcpforms:size="180 null">Maximum read connections</xforms:label>
-										</xforms:input>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtMaximumWriteConnections"
-											ref="maximumWriteConnections"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="320 null"
-											wcpforms:position="10 29"
-											xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-											<xforms:label
-												wcpforms:class="h_label left_align"
-												wcpforms:size="180 null">Maximum write connections</xforms:label>
-										</xforms:input>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtQueryCacheRefreshInterval"
-											ref="queryCacheRefreshInterval"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="320 null"
-											wcpforms:position="10 70"
-											xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-											<xforms:label
-												wcpforms:class="h_label left_align"
-												wcpforms:size="180 null">Query cache refresh interval</xforms:label>
-										</xforms:input>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtQueryCacheSize"
-											ref="queryCacheSize"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="320 null"
-											wcpforms:position="10 50"
-											xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-											<xforms:label
-												wcpforms:class="h_label left_align"
-												wcpforms:size="180 null">Query cache size</xforms:label>
-										</xforms:input>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtCursorCacheSize"
-											ref="cursorCacheSize"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="320 null"
-											wcpforms:position="339 9"
-											xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-											<xforms:label
-												wcpforms:class="h_label left_align"
-												wcpforms:size="180 null">Cursor cache size</xforms:label>
-										</xforms:input>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtCursorCacheRefreshInterval"
-											ref="cursorCacheRefreshInterval"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="320 null"
-											wcpforms:position="339 29"
-											xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-											<xforms:label
-												wcpforms:class="h_label left_align"
-												wcpforms:size="180 null">Cursor cache refresh interval</xforms:label>
-										</xforms:input>
-										<xforms:select1
-											appearance="check"
-											doEBIValidate="false"
-											id="check3"
-											ref="xmEncoding"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="454 null"
-											wcpforms:anchors="520px 50px 10px null"
-											wcpforms:position="520 50">
-											<xforms:label>XML encoding</xforms:label>
-											<xforms:item>
-												<xforms:label>true</xforms:label>
-												<xforms:value>true</xforms:value>
-											</xforms:item>
-											<xforms:item>
-												<xforms:label>false</xforms:label>
-												<xforms:value>false</xforms:value>
-											</xforms:item>
-										</xforms:select1>
-										<xforms:select1
-											appearance="check"
-											doEBIValidate="false"
-											id="check4"
-											ref="multibyte"
-											wcpforms:textalign="left_align"
-											wcpforms:class="f_layout"
-											wcpforms:size="454 null"
-											wcpforms:anchors="520px 70px 10px null"
-											wcpforms:position="520 70">
-											<xforms:label>Multibyte</xforms:label>
-											<xforms:item>
-												<xforms:label>true</xforms:label>
-												<xforms:value>true</xforms:value>
-											</xforms:item>
-											<xforms:item>
-												<xforms:label>false</xforms:label>
-												<xforms:value>false</xforms:value>
-											</xforms:item>
-										</xforms:select1>
-									</xforms:group>
-									<xforms:select1
-										appearance="check"
-										doEBIValidate="false"
-										id="cCompressData"
-										wcpforms:class="f_layout"
-										wcpforms:size="144 null"
-										wcpforms:position="420 70">
-										<xforms:label>Compress data</xforms:label>
-										<xforms:item>
-											<xforms:label>true</xforms:label>
-											<xforms:value>true</xforms:value>
-										</xforms:item>
-										<xforms:item>
-											<xforms:label>false</xforms:label>
-											<xforms:value>false</xforms:value>
-										</xforms:item>
-									</xforms:select1>
-								</xforms:group>
-								<xforms:group
-									appearance="box"
-									id="gbSPFileSystem"
-									wcpforms:layout="free"
-									wcpforms:class="v_layout_i"
-									wcpforms:size="1009 190"
-									wcpforms:labelalign="ontop">
-									<xforms:label
-										wcpforms:class="groupheader">File based storage</xforms:label>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtFSErrorFolder"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="987 null"
-										wcpforms:anchors="10px 10px 10px null"
-										wcpforms:position="10 10">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="170 null">Error folder</xforms:label>
-									</xforms:input>
-									<xforms:input
-										doEBIValidate="false"
-										id="cFSLogFolder"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="987 null"
-										wcpforms:anchors="10px 50px 10px null"
-										wcpforms:position="10 50">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="170 null">Archive folder</xforms:label>
-									</xforms:input>
-									<xforms:select1
-										appearance="check"
-										doEBIValidate="false"
-										id="cFSLogIncomming"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="290 null"
-										wcpforms:position="180 30">
-										<xforms:label>Log all incoming email messages</xforms:label>
-										<xforms:item>
-											<xforms:label>true</xforms:label>
-											<xforms:value>true</xforms:value>
-										</xforms:item>
-										<xforms:item>
-											<xforms:label>false</xforms:label>
-											<xforms:value>false</xforms:value>
-										</xforms:item>
-									</xforms:select1>
-									<xforms:label
-										id="text1"
-										wcpforms:class="f_layout"
-										wcpforms:size="987 70"
-										wcpforms:anchors="10px 91px 10px null"
-										wcpforms:position="10 91">Note: The log and error folder are relative to the Cordys install dir. Also the name of the emailbox will be used. All messages that will be PROCESSED will be logged.
-The archive folder is only used to write copies of messages that were successfully processed. The Error folder will contains mails that could not be processed.</xforms:label>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtFSTriggerFolder"
-										wcpforms:textalign="left_align"
-										wcpforms:class="f_layout"
-										wcpforms:size="987 null"
-										wcpforms:anchors="10px 70px 10px null"
-										wcpforms:position="10 70">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="170 null">Trigger folder</xforms:label>
-									</xforms:input>
-								</xforms:group>
-								<xforms:group
-									appearance="box"
-									id="gbSPMemory"
-									wcpforms:layout="vertical"
-									wcpforms:class="v_layout_i"
-									wcpforms:size="1010 100"
-									wcpforms:labelalign="ontop">
-									<xforms:label
-										wcpforms:class="groupheader">Default memory store</xforms:label>
-									<xforms:label
-										id="text3"
-										wcpforms:class="v_layout"
-										wcpforms:size="null 30">This store should not be used in production. It should only be used to test configurations since it does not support persistence</xforms:label>
-								</xforms:group>
-								<xforms:group
-									appearance="box"
-									id="gbSPCustom"
-									wcpforms:collapsible="true"
-									wcpforms:expanded="false"
-									wcpforms:layout="free"
-									wcpforms:class="v_layout_i"
-									wcpforms:size="1010 210"
-									wcpforms:labelalign="left">
-									<xforms:label
-										wcpforms:class="groupheader expand">Custom storage provider</xforms:label>
-									<xforms:input
-										doEBIValidate="false"
-										id="txtSPCustomClass"
-										wcpforms:class="f_layout"
-										wcpforms:size="988 null"
-										wcpforms:anchors="10px 10px 10px null"
-										wcpforms:position="10 10">
-										<xforms:label
-											wcpforms:class="h_label left_align"
-											wcpforms:size="90 null">Class name</xforms:label>
-									</xforms:input>
-									<xforms:repeat
-										fixedWidth="true"
-										id="tblCustomParams"
-										model="mdlCustom"
-										nodeset="parameter"
-										synchronizedDialogFrame="main"
-										wcpforms:displayContextMenu="true"
-										wcpforms:saveState="false"
-										wcpforms:textalign="left_align"
-										wcpforms:toggleColumns="true"
-										wcpforms:gridtype="datagrid"
-										wcpforms:checkboxes="true"
-										wcpforms:layout="table"
-										wcpforms:class="f_layout"
-										wcpforms:size="988 153"
-										wcpforms:anchors="10px 30px 10px 5px"
-										wcpforms:position="10 30">
-										<xforms:group
-											appearance="elementbar"
-											id="_elementBar">
-											<xforms:group
-												appearance="controlbar"
-												id="_controlBar"
-												wcpforms:class="controlbar">
-												<xforms:trigger
-													id="navInsert1"
-													standardid="navInsert">
-													<xforms:label>
-														<img	src="/cordys/wcp/icons/action/add_eb.gif"	xmlns=""
-														/>
-													</xforms:label>
-													<xforms:hint>Insert</xforms:hint>
-												</xforms:trigger>
-												<xforms:trigger
-													id="navDelete1"
-													standardid="navDelete">
-													<xforms:label>
-														<img	src="/cordys/wcp/icons/action/delete_eb.gif"	xmlns=""
-														/>
-													</xforms:label>
-													<xforms:hint>Delete</xforms:hint>
-												</xforms:trigger>
-											</xforms:group>
-										</xforms:group>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtName"
-											ref="name"
-											wcpforms:textalign="left_align"
-											wcpforms:size="100 null">
-											<xforms:label>Name</xforms:label>
-										</xforms:input>
-										<xforms:select1
-											doEBIValidate="false"
-											id="cbType"
-											initializeValueSets="0"
-											multiple="false"
-											ref="type"
-											wcpforms:enumerated="false"
-											wcpforms:size="100 null">
-											<xforms:label>Type</xforms:label>
-											<xforms:item
-												xmlns:xforms="http://www.w3.org/2002/xforms/cr">
-												<xforms:label>String</xforms:label>
-												<xforms:value>string</xforms:value>
-											</xforms:item>
-											<xforms:item>
-												<xforms:label>XML</xforms:label>
-												<xforms:value>xml</xforms:value>
-											</xforms:item>
-										</xforms:select1>
-										<xforms:input
-											doEBIValidate="false"
-											id="txtValue"
-											ref="value"
-											wcpforms:textalign="left_align">
-											<xforms:label>Value</xforms:label>
-										</xforms:input>
-									</xforms:repeat>
-								</xforms:group>
-							</xforms:group>
-							<xforms:select1
-								doEBIValidate="false"
-								id="cbStorageProvider"
-								initializeValueSets="0"
-								multiple="false"
-								wcpforms:dataType="string"
-								wcpforms:enumerated="false"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="400 null"
-								wcpforms:position="10 10">
-								<xforms:label
-									wcpforms:class="h_label left_align"
-									wcpforms:size="120 null">Storage provider</xforms:label>
-								<xforms:item
-									xmlns:xforms="http://www.w3.org/2002/xforms/cr">
-									<xforms:label>Database</xforms:label>
-									<xforms:value>com.cordys.coe.ac.emailio.storage.DBStorageProvider</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>File system</xforms:label>
-									<xforms:value>com.cordys.coe.ac.emailio.storage.FileStorageProvider</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>In Memory (not for production!!)</xforms:label>
-									<xforms:value>com.cordys.coe.ac.emailio.storage.DefaultMemoryStore</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>Custom</xforms:label>
-									<xforms:value/>
-								</xforms:item>
-								<xforms:action
-									ev:event="xforms-value-changed">
-									<xforms:cbStorageProvider_Change/>
-								</xforms:action>
-							</xforms:select1>
-							<xforms:group
-								appearance="controlbox"
-								controltype="button"
-								id="controlbox1"
-								wcpforms:layout="horizontal"
-								wcpforms:class="f_layout"
-								wcpforms:align="left_align"
-								wcpforms:size="144 23"
-								wcpforms:position="730 10">
-								<xforms:trigger
-									id="btnTestSave"
-									wcpforms:class="h_button"
-									wcpforms:size="92 23">
-									<xforms:label>Test save</xforms:label>
-									<xforms:action
-										ev:event="xforms-activate">
-										<xforms:btnTestSave_Click/>
-									</xforms:action>
-								</xforms:trigger>
-							</xforms:group>
-						</xforms:group>
-						<xforms:group
-							appearance="tabpage"
-							id="tabpage2"
-							ref="inbound"
-							wcpforms:textalign="left_align"
-							wcpforms:layout="free"
-							wcpforms:class="simplecontainer"
-							wcpforms:labelalign="left">
-							<xforms:label>Inbound configuration</xforms:label>
-							<xforms:textarea
-								doEBIValidate="false"
-								id="taEmailBoxes"
-								wcpforms:customclass="taXML"
-								wcpforms:class="f_layout"
-								wcpforms:size="1111 661"
-								wcpforms:anchors="5px 35px 5px 5px"
-								wcpforms:position="5 35">
-								<xforms:label
-									wcpforms:class="v_label">Email box configuration</xforms:label>
-							</xforms:textarea>
-							<xforms:input
-								doEBIValidate="false"
-								id="input1"
-								ref="maxworkers"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="280 null"
-								wcpforms:position="4 5">
-								<xforms:label
-									wcpforms:class="h_label left_align"
-									wcpforms:size="170 null">Maximum concurrent workers</xforms:label>
-							</xforms:input>
-						</xforms:group>
-						<xforms:group
-							appearance="tabpage"
-							id="tabpage5"
-							ref="outbound"
-							wcpforms:textalign="left_align"
-							wcpforms:layout="free"
-							wcpforms:class="simplecontainer"
-							wcpforms:labelalign="ontop">
-							<xforms:label>Outbound configuration</xforms:label>
-							<xforms:select1
-								appearance="check"
-								id="check8"
-								doEBIValidate="false"
-								ref="smimeenabled"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="1081 null"
-								wcpforms:anchors="10px 10px 10px null"
-								wcpforms:position="10 10">
-								<xforms:label>Use S/MIME if a certificate for a receiver is found</xforms:label>
-								<xforms:item>
-									<xforms:label>true</xforms:label>
-									<xforms:value>true</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>false</xforms:label>
-									<xforms:value>false</xforms:value>
-								</xforms:item>
-							</xforms:select1>
-							<xforms:select1
-								appearance="check"
-								id="check_9"
-								doEBIValidate="false"
-								ref="signmails"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="1081 null"
-								wcpforms:anchors="10px 30px 10px null"
-								wcpforms:position="10 30">
-								<xforms:label>Sign outgoing mails if a private key is available for the sender's address</xforms:label>
-								<xforms:item>
-									<xforms:label>true</xforms:label>
-									<xforms:value>true</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>false</xforms:label>
-									<xforms:value>false</xforms:value>
-								</xforms:item>
-							</xforms:select1>
-							<xforms:select1
-								appearance="check"
-								id="check10"
-								doEBIValidate="false"
-								ref="encryptmails"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="1081 null"
-								wcpforms:anchors="10px 50px 10px null"
-								wcpforms:position="10 50">
-								<xforms:label>Encrypt outgoing mails if a private key is available for the sender's address</xforms:label>
-								<xforms:item>
-									<xforms:label>true</xforms:label>
-									<xforms:value>true</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>false</xforms:label>
-									<xforms:value>false</xforms:value>
-								</xforms:item>
-							</xforms:select1>
-							<xforms:select1
-								appearance="check"
-								id="check11"
-								doEBIValidate="false"
-								ref="checkcrl"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="1081 null"
-								wcpforms:anchors="10px 70px 10px null"
-								wcpforms:position="10 70">
-								<xforms:label>If a CRL is present in the certificate check the CRL</xforms:label>
-								<xforms:item>
-									<xforms:label>true</xforms:label>
-									<xforms:value>true</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>false</xforms:label>
-									<xforms:value>false</xforms:value>
-								</xforms:item>
-							</xforms:select1>
-							<xforms:select1
-								appearance="check"
-								id="check_16"
-								doEBIValidate="false"
-								ref="bypasssmime"
-								wcpforms:textalign="left_align"
-								wcpforms:class="f_layout"
-								wcpforms:size="1081 null"
-								wcpforms:anchors="10px 90px 10px null"
-								wcpforms:position="10 90">
-								<xforms:label>Send mails in plain text if not all certificates are present</xforms:label>
-								<xforms:item>
-									<xforms:label>true</xforms:label>
-									<xforms:value>true</xforms:value>
-								</xforms:item>
-								<xforms:item>
-									<xforms:label>false</xforms:label>
-									<xforms:value>false</xforms:value>
-								</xforms:item>
-							</xforms:select1>
-							<xforms:group
-								appearance="tabgroup"
-								id="tabgroup2"
-								wcpforms:class="f_layout"
-								wcpforms:size="1091 710"
-								wcpforms:anchors="5px 120px 5px 11px"
-								wcpforms:position="5 120">
-								<xforms:group
-									appearance="tabpage"
-									id="tabpage7"
-									wcpforms:layout="free"
-									wcpforms:class="simplecontainer"
-									wcpforms:labelalign="ontop">
-									<xforms:label>SMTP servers</xforms:label>
-									<xforms:textarea
-										id="taSMTPServers"
-										doEBIValidate="false"
-										wcpforms:class="f_layout"
-										wcpforms:size="1069 668"
-										wcpforms:anchors="10px 10px 10px 10px"
-										wcpforms:position="10 10">
-										<xforms:label
-											wcpforms:class="v_label">SMTP Server details</xforms:label>
-									</xforms:textarea>
-								</xforms:group>
-								<xforms:group
-									appearance="tabpage"
-									id="tabpage6"
-									wcpforms:layout="free"
-									wcpforms:class="simplecontainer"
-									wcpforms:labelalign="ontop">
-									<xforms:label>Key managers</xforms:label>
-									<xforms:textarea
-										id="taKeyManagers"
-										doEBIValidate="false"
-										wcpforms:class="f_layout"
-										wcpforms:size="1069 668"
-										wcpforms:anchors="10px 10px 10px 10px"
-										wcpforms:position="10 10">
-										<xforms:label
-											wcpforms:class="v_label">Key manager configuration</xforms:label>
-									</xforms:textarea>
-								</xforms:group>
-							</xforms:group>
-						</xforms:group>
-					</xforms:group>
-				</xforms:group>
-			</xbody>
-			<xformsscript>
-				<![CDATA[function Form_InitDone(eventObject)
-{
-   handleInitDone(eventObject);
-}
-function Form_BeforeClose(eventObject)
-{
-    closeForm();
-}
-function cbStorageProvider_Change(eventObject)
-{
-    handleStorageProviderChange(eventObject);
-}
-function btnTestSave_Click(eventObject)
-{
-    handleTestSave(eventObject);
-}
-function txtKeyManagerType_Change(eventObject)
-{
-    handleKeyManagerTypeChange(eventObject.srcElement);
-}
-function tblKeyManagers_OnSelectRow(eventObject)
-{
-    handleKeyManagerOnSelectRow(eventObject);
-}
-function navInsert3_AfterInsert(eventObject)
-{
-    handleAfterInsertKeyManager(eventObject);
-}]]>
-			</xformsscript>
-			<xforms:action
-				ev:event="xforms-initialize-done">
-				<xforms:Form_InitDone/>
-			</xforms:action>
-		</xformhtml>
-	</content>
-</caf>

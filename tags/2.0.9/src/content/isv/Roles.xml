@@ -1,4 +1,0 @@
-<roles>
-    <role file="${src.content.roles}/Email IO Connector Administrator.xml"/>
-    <role file="${src.content.roles}/everyoneInCordys EmailIOConnector 2.0.xml"/>
-</roles>
