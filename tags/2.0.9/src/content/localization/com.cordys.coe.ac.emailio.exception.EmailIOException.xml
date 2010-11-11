@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<MessageBundle id="com.cordys.coe.ac.emailio.exception.EmailIOException">
+    <Message id="EIOE_COULD_NOT_FIND_THE_MIMEMULTIPART_THAT_IS_SIGNED">
+        <MessageText><![CDATA[Could not find the MimeMultipart that is signed]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_VALIDATION_OF_THE_SIGNATURE_FOR_CERTIFICATE_0_FAILED">
+        <MessageText><![CDATA[Validation of the signature for certificate {0} failed.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_COULD_NOT_DECRYPT_MESSAGE_BECAUSE_NO_RECIPIENT_INFORMATION_WAS_FOUND">
+        <MessageText><![CDATA[Could not decrypt message because no recipient information was found]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_COULD_NOT_FIND_ANY_CERTIFICATE_INFORMATION_FOR_ANY_OF_THE_RECIPIENTS">
+        <MessageText><![CDATA[Could not decrypt message. Could not find any certificate information for any of the recipients.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_COULD_NOT_FIND_A_PRIVATE_KEY_FOR_RECIPIENT_0">
+        <MessageText><![CDATA[Could not find a private key for recipient {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_COULD_NOT_VALIDATE_SIGNATURE">
+        <MessageText><![CDATA[Could not validate signature]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_ERROR_CHECKING_IF_THE_MAIL_IS_ENCRYPTED">
+        <MessageText><![CDATA[Error checking if the mail is encrypted.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_ERROR_CHECKING_IF_THE_MAIL_IS_SIGNED">
+        <MessageText><![CDATA[Error checking if the mail is signed]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_ERROR_DECRYPTING_EMAIL_MESSAGE">
+        <MessageText><![CDATA[Error decrypting email message]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_INVALID_ACTION_TYPE_0">
+        <MessageText><![CDATA[Invalid action type: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_INVALID_RETURN_TYPE_CANNOT_BUILD_UP_RESPONSE_FOR_RESULT_TYPE_0">
+        <MessageText><![CDATA[Invalid return type. Cannot build up response for result type {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_METHOD_0_NOT_SUPPORTED_ONLY_THE_SENDMAIL_METHOD_IS_SUPPORTED">
+        <MessageText><![CDATA[Method {0} not supported. Only the SendMail method is supported.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_THERE_IS_NO_GLOBAL_STORAGE_PROVIDER_THAT_SUPPORTS_THE_MANAGEMENT_INTERFACE">
+        <MessageText><![CDATA[There is no global storage provider that supports the management interface.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_NO_ACTION_FOUND_IN_THE_METHOD_IMPLEMENTATION">
+        <MessageText><![CDATA[No action found in the method implementation.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_MISSING_PARAMETER_SEARCH">
+        <MessageText><![CDATA[Missing parameter: search]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_MISSING_PARAMETER_ARCHIVER">
+        <MessageText><![CDATA[Missing parameter: archiver]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_MISSING_PARAMETER_ARCHIVERCLASS">
+        <MessageText><![CDATA[Missing parameter: archiver/class]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="EIOE_ERROR_RETURNING_THE_CURRENT_CONFIGURATION">
+        <MessageText><![CDATA[Error returning the current configuration.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

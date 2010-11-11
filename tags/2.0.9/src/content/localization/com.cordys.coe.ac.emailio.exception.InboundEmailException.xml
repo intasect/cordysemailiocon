@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<MessageBundle id="com.cordys.coe.ac.emailio.exception.InboundEmailException">
+    <Message id="IEE_CONTEXT_CONTAINERS_CANNOT_BE_RESTARTED">
+        <MessageText><![CDATA[Context containers can only be restarted if they have status ACTION_ERROR or MESSAGE_ERROR. Container {0} has status {1}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_COULD_NOT_FIND_THE_CONTAINER_WITH_ID">
+        <MessageText><![CDATA[Could not find the container with id {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_COULD_NOT_FIND_THE_EMAILBOX_WITH_ID">
+        <MessageText><![CDATA[Could not find the emailbox with ID {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_COULD_NOT_REMOVE_TRIGGER_DEFINITION">
+        <MessageText><![CDATA[Could not remove the trigger definition]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_ERROR_CREATING_TRIGGER_OBJECT_FROM_DEFINITION">
+        <MessageText><![CDATA[Error creating trigger object from definition:
+{0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_ERROR_EXECUTING_WSAPPSERVER_BASED_METHOD">
+        <MessageText><![CDATA[Error executing WS-AppServer based method]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_ERROR_RECREATING_EMAILBOX_0">
+        <MessageText><![CDATA[Error recreating emailbox {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_ERROR_REPROCESSING_THE_CONTAINER_WITH_ID">
+        <MessageText><![CDATA[Error reprocessing the container with ID: {0}.
+The context for the error:
+{1}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_GENERAL_ERROR_REPROCESSING_CONTAINER_WITH_ID">
+        <MessageText><![CDATA[General error reprocessing container with id {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_INVALID_RETURN_TYPE_CANNOT_BUILD_UP_RESPONSE_FOR_RESULT_TYPE_0">
+        <MessageText><![CDATA[Invalid return type. Cannot build up response for result type {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_PARAMETER_NOT_FILLED_CONTEXT_CONTAINER_ID">
+        <MessageText><![CDATA[Parameter not filled: ContextContainerID]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_PARAMETER_TRIGGERNAME_NOT_FILLED">
+        <MessageText><![CDATA[Parameter 'triggername' not filled.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THERE_ARE_NO_EMAILS_IN_CONTEXT_CONTAINER">
+        <MessageText><![CDATA[There are no emails in context container {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THERE_WAS_A_PROBLEM_REPROCESSING_THE_MESSAGE_FOR_AN_UNKNOWN_REASON_THE_MAIL_DID_NOT_MATCH_THE_ORIGINAL_TRIGGER">
+        <MessageText><![CDATA[There was a problem reprocessing the message. For an unknown reason the mail did not match the original trigger.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THIS_STORAGE_PROVIDER_DOES_NOT_SUPPORT_QUERIES">
+        <MessageText><![CDATA[This storage provider does not support queries (and thus does not support restarting).]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_UNSUPPORTED_ACTION">
+        <MessageText><![CDATA[Unsupported action: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_EXECUTING_REQUEST">
+        <MessageText><![CDATA[Error executing request: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_MISSING_PARAMETER_EMAILBOX">
+        <MessageText><![CDATA[Missing parameter: emailbox]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_PARAMETER_NOT_FILLED_EMAILBOX">
+        <MessageText><![CDATA[Parameter not filled: emailbox]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_PARAMETER_NOT_FILLED_TRIGGERNAME">
+        <MessageText><![CDATA[Parameter not filled: triggername]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_MISSING_PARAMETER_TRIGGER">
+        <MessageText><![CDATA[Missing parameter: trigger]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THERE_IS_NO_EMAIL_BOX_WITH_NAME">
+        <MessageText><![CDATA[There is no email box with name {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_COULD_NOT_CREATE_TRIGGER_DEFINITION">
+        <MessageText><![CDATA[Could not create trigger definition]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THE_EMAIL_BOX_IS_NULL">
+        <MessageText><![CDATA[The email box is null.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THE_DISPATCHER_MUST_BE_FILLED">
+        <MessageText><![CDATA[The dispatcher must be filled.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THE_CONNECTOR_MUST_BE_FILLED">
+        <MessageText><![CDATA[The connector must be filled.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_ERROR_CREATING_EMAIL_CONNECTION">
+        <MessageText><![CDATA[Error creating email connection for emailbox {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="IEE_THERE_IS_ALREADY_AN_EMAILBOX_WITH_NAME_0_CONFIGURED">
+        <MessageText><![CDATA[There is already an emailbox with name {0} configured.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

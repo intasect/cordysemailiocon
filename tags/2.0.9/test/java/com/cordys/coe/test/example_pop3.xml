@@ -1,0 +1,92 @@
+<emailboxes xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+  <emailbox>
+    <name>szxoaja-test</name>
+    <host>cnl1259</host>
+    <port>110</port>
+    <ssl>false</ssl>
+    <username>jade@gussow</username>
+    <password>Y29lbWFuYWdlcg==</password>
+    <type>POP3</type>
+    <pollinterval>30000</pollinterval>
+    <folders>
+      <folder>INBOX</folder>
+    </folders>
+    <triggers>
+      <trigger appliesTo="INBOX">
+        <name>StartAPMProcess</name>
+        <description>Start the APM process</description>
+        <combineemails>false</combineemails>
+        <rules>
+          <rule section="SUBJECT">
+            <pattern type="REGEX">
+              <value>(.+)</value>
+              <store>
+                <token>
+                  <name>MailSubject</name>
+                  <value>1</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+          <rule section="MULTIPART">
+            <pattern type="REGEX">
+              <value>(.+)</value>
+              <store>
+                <token>
+                  <name>MailContent</name>
+                  <value>1</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+        </rules>
+        <message>
+          <method>ExecuteProcess</method>
+          <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+          <user>cn=pgussow,cn=organizational users,o=EmailIO,cn=cordys,o=gussow.com</user>
+          <namespacemappings>
+            <namespacemapping>
+              <prefix>ns</prefix>
+              <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            </namespacemapping>
+            <namespacemapping>
+              <prefix>bpm</prefix>
+              <namespace>http://schemas.cordys.com/bpm/MessageProcessing</namespace>
+            </namespacemapping>
+          </namespacemappings>
+          <input>
+            <type>definition</type>
+            <receiver>Testing/JadeCargo_vcmdemo10.bpm</receiver>
+            <message>
+              <sita2msg xmlns="http://schemas.cordys.com/bpm/MessageProcessing">
+                <GUID xmlns="http://schemas.cordys.com/bpm/MessageProcessing">PARAMETER</GUID>
+                <RECEIVED_DATE xmlns="http://schemas.cordys.com/bpm/MessageProcessing">PARAMETER</RECEIVED_DATE>
+                <SUBJECT xmlns="http://schemas.cordys.com/bpm/MessageProcessing">PARAMETER</SUBJECT>
+                <CONTENT xmlns="http://schemas.cordys.com/bpm/MessageProcessing">PARAMETER</CONTENT>
+              </sita2msg>
+            </message>
+            <source>From ACARS Email</source>
+          </input>
+          <mappings>
+            <mapping>
+              <source>.//bpm:GUID</source>
+              <value operation="XML_APPEND_CHILD_WITH_TARGET_NS" src="sysXMLStorageDetails" />
+            </mapping>
+            <mapping>
+              <source>.//bpm:SUBJECT</source>
+              <value src="MailSubject" />
+            </mapping>
+            <mapping>
+              <source>.//bpm:CONTENT</source>
+              <value src="MailContent" />
+            </mapping>
+            <mapping>
+              <source>.//bpm:RECEIVED_DATE</source>
+              <value operation="XML_REPLACE_WITH_TARGET_NS" src="sysXMLEmail" />
+            </mapping>
+          </mappings>
+        </message>
+      </trigger>
+    </triggers>
+  </emailbox>
+</emailboxes>

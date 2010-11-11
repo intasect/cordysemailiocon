@@ -1,0 +1,664 @@
+
+<caf>
+	<documentProperties>
+		<name>mgtSearchContainers</name>
+		<description>Search Context Containers</description>
+		<caption/>
+		<mimeType>caf</mimeType>
+		<notes/>
+		<version>vcmdemo10</version>
+		<revision/>
+		<createdBy></createdBy>
+		<creationDate></creationDate>
+		<lastModifiedBy></lastModifiedBy>
+		<lastModificationDate></lastModificationDate>
+		<customProperties>
+			<published></published>
+			<publishDate></publishDate>
+			<publishUser></publishUser>
+			<publishPath>/cordys/com/cordys/coe/ac/emailio/management/mgtSearchContainers.caf</publishPath>
+		</customProperties>
+	</documentProperties>
+	<content>
+		<xformhtml
+			xformsversion="1"
+			key="/mgtSearchContainers_vcmdemo10.caf"
+			focusatstartup="true"
+			wcpforms:vcmVersion="vcmdemo10"
+			xmlns:eibus="http://schemas.cordys.com/wcp/webframework"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns="http://schemas.cordys.com/1.0/xform">
+			<xhead>
+				<style
+					src="/cordys/coe/emailioconnector/css/iec.css"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/debugusers.js"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/coelib.js"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/mgtSearchContainers.js"
+					xmlns=""
+				/>
+				<xforms:model
+					id="mdlSearchContainers"
+					wcpforms:businessElement="ContextContainer"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+						<wcpforms:dataset
+							src="http://emailioconnector.coe.cordys.com/2.0/objects/SearchContainers"
+							type="get">
+							<EmailBoxID
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<StatusInformation
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<TriggerDefinition
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<ProcessingStatus
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<FromCreateDate
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<ToCreateDate
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<FromCompleteDate
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<ToCompleteDate
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<FromStatusChangeDate
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<ToStatusChangeDate
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://emailioconnector.coe.cordys.com/2.0/objects</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://emailioconnector.coe.cordys.com/2.0/objects</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xml
+					xmlns="">
+					<xml
+						id="xmlSearchEmailMessages">
+						<Application
+							display="visible"
+							focus="true"
+							menu="true"
+							taskbar="true"
+							title="true"
+							toolbar="false">
+							<description>Search Email Messages</description>
+							<caption>Search Email Messages</caption>
+							<id>_com_cordys_coe_ac_emailio_management_mgtSearchEmailMsgs_vcmdemo10.caf</id>
+							<icon>/cordys/cas/xforms/images/form.gif</icon>
+							<url>/cordys/com/cordys/coe/ac/emailio/management/mgtSearchEmailMsgs.caf</url>
+							<data>
+								<ContextContainerID/>
+							</data>
+							<frame
+								docked="true">main</frame>
+						</Application>
+					</xml>
+					<xml
+						id="xmlRestartContainer">
+						<SOAP:Envelope
+							xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+							<SOAP:Body>
+								<RestartContainer
+									xmlns="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic">
+									<contextcontainerid/>
+								</RestartContainer>
+							</SOAP:Body>
+						</SOAP:Envelope>
+					</xml>
+				</xml>
+			</xhead>
+			<xbody>
+				<xforms:group
+					wcpforms:layout="free"
+					id="xbody_group"
+					wcpforms:labelalign="ontop">
+					<xforms:group
+						appearance="box"
+						id="Find_SearchContainersModelGroup"
+						requestModel="mdlSearchContainers"
+						wcpforms:collapsible="false"
+						wcpforms:expanded="false"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 150"
+						wcpforms:anchors="5px 5px 5px null"
+						wcpforms:position="5 5"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">SearchContainers</xforms:label>
+						<xforms:input
+							id="txtEmailBoxID"
+							ref="EmailBoxID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="130 null">Email box ID</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="statusinformation"
+							ref="StatusInformation"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 22">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="130 null">Status information</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="triggerdefinition"
+							ref="TriggerDefinition"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 39">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="130 null">Trigger definition</xforms:label>
+						</xforms:input>
+						<xforms:select1
+							id="processingstatus"
+							ref="ProcessingStatus"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:dataType="string"
+							wcpforms:textalign="left_align"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 58">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="130 null">Processing status</xforms:label>
+							<xforms:item
+								xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+								<xforms:label/>
+								<xforms:value/>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>Initial</xforms:label>
+								<xforms:value>INITIAL</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>In progress</xforms:label>
+								<xforms:value>IN_PROGRESS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>Completed</xforms:label>
+								<xforms:value>COMPLETED</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>Processing error</xforms:label>
+								<xforms:value>MESSAGE_ERROR</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>Action error</xforms:label>
+								<xforms:value>ACTION_ERROR</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:input
+							id="txtFromcreatedate"
+							ref="FromCreateDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="370 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Create date from</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtTocreatedate"
+							ref="ToCreateDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="370 22">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Create date to</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtFromcompletedate"
+							ref="FromCompleteDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="370 39">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Complete date from</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtTocompletedate"
+							ref="ToCompleteDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="370 56">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Complete date to</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtFromstatuschangedate"
+							ref="FromStatusChangeDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 74">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="130 null">Status change date from</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtTostatuschangedate"
+							ref="ToStatusChangeDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="370 73">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Status change date to</xforms:label>
+						</xforms:input>
+						<xforms:group
+							appearance="controlbox"
+							id="controlbox1"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="right_align"
+							wcpforms:size="144 22"
+							wcpforms:anchors="5px null null 5px"
+							wcpforms:position="5 101">
+							<xforms:trigger
+								id="button2"
+								wcpforms:class="h_button"
+								wcpforms:size="140 22">
+								<xforms:label>SearchContainers</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:button2_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+					</xforms:group>
+					<xforms:repeat
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						id="tblContextContainers"
+						model="mdlSearchContainers"
+						synchronizedDialogFrame="main"
+						fixedWidth="true"
+						wcpforms:gridtype="navgrid"
+						wcpforms:checkboxes="true"
+						wcpforms:layout="vertical"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 260"
+						wcpforms:anchors="5px 160px 5px null"
+						wcpforms:position="5 160">
+						<xforms:group
+							appearance="elementbar"
+							id="_elementBar">
+							<xforms:group
+								appearance="controlbar"
+								id="_controlBar"
+								wcpforms:class="controlbar">
+								<xforms:trigger
+									id="navRefresh2"
+									standardid="navRefresh">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/action/refresh_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Refresh</xforms:hint>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:group
+								appearance="paginationbar"
+								id="_paginationBar"
+								wcpforms:class="paginationbar">
+								<xforms:trigger
+									id="navFirst2"
+									standardid="navFirst">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/first_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>First</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navPrevious2"
+									standardid="navPrevious">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/previous_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Previous</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navNext2"
+									standardid="navNext">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/next_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Next</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navLast2"
+									standardid="navLast">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/last_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Last</xforms:hint>
+								</xforms:trigger>
+							</xforms:group>
+						</xforms:group>
+						<xforms:input
+							id="id"
+							ref="ID"
+							wcpforms:textalign="left_align"
+							wcpforms:size="100 null">
+							<xforms:label>ID</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="emailboxname"
+							ref="EmailBoxName"
+							wcpforms:textalign="left_align"
+							doEBIValidate="false"
+							wcpforms:size="140 null">
+							<xforms:label>EmailBox</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="processingstatus1"
+							ref="ProcessingStatus"
+							wcpforms:textalign="left_align"
+							doEBIValidate="false"
+							wcpforms:size="170 null">
+							<xforms:label>Status</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="createdate"
+							ref="CreateDate"
+							doEBIValidate="false"
+							wcpforms:displayformat="shortdate longtime"
+							wcpforms:textalign="center_align"
+							wcpforms:dataType="date"
+							wcpforms:required="false"
+							wcpforms:size="120 null">
+							<xforms:label>Create date</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="processingstatuschangedate"
+							ref="ProcessingStatusChangeDate"
+							doEBIValidate="false"
+							wcpforms:displayformat="shortdate longtime"
+							wcpforms:textalign="center_align"
+							wcpforms:dataType="date"
+							wcpforms:required="false"
+							wcpforms:size="200 null">
+							<xforms:label>Last status change date</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="completedate"
+							ref="CompleteDate"
+							doEBIValidate="false"
+							wcpforms:displayformat="shortdate longtime"
+							wcpforms:textalign="center_align"
+							wcpforms:dataType="date"
+							wcpforms:required="false">
+							<xforms:label>CompleteDate</xforms:label>
+						</xforms:input>
+					</xforms:repeat>
+					<xforms:group
+						appearance="box"
+						id="ContextContainerTable1"
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						model="mdlSearchContainers"
+						synchronizedDialogFrame="main"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1040 452"
+						wcpforms:anchors="10px 430px 5px 5px"
+						wcpforms:position="10 430"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">Container details</xforms:label>
+						<xforms:output
+							id="id1"
+							ref="ID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="300 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="100 null">ID</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="_name"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="300 null"
+							wcpforms:position="5 22">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="100 null">Email box name</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="emailboxid"
+							ref="EmailBoxID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="300 null"
+							wcpforms:position="5 39">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="100 null">Email box ID</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="processingstatus2"
+							ref="ProcessingStatus"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="300 null"
+							wcpforms:position="5 56">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="100 null">Processing status</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="createdate1"
+							ref="CreateDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="370 null"
+							wcpforms:position="310 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="160 null">Create date</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="processingstatuschangedate1"
+							ref="ProcessingStatusChangeDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="370 null"
+							wcpforms:position="310 22">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="160 null">Processing status change date</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="completedate1"
+							ref="CompleteDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="370 null"
+							wcpforms:position="310 39">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="160 null">Complete date</xforms:label>
+						</xforms:output>
+						<xforms:group
+							appearance="tabgroup"
+							id="tabgroup1"
+							wcpforms:class="f_layout"
+							wcpforms:size="1028 345"
+							wcpforms:anchors="5px 80px 5px 5px"
+							wcpforms:position="5 80">
+							<xforms:group
+								appearance="tabpage"
+								id="tabpage1"
+								wcpforms:layout="free"
+								wcpforms:class="simplecontainer"
+								wcpforms:labelalign="ontop">
+								<xforms:label>Status information</xforms:label>
+								<xforms:textarea
+									id="txtStatusInformation"
+									ref="StatusInformation"
+									wcpforms:textalign="left_align"
+									wcpforms:dataType="string"
+									doEBIValidate="false"
+									wcpforms:class="f_layout"
+									wcpforms:size="1016 313"
+									wcpforms:anchors="5px 5px 5px 5px"
+									wcpforms:position="5 5">
+									<xforms:label
+										wcpforms:class="v_label">StatusInformation</xforms:label>
+								</xforms:textarea>
+							</xforms:group>
+							<xforms:group
+								appearance="tabpage"
+								id="tabpage2"
+								wcpforms:layout="free"
+								wcpforms:class="simplecontainer"
+								wcpforms:labelalign="ontop">
+								<xforms:label>Trigger definition</xforms:label>
+								<xforms:textarea
+									id="txtTriggerDefinition"
+									ref="TriggerDefinition"
+									wcpforms:textalign="left_align"
+									wcpforms:dataType="string"
+									doEBIValidate="false"
+									wcpforms:class="f_layout"
+									wcpforms:size="478 238"
+									wcpforms:anchors="5px 5px 5px 5px"
+									wcpforms:position="5 5">
+									<xforms:label
+										wcpforms:class="v_label">Trigger Definition</xforms:label>
+								</xforms:textarea>
+							</xforms:group>
+						</xforms:group>
+					</xforms:group>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[function Form_InitDone(eventObject)
+{
+    handleInitDone(eventObject);
+}
+
+function button2_Click(eventObject)
+{
+    searchContextContainers();
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+		</xformhtml>
+	</content>
+</caf>

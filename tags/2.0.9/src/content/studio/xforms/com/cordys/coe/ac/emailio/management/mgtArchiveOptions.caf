@@ -1,0 +1,840 @@
+
+<caf>
+	<documentProperties>
+		<name>mgtArchiveOptions</name>
+		<description>Archive containers</description>
+		<caption/>
+		<mimeType>caf</mimeType>
+		<notes/>
+		<version>vcmdemo10</version>
+		<revision/>
+		<createdBy></createdBy>
+		<creationDate></creationDate>
+		<lastModifiedBy></lastModifiedBy>
+		<lastModificationDate></lastModificationDate>
+		<customProperties>
+			<published></published>
+			<publishDate></publishDate>
+			<publishUser></publishUser>
+			<publishPath>/cordys/com/cordys/coe/ac/emailio/management/mgtArchiveOptions.caf</publishPath>
+		</customProperties>
+	</documentProperties>
+	<content>
+		<xformhtml
+			xformsversion="1"
+			key="/mgtArchiveOptions_vcmdemo10.caf"
+			focusatstartup="true"
+			wcpforms:vcmVersion="vcmdemo10"
+			xmlns="http://schemas.cordys.com/1.0/xform"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xmlns:eibus="http://schemas.cordys.com/wcp/webframework">
+			<xhead>
+				<style
+					src="/cordys/coe/emailioconnector/css/iec.css"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/debugusers.js"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/coelib.js"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/mgtArchiveOptions.js"
+				/>
+				<xforms:model
+					associatedmodel=""
+					id="mdlDatabase"
+					instanceSchema="false"
+					isApplyAccessControl="false"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					promptToSave="false"
+					singleTransaction="false"
+					wcpforms:automatic="true"
+					wcpforms:businessElement="component"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						wcpforms:timeout="30000"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					/>
+					<wcpforms:instanceschema/>
+				</xforms:model>
+				<xforms:model
+					associatedmodel=""
+					id="mdlCustom"
+					isApplyAccessControl="false"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					promptToSave="false"
+					singleTransaction="false"
+					wcpforms:automatic="true"
+					wcpforms:businessElement="parameter"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						wcpforms:timeout="30000"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					/>
+					<wcpforms:instanceschema/>
+				</xforms:model>
+				<xml
+					xmlns="">
+					<xml
+						id="xmlBaseComponent">
+						<dbconfig
+							xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+							<component
+								name="ArchivePool">
+								<server/>
+								<userName/>
+								<password/>
+								<defaultDatabase/>
+								<operatingsystem>windows</operatingsystem>
+								<maximumReadConnections>3</maximumReadConnections>
+								<maximumWriteConnections>7</maximumWriteConnections>
+								<queryCacheSize>50</queryCacheSize>
+								<queryCacheRefreshInterval>3600</queryCacheRefreshInterval>
+								<cursorCacheSize>50</cursorCacheSize>
+								<cursorCacheRefreshInterval>3600</cursorCacheRefreshInterval>
+								<driverName>OLEDB</driverName>
+								<provider>SQLOLEDB</provider>
+								<xmlEncoding>false</xmlEncoding>
+								<multibyte>false</multibyte>
+								<auditInfo/>
+							</component>
+						</dbconfig>
+					</xml>
+					<xml
+						id="xmlArchiveRequest">
+						<SOAP:Envelope
+							xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+							<SOAP:Body>
+								<ArchiveContainers
+									xmlns="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic">
+									<search>
+										<EmailBoxID/>
+										<FromCreateDate/>
+										<ToCreateDate/>
+										<FromCompleteDate/>
+										<ToCompleteDate/>
+										<FromStatusChangeDate/>
+										<ToStatusChangeDate/>
+										<Status/>
+									</search>
+									<archiver/>
+								</ArchiveContainers>
+							</SOAP:Body>
+						</SOAP:Envelope>
+					</xml>
+				</xml>
+			</xhead>
+			<xbody>
+				<xforms:group
+					wcpforms:layout="free"
+					id="xbody_group"
+					wcpforms:labelalign="ontop">
+					<xforms:group
+						appearance="box"
+						id="grpArchiveOptions"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 780"
+						wcpforms:anchors="5px 5px 5px null"
+						wcpforms:position="5 5"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">Enter the archive options</xforms:label>
+						<xforms:input
+							id="txtEmailBoxID"
+							ref="EmailBoxID"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="140 null">Email box ID</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtFromcreatedate"
+							ref="FromCreateDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 24">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="140 null">Create date from</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtTocreatedate"
+							ref="ToCreateDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="394 24">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Create date to</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtFromcompletedate"
+							ref="FromCompleteDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 43">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="140 null">Complete date from</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtTocompletedate"
+							ref="ToCompleteDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="394 43">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Complete date to</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtFromstatuschangedate"
+							ref="FromStatusChangeDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="360 null"
+							wcpforms:position="5 62">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="140 null">Status change date from</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="txtTostatuschangedate"
+							ref="ToStatusChangeDate"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="dateTime"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="394 62">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="110 null">Status change date to</xforms:label>
+						</xforms:input>
+						<xforms:label
+							id="text1"
+							wcpforms:class="f_layout"
+							wcpforms:size="130 20"
+							wcpforms:position="4 81">Include statusses</xforms:label>
+						<xforms:select1
+							appearance="check"
+							id="txtCompleted"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="112 null"
+							wcpforms:position="145 81">
+							<xforms:label>Completed</xforms:label>
+							<xforms:item>
+								<xforms:label>true</xforms:label>
+								<xforms:value>true</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>false</xforms:label>
+								<xforms:value>false</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:select1
+							appearance="check"
+							id="txtActionError"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="112 null"
+							wcpforms:position="240 81">
+							<xforms:label>Action error</xforms:label>
+							<xforms:item>
+								<xforms:label>true</xforms:label>
+								<xforms:value>true</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>false</xforms:label>
+								<xforms:value>false</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:select1
+							appearance="check"
+							id="txtMessageError"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="112 null"
+							wcpforms:position="339 81">
+							<xforms:label>Message error</xforms:label>
+							<xforms:item>
+								<xforms:label>true</xforms:label>
+								<xforms:value>true</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>false</xforms:label>
+								<xforms:value>false</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:select1
+							id="txtArchivingOption"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:dataType="string"
+							wcpforms:textalign="left_align"
+							wcpforms:class="f_layout"
+							wcpforms:size="460 null"
+							wcpforms:position="5 100">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="140 null">Choose archiving method</xforms:label>
+							<xforms:item
+								xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+								<xforms:label>File based</xforms:label>
+								<xforms:value>com.cordys.coe.ac.emailio.archive.FileArchiver</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>Database</xforms:label>
+								<xforms:value>com.cordys.coe.ac.emailio.archive.DatabaseArchiver</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>Custom</xforms:label>
+								<xforms:value/>
+							</xforms:item>
+							<xforms:action
+								ev:event="xforms-value-changed">
+								<xforms:txtArchivingOption_Change/>
+							</xforms:action>
+						</xforms:select1>
+						<xforms:group
+							id="group3"
+							wcpforms:layout="vertical"
+							wcpforms:class="f_layout"
+							wcpforms:size="1033 604"
+							wcpforms:anchors="5px 120px 5px null"
+							wcpforms:position="5 120"
+							wcpforms:labelalign="ontop">
+							<xforms:group
+								appearance="box"
+								id="gbFileArchiving"
+								wcpforms:layout="free"
+								wcpforms:class="v_layout_i"
+								wcpforms:size="1010 70"
+								wcpforms:labelalign="left">
+								<xforms:label
+									wcpforms:class="groupheader">File based archiving options</xforms:label>
+								<xforms:input
+									id="txtFBLocation"
+									doEBIValidate="false"
+									wcpforms:class="f_layout"
+									wcpforms:size="560 null"
+									wcpforms:position="5 23">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="170 null">Location where to write the files</xforms:label>
+								</xforms:input>
+								<xforms:select1
+									id="txtZipMethod"
+									doEBIValidate="false"
+									initializeValueSets="0"
+									wcpforms:enumerated="false"
+									multiple="false"
+									wcpforms:dataType="string"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="400 null"
+									wcpforms:position="5 5"
+									xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="170 null">Zip level to use:</xforms:label>
+									<xforms:item
+										xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+										<xforms:label>Default Compression</xforms:label>
+										<xforms:value>-1</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>1 - Best speed</xforms:label>
+										<xforms:value>1</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>2</xforms:label>
+										<xforms:value>2</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>3</xforms:label>
+										<xforms:value>3</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>4</xforms:label>
+										<xforms:value>4</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>5 - Medium compression</xforms:label>
+										<xforms:value>5</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>6</xforms:label>
+										<xforms:value>6</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>7</xforms:label>
+										<xforms:value>7</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>8</xforms:label>
+										<xforms:value>8</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>9 - Best compression</xforms:label>
+										<xforms:value>9</xforms:value>
+									</xforms:item>
+								</xforms:select1>
+							</xforms:group>
+							<xforms:group
+								appearance="box"
+								id="gbDatabaseArchiver"
+								ref="component"
+								wcpforms:textalign="left_align"
+								model="mdlDatabase"
+								wcpforms:layout="free"
+								wcpforms:class="v_layout_i"
+								wcpforms:size="1010 250"
+								wcpforms:labelalign="left">
+								<xforms:label
+									wcpforms:class="groupheader">Database archiving</xforms:label>
+								<xforms:input
+									doEBIValidate="false"
+									id="txtDBServer"
+									ref="server"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="290 null"
+									wcpforms:position="5 10">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">Server name</xforms:label>
+								</xforms:input>
+								<xforms:input
+									doEBIValidate="false"
+									id="txtDBUsername"
+									ref="userName"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="290 null"
+									wcpforms:position="5 30">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">DB Username</xforms:label>
+								</xforms:input>
+								<xforms:secret
+									doEBIValidate="false"
+									id="txtDBPassword"
+									ref="password"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="290 null"
+									wcpforms:position="5 50">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">DB Password</xforms:label>
+								</xforms:secret>
+								<xforms:input
+									doEBIValidate="false"
+									id="txtDefaultDB"
+									ref="defaultDatabase"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="290 null"
+									wcpforms:position="5 69">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">Default DB</xforms:label>
+								</xforms:input>
+								<xforms:select1
+									doEBIValidate="false"
+									id="input_10"
+									initializeValueSets="0"
+									multiple="false"
+									ref="operatingsystem"
+									wcpforms:dataType="string"
+									wcpforms:enumerated="false"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="688 null"
+									wcpforms:anchors="310px 50px 10px null"
+									wcpforms:position="310 50">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">Operating system</xforms:label>
+									<xforms:item
+										xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+										<xforms:label>Windows</xforms:label>
+										<xforms:value>windows</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>Linux</xforms:label>
+										<xforms:value>linux</xforms:value>
+									</xforms:item>
+								</xforms:select1>
+								<xforms:input
+									doEBIValidate="false"
+									id="txtDriverName"
+									ref="driverName"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="689 null"
+									wcpforms:anchors="310px 9px 9px null"
+									wcpforms:position="310 9">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">Driver name</xforms:label>
+								</xforms:input>
+								<xforms:input
+									doEBIValidate="false"
+									id="txtProvider"
+									ref="provider"
+									wcpforms:textalign="left_align"
+									wcpforms:class="f_layout"
+									wcpforms:size="689 null"
+									wcpforms:anchors="310px 29px 9px null"
+									wcpforms:position="310 29"
+									xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="110 null">Provider</xforms:label>
+								</xforms:input>
+								<xforms:group
+									appearance="box"
+									id="groupbox2"
+									wcpforms:collapsible="true"
+									wcpforms:expanded="false"
+									wcpforms:layout="free"
+									wcpforms:class="f_layout"
+									wcpforms:size="989 120"
+									wcpforms:anchors="9px 99px 10px null"
+									wcpforms:position="9 99"
+									wcpforms:labelalign="left">
+									<xforms:label
+										wcpforms:class="groupheader expand">Details</xforms:label>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtMaximumReadConnections"
+										ref="maximumReadConnections"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="320 null"
+										wcpforms:position="10 10">
+										<xforms:label
+											wcpforms:class="h_label left_align"
+											wcpforms:size="180 null">Maximum read connections</xforms:label>
+									</xforms:input>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtMaximumWriteConnections"
+										ref="maximumWriteConnections"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="320 null"
+										wcpforms:position="10 29"
+										xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+										<xforms:label
+											wcpforms:class="h_label left_align"
+											wcpforms:size="180 null">Maximum write connections</xforms:label>
+									</xforms:input>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtQueryCacheRefreshInterval"
+										ref="queryCacheRefreshInterval"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="320 null"
+										wcpforms:position="10 67"
+										xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+										<xforms:label
+											wcpforms:class="h_label left_align"
+											wcpforms:size="180 null">Query cache refresh interval</xforms:label>
+									</xforms:input>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtQueryCacheSize"
+										ref="queryCacheSize"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="320 null"
+										wcpforms:position="10 48"
+										xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+										<xforms:label
+											wcpforms:class="h_label left_align"
+											wcpforms:size="180 null">Query cache size</xforms:label>
+									</xforms:input>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtCursorCacheSize"
+										ref="cursorCacheSize"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="320 null"
+										wcpforms:position="339 9"
+										xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+										<xforms:label
+											wcpforms:class="h_label left_align"
+											wcpforms:size="180 null">Cursor cache size</xforms:label>
+									</xforms:input>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtCursorCacheRefreshInterval"
+										ref="cursorCacheRefreshInterval"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="320 null"
+										wcpforms:position="339 29"
+										xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+										<xforms:label
+											wcpforms:class="h_label left_align"
+											wcpforms:size="180 null">Cursor cache refresh interval</xforms:label>
+									</xforms:input>
+									<xforms:select1
+										appearance="check"
+										doEBIValidate="false"
+										id="check_4"
+										ref="xmEncoding"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="457 null"
+										wcpforms:anchors="520px 50px 10px null"
+										wcpforms:position="520 50">
+										<xforms:label>XML encoding</xforms:label>
+										<xforms:item>
+											<xforms:label>true</xforms:label>
+											<xforms:value>true</xforms:value>
+										</xforms:item>
+										<xforms:item>
+											<xforms:label>false</xforms:label>
+											<xforms:value>false</xforms:value>
+										</xforms:item>
+									</xforms:select1>
+									<xforms:select1
+										appearance="check"
+										doEBIValidate="false"
+										id="check4"
+										ref="multibyte"
+										wcpforms:textalign="left_align"
+										wcpforms:class="f_layout"
+										wcpforms:size="457 null"
+										wcpforms:anchors="520px 70px 10px null"
+										wcpforms:position="520 70">
+										<xforms:label>Multibyte</xforms:label>
+										<xforms:item>
+											<xforms:label>true</xforms:label>
+											<xforms:value>true</xforms:value>
+										</xforms:item>
+										<xforms:item>
+											<xforms:label>false</xforms:label>
+											<xforms:value>false</xforms:value>
+										</xforms:item>
+									</xforms:select1>
+								</xforms:group>
+								<xforms:select1
+									appearance="check"
+									doEBIValidate="false"
+									id="cCompressData"
+									wcpforms:class="f_layout"
+									wcpforms:size="144 null"
+									wcpforms:position="420 70">
+									<xforms:label>Compress data</xforms:label>
+									<xforms:item>
+										<xforms:label>true</xforms:label>
+										<xforms:value>true</xforms:value>
+									</xforms:item>
+									<xforms:item>
+										<xforms:label>false</xforms:label>
+										<xforms:value>false</xforms:value>
+									</xforms:item>
+								</xforms:select1>
+							</xforms:group>
+							<xforms:group
+								appearance="box"
+								id="gbCustomArchiver"
+								wcpforms:layout="free"
+								wcpforms:class="v_layout_i"
+								wcpforms:size="1010 210"
+								wcpforms:labelalign="left">
+								<xforms:label
+									wcpforms:class="groupheader">Custom archiver</xforms:label>
+								<xforms:input
+									doEBIValidate="false"
+									id="txtSPCustomClass"
+									wcpforms:class="f_layout"
+									wcpforms:size="988 null"
+									wcpforms:anchors="10px 10px 10px null"
+									wcpforms:position="10 10">
+									<xforms:label
+										wcpforms:class="h_label left_align"
+										wcpforms:size="90 null">Class name</xforms:label>
+								</xforms:input>
+								<xforms:repeat
+									fixedWidth="true"
+									id="tblCustomParams"
+									model="mdlCustom"
+									nodeset="parameter"
+									synchronizedDialogFrame="main"
+									wcpforms:displayContextMenu="true"
+									wcpforms:saveState="false"
+									wcpforms:textalign="left_align"
+									wcpforms:toggleColumns="true"
+									wcpforms:gridtype="datagrid"
+									wcpforms:checkboxes="true"
+									wcpforms:layout="table"
+									wcpforms:class="f_layout"
+									wcpforms:size="988 153"
+									wcpforms:anchors="10px 30px 10px 5px"
+									wcpforms:position="10 30">
+									<xforms:group
+										appearance="elementbar"
+										id="_elementBar">
+										<xforms:group
+											appearance="controlbar"
+											id="_controlBar"
+											wcpforms:class="controlbar">
+											<xforms:trigger
+												id="navInsert1"
+												standardid="navInsert">
+												<xforms:label>
+													<img
+														src="/cordys/wcp/icons/action/add_eb.gif"
+														xmlns=""
+													/>
+												</xforms:label>
+												<xforms:hint>Insert</xforms:hint>
+											</xforms:trigger>
+											<xforms:trigger
+												id="navDelete1"
+												standardid="navDelete">
+												<xforms:label>
+													<img
+														src="/cordys/wcp/icons/action/delete_eb.gif"
+														xmlns=""
+													/>
+												</xforms:label>
+												<xforms:hint>Delete</xforms:hint>
+											</xforms:trigger>
+										</xforms:group>
+									</xforms:group>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtName"
+										ref="name"
+										wcpforms:textalign="left_align"
+										wcpforms:size="100 null">
+										<xforms:label>Name</xforms:label>
+									</xforms:input>
+									<xforms:select1
+										doEBIValidate="false"
+										id="cbType"
+										initializeValueSets="0"
+										multiple="false"
+										ref="type"
+										wcpforms:enumerated="false"
+										wcpforms:size="100 null">
+										<xforms:label>Type</xforms:label>
+										<xforms:item
+											xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+											<xforms:label>String</xforms:label>
+											<xforms:value>string</xforms:value>
+										</xforms:item>
+										<xforms:item>
+											<xforms:label>XML</xforms:label>
+											<xforms:value>xml</xforms:value>
+										</xforms:item>
+									</xforms:select1>
+									<xforms:input
+										doEBIValidate="false"
+										id="txtValue"
+										ref="value"
+										wcpforms:textalign="left_align">
+										<xforms:label>Value</xforms:label>
+									</xforms:input>
+								</xforms:repeat>
+							</xforms:group>
+							<xforms:group
+								appearance="controlbox"
+								id="controlbox1"
+								controltype="button"
+								wcpforms:layout="horizontal"
+								wcpforms:class="v_layout_i"
+								wcpforms:align="left_align"
+								wcpforms:size="null 22">
+								<xforms:trigger
+									id="button1"
+									wcpforms:class="h_button"
+									wcpforms:size="140 22">
+									<xforms:label>Start archiving</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:button1_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+						</xforms:group>
+					</xforms:group>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[function Form_InitDone(eventObject)
+{
+    handleInitDone(eventObject);
+}
+
+function txtArchivingOption_Change(eventObject)
+{
+    handleArchivingOptionChange(eventObject);
+}
+
+function button1_Click(eventObject)
+{
+    doActualArchiving(eventObject);
+}
+function Form_BeforeClose(eventObject)
+{
+    closeForm();
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+			<xforms:action
+				ev:event="xforms-before-close">
+				<xforms:Form_BeforeClose/>
+			</xforms:action>
+		</xformhtml>
+	</content>
+</caf>

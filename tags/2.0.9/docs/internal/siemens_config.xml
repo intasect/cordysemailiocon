@@ -1,0 +1,373 @@
+<emailboxes xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <emailbox>
+    <name>SPE_customer_feedback</name>
+    <host>mucdeves01.skytec-ag.net</host>
+    <port>110</port>
+    <type>POP3</type>
+    <username>user01@mucdeves01</username>
+    <password>SkyTec00</password>
+    <pollinterval>360000</pollinterval>
+    <folders>
+      <folder>Inbox</folder>
+    </folders>
+  </emailbox>
+  <emailbox>
+    <name>XFDF_start</name>
+    <host>mucdeves01.skytec-ag.net</host>
+    <port>110</port>
+    <type>POP3</type>
+    <username>user02@mucdeves01</username>
+    <password>SkyTec00</password>
+    <pollinterval>120000</pollinterval>
+    <folders>
+      <folder>Inbox</folder>
+    </folders>
+    <actions>
+      <action id="siemens_error" type="SENDMAIL">
+        <sendmail>
+          <host>mucdeves01.skytec-ag.net</host>
+          <port>25</port>
+          <fromaddress>user01@mucdeves01.skytec-ag.net</fromaddress>
+          <toaddress>wise@mucdeves01.skytec-ag.net</toaddress>
+        </sendmail>
+      </action>
+      <action id="RTE_DONE" type="SENDMAIL">
+        <sendmail>
+          <host>mucdeves01.skytec-ag.net</host>
+          <port>25</port>
+          <fromaddress>user01@mucdeves01.skytec-ag.net</fromaddress>
+          <toaddress>wise@mucdeves01.skytec-ag.net</toaddress>
+        </sendmail>
+      </action>
+    </actions>
+    <triggers>
+      <trigger appliesTo="INBOX">
+        <name>RTE_XFDF_Attachments</name>
+        <description>This rule only processes emails with RTE .xfdx attachments.</description>
+        <combineemails>false</combineemails>
+        <rules>
+          <rule section="MULTIPART">
+            <pattern type="CUSTOM">
+              <value>com.cordys.coe.ac.emailio.custompatterns.ExecMessageGetter</value>
+              <custom>
+                <field>SentDate</field>
+              </custom>
+              <store>
+                <token>
+                  <name>SentDate</name>
+                  <value>string</value>
+                </token>
+              </store>
+            </pattern>
+            <pattern type="CUSTOM">
+              <value>com.cordys.coe.ac.emailio.custompatterns.SplitFromAddressPattern</value>
+              <store>
+                <token>
+                  <name>FromEmailAddress</name>
+                  <value>string</value>
+                </token>
+                <token>
+                  <name>FromDisplayName</name>
+                  <value>string</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+          <rule section="MULTIPART">
+            <pattern type="HEADER">
+              <name>Content-Disposition</name>
+              <value>attachment;\s+filename=".*xfdf"</value>
+            </pattern>
+            <pattern type="XPATH">
+              <value>//fields/field[@name="vstrProcessName"]/value[.="Return Time Extension"]</value>
+            </pattern>
+            <pattern type="XPATH">
+              <value>/xfdf</value>
+              <store>
+                <token>
+                  <name>MainData</name>
+                  <value>xml</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+        </rules>
+        <message>
+          <method>ExecuteProcess</method>
+          <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+          <user>cn=prompt.med,cn=organizational users,o=SiemensHC,cn=cordys,o=ww001.siemens.net</user>
+          <sync>true</sync>
+          <namespacemappings>
+            <namespacemapping>
+              <prefix>ns</prefix>
+              <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            </namespacemapping>
+            <namespacemapping>
+              <prefix>bpm</prefix>
+              <namespace>http://schemas.cordys.com/bpm/BPM_RTE_XForm_Start</namespace>
+            </namespacemapping>
+          </namespacemappings>
+          <input>
+            <type>definition</type>
+            <receiver>3.Business Process Models/SiemensHC/RTE/BPM_RTE_PDF_Start_SiemensHC1.0.bpm</receiver>
+            <message>
+              <BPM_XFDF_IN xmlns="http://schemas.cordys.com/bpm/BPM_RTE_PDF_Start" xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+                <xfdf xmlns:xml="http://www.w3.org/XML/1998/namespace" xml:space="preserve" xmlns="http://ns.adobe.com/xfdf/" />
+                <mail xmlns="http://schemas.cordys.com/bpm/BPM_RTE_PDF_Start">
+                  <emailAddress />
+                  <displayName />
+                  <sentDate />
+                </mail>
+              </BPM_XFDF_IN>
+            </message>
+            <source>RTE_XFDF_Attachments</source>
+          </input>
+          <mappings>
+            <mapping>
+              <source>.//xfdf</source>
+              <value operation="XML_REPLACE_WITH_TARGET_NS" src="MainData" />
+            </mapping>
+            <mapping>
+              <source>.//sentDate</source>
+              <value src="SentDate" />
+            </mapping>
+            <mapping>
+              <source>.//emailAddress</source>
+              <value src="FromEmailAddress" />
+            </mapping>
+            <mapping>
+              <source>.//displayName</source>
+              <value src="FromDisplayName" />
+            </mapping>
+          </mappings>
+        </message>
+        <events>
+          <event type="SUCCESS">
+            <actionref id="RTE_DONE" />
+          </event>
+          <event type="ERROR">
+            <actionref id="siemens_error" />
+          </event>
+        </events>
+      </trigger>
+      <trigger appliesTo="INBOX">
+        <name>SPE_XFDF_Attachments</name>
+        <description>This rule only processes emails with SPE .xfdx attachments.</description>
+        <combineemails>false</combineemails>
+        <rules>
+          <rule section="MULTIPART">
+            <pattern type="CUSTOM">
+              <value>com.cordys.coe.ac.emailio.custompatterns.ExecMessageGetter</value>
+              <custom>
+                <field>SentDate</field>
+              </custom>
+              <store>
+                <token>
+                  <name>SentDate</name>
+                  <value>string</value>
+                </token>
+              </store>
+            </pattern>
+            <pattern type="CUSTOM">
+              <value>com.cordys.coe.ac.emailio.custompatterns.SplitFromAddressPattern</value>
+              <store>
+                <token>
+                  <name>FromEmailAddress</name>
+                  <value>string</value>
+                </token>
+                <token>
+                  <name>FromDisplayName</name>
+                  <value>string</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+          <rule section="MULTIPART">
+            <pattern type="HEADER">
+              <name>Content-Disposition</name>
+              <value>[^;]*;\s+filename=".*xfdf"</value>
+            </pattern>
+            <pattern type="XPATH">
+              <value>//fields/field[@name="vstrProcessName"]/value[.="Spare Parts Escalation"]</value>
+            </pattern>
+            <pattern type="XPATH">
+              <value>/xfdf</value>
+              <store>
+                <token>
+                  <name>MainData</name>
+                  <value>xml</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+        </rules>
+        <message>
+          <method>ExecuteProcess</method>
+          <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+          <user>cn=prompt.med,cn=organizational users,o=SiemensHC,cn=cordys,o=ww001.siemens.net</user>
+          <sync>true</sync>
+          <namespacemappings>
+            <namespacemapping>
+              <prefix>ns</prefix>
+              <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            </namespacemapping>
+            <namespacemapping>
+              <prefix>bpm</prefix>
+              <namespace>http://schemas.cordys.com/bpm/BPM_SPE_XfdfStart</namespace>
+            </namespacemapping>
+          </namespacemappings>
+          <input>
+            <type>definition</type>
+            <receiver>3.Business Process Models/SiemensHC/SPE/BPM_SPE_XfdfStart_SiemensHC1.0.bpm</receiver>
+            <message>
+              <BPM_XFDF_IN xmlns="http://schemas.cordys.com/bpm/BPM_SPE_XfdfStart">
+                <xfdf xml:space="preserve" xmlns="http://ns.adobe.com/xfdf/" />
+                <mail xmlns="http://schemas.cordys.com/bpm/BPM_SPE_XfdfStart">
+                  <emailAddress />
+                  <displayName />
+                  <sentDate />
+                </mail>
+              </BPM_XFDF_IN>
+            </message>
+            <source>RTE_XFDF_Attachments</source>
+          </input>
+          <mappings>
+            <mapping>
+              <source>.//xfdf</source>
+              <value operation="XML_REPLACE_WITH_TARGET_NS" src="MainData" />
+            </mapping>
+            <mapping>
+              <source>.//sentDate</source>
+              <value src="SentDate" />
+            </mapping>
+            <mapping>
+              <source>.//emailAddress</source>
+              <value src="FromEmailAddress" />
+            </mapping>
+            <mapping>
+              <source>.//displayName</source>
+              <value src="FromDisplayName" />
+            </mapping>
+          </mappings>
+        </message>
+        <events>
+          <event type="ERROR">
+            <actionref id="siemens_error" />
+          </event>
+        </events>
+      </trigger>
+      <trigger appliesTo="INBOX">
+        <name>MOVE_ALL_UNMATCHED_MAILS</name>
+        <description>This rule moves all mails that do not match any trigger.</description>
+        <combineemails>false</combineemails>
+        <rules>
+          <rule section="SUBJECT">
+            <pattern type="CUSTOM">
+              <value>com.cordys.coe.ac.emailio.custompatterns.SplitFromAddressPattern</value>
+              <store>
+                <token>
+                  <name>FromEmailAddress</name>
+                  <value>string</value>
+                </token>
+                <token>
+                  <name>FromDisplayName</name>
+                  <value>string</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+        </rules>
+        <message>
+          <method>encode</method>
+          <namespace>http://schemas.cordys.com/siemens/javautils/1.0</namespace>
+          <user>cn=prompt.med,cn=organizational users,o=SiemensHC,cn=cordys,o=ww001.siemens.net</user>
+          <sync>true</sync>
+          <namespacemappings>
+            <namespacemapping>
+              <prefix>ns</prefix>
+              <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            </namespacemapping>
+            <namespacemapping>
+              <prefix>bpm</prefix>
+              <namespace>http://schemas.cordys.com/bpm/BPM_RTE_XForm_Start</namespace>
+            </namespacemapping>
+          </namespacemappings>
+          <input>
+            <stringParam1>definition</stringParam1>
+          </input>
+        </message>
+        <events>
+          <event type="SUCCESS">
+            <actionref id="siemens_error" />
+          </event>
+        </events>
+      </trigger>
+    </triggers>
+  </emailbox>
+  <emailbox>
+    <name>WISE_inbox</name>
+    <host>mucdeves01.skytec-ag.net</host>
+    <port>110</port>
+    <type>POP3</type>
+    <username>wise@mucdeves01</username>
+    <password>process</password>
+    <pollinterval>360000</pollinterval>
+    <folders>
+      <folder>Inbox</folder>
+    </folders>
+    <triggers>
+      <trigger appliesTo="INBOX">
+        <name>OnlyDotWiseAttachments</name>
+        <description>This rule only processes emails with .wise attachments.</description>
+        <combineemails>false</combineemails>
+        <rules>
+          <rule section="MULTIPART">
+            <pattern type="HEADER">
+              <name>Content-Disposition</name>
+              <value>attachment;\s+filename=".*wise"</value>
+            </pattern>
+            <pattern type="XPATH">
+              <value>//WiseMainData</value>
+              <store>
+                <token>
+                  <name>MainData</name>
+                  <value>xml</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+        </rules>
+        <message>
+          <method>ExecuteProcess</method>
+          <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+          <user>cn=prompt.med,cn=organizational users,o=SiemensHC,cn=cordys,o=ww001.siemens.net</user>
+          <sync>true</sync>
+          <namespacemappings>
+            <namespacemapping>
+              <prefix>ns</prefix>
+              <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+            </namespacemapping>
+            <namespacemapping>
+              <prefix>bpm</prefix>
+              <namespace>http://schemas.cordys.com/bpm/BPM_WISE</namespace>
+            </namespacemapping>
+          </namespacemappings>
+          <input>
+            <type>definition</type>
+            <receiver>3.Business Process Models/SiemensHC/WISE/BPM_WISE_SiemensHC1.0.bpm</receiver>
+            <message>
+              <WiseMainData xmlns="http://schemas.cordys.com/bpm/BPM_WISE" />
+            </message>
+            <source>OnlyDotWiseAttachments2</source>
+          </input>
+          <mappings>
+            <mapping>
+              <source>.//bpm:WiseMainData</source>
+              <value operation="XML_REPLACE_WITH_TARGET_NS" src="MainData" />
+            </mapping>
+          </mappings>
+        </message>
+      </trigger>
+    </triggers>
+  </emailbox>
+</emailboxes>
