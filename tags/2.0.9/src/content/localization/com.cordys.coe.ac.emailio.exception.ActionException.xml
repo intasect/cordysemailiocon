@@ -1,0 +1,27 @@
+
+<MessageBundle id="com.cordys.coe.ac.emailio.exception.ActionException">
+    <Message id="AE_ERROR_SENDING_THE_SOAP_REQUEST">
+        <MessageText><![CDATA[Error sending the soap request.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="AE_ERROR_SEND_MAIL_ACTION">
+        <MessageText><![CDATA[Error sending the mail action]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="AE_ERROR_EXECUTING_CUSTOMACTION">
+        <MessageText><![CDATA[Error executing CustomAction]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

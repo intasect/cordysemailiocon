@@ -1,0 +1,39 @@
+<!--
+	This buildfile should be used to customize the default behavior of the build tasks.
+	All targets can be overridden in this file.
+-->
+<project default="all">
+	<!--
+		This target gets the database from the DB server.
+	-->
+	<target name="dumpdb" description="Get the database from a specific server.">
+		<sqldump>
+			<database srcType="sqlserver" destType="sqlserver" destfile="${src.content.dbschema}/${db.script.name}" user="${db.user}" password="${db.password}" connectionstring="jdbc:odbc:Driver={SQL Server};Server=${db.server};Database=${db.name}">
+
+			</database>
+		</sqldump>
+	</target>
+
+	<!--Target for deploying web resources to the Cordys web folder-->
+	<target name="tocordys-web" description="Copies web resources to the Cordys web folder">
+		<check-cordys-operation contenttype="web" operation="tocordys" />
+		<copy todir="${cordys.home}/Web/${project.web.name}">
+			<fileset dir="${src.web}">
+				<patternset refid="all.non.cvs.files" />
+				<patternset refid="all.non.vss.files" />
+				<patternset refid="all.non.svn.files" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- ================================= 
+          target: tocordys-libs              
+         ================================= -->
+	<target name="tocordys-libs" description="Copies all jars to the cordys server">
+		<copy todir="${cordys.home}${project.deploy}/lib">
+			<fileset dir="${lib.dir}">
+				<include name="*.jar" />
+			</fileset>
+		</copy>
+	</target>
+</project>

@@ -1,0 +1,20 @@
+<emailboxes xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+  <emailbox>
+    <name>SPE_customer_feedback</name>
+    <host>mucdeves01.skytec-ag.net</host>
+    <port>110</port>
+    <type>POP3</type>
+    <username>user01@mucdeves01</username>
+    <password>SkyTec00</password>
+    <pollinterval>360000</pollinterval>
+    <folders>
+      <folder>Inbox</folder>
+    </folders>
+    <triggerstore>
+      <storeclass>com.cordys.coe.ac.emailio.config.trigger.FileTriggerStore</storeclass>
+      <params>
+        <param name="storage.basedirectory">C:\Users\gottmann\Desktop\TriggerStores</param>
+      </params>
+    </triggerstore>
+  </emailbox>
+</emailboxes>

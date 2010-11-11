@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<role
+	name="everyoneInCordys EmailIOConnector 2.0"
+	description="everyoneInCordys EmailIOConnector 2.0">
+	<acl
+		name="Custom-everyoneInCordys EmailIOConnector 2.0"
+		description=""
+		acl="cn=everyoneInCordys EmailIOConnector 2.0,cn=organizational roles,o=EmailIO2_0,cn=cordys,o=vanenburg.com"
+		organizationalobject=""
+		service="">
+		<acobjecttree>
+			<object>
+				<object
+					id="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic"
+					acl="open"
+				/>
+				<object
+					id="http://emailioconnector.coe.cordys.com/2.0/outbound"
+					acl="open"
+				/>
+			</object>
+		</acobjecttree>
+	</acl>
+</role>

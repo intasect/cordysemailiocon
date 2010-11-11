@@ -1,0 +1,489 @@
+
+<caf>
+	<documentProperties>
+		<name>mgtSearchMailboxes</name>
+		<description>Search mailboxes</description>
+		<caption/>
+		<mimeType>caf</mimeType>
+		<notes/>
+		<version>vcmdemo10</version>
+		<revision/>
+		<createdBy></createdBy>
+		<creationDate></creationDate>
+		<lastModifiedBy></lastModifiedBy>
+		<lastModificationDate></lastModificationDate>
+		<customProperties>
+			<published></published>
+			<publishDate></publishDate>
+			<publishUser></publishUser>
+			<publishPath>/cordys/com/cordys/coe/ac/emailio/management/mgtSearchMailboxes.caf</publishPath>
+		</customProperties>
+	</documentProperties>
+	<content>
+		<xformhtml
+			xformsversion="1"
+			key="/mgtSearchMailboxes_vcmdemo10.caf"
+			focusatstartup="true"
+			wcpforms:vcmVersion="vcmdemo10"
+			xmlns:eibus="http://schemas.cordys.com/wcp/webframework"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns="http://schemas.cordys.com/1.0/xform">
+			<xhead>
+				<script
+					src="/cordys/coe/emailioconnector/js/debugusers.js"
+					xmlns=""
+				/>
+				<script
+					src="/cordys/coe/emailioconnector/js/mgtSearchMailboxes.js"
+					xmlns=""
+				/>
+				<style
+					src="/cordys/coe/emailioconnector/css/iec.css"
+					xmlns=""
+				/>
+				<xforms:model
+					id="mdlEmailBox"
+					wcpforms:businessElement="EmailBox"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false"
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+					<xforms:instance
+						wcpforms:iteratorSize="50"
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:dataset
+							src="http://emailioconnector.coe.cordys.com/2.0/objects/SearchEmailBoxes"
+							type="get">
+							<Name
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<Host
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<Type
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+							<Configuration
+								xmlns="http://emailioconnector.coe.cordys.com/2.0/objects"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://emailioconnector.coe.cordys.com/2.0/objects</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://emailioconnector.coe.cordys.com/2.0/objects</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xml
+					xmlns="">
+					<xml
+						id="xmlSearchContainers">
+						<Application
+							display="visible"
+							focus="true"
+							menu="true"
+							taskbar="true"
+							title="true"
+							toolbar="false">
+							<description>Search Context Containers</description>
+							<caption>Search Context Containers</caption>
+							<id>_com_cordys_coe_ac_emailio_management_mgtSeachContainers_vcmdemo10.caf</id>
+							<icon>/cordys/cas/xforms/images/form.gif</icon>
+							<url>/cordys/com/cordys/coe/ac/emailio/management/mgtSearchContainers.caf</url>
+							<data>
+								<EmailBoxID/>
+							</data>
+							<frame
+								docked="true">main</frame>
+						</Application>
+					</xml>
+					<xml
+						id="xmlSearchTriggerDefinitions">
+						<Application
+							display="visible"
+							focus="true"
+							menu="true"
+							taskbar="true"
+							title="true"
+							toolbar="false">
+							<description>Search Trigger Definitions</description>
+							<caption>Search Trigger Definitions</caption>
+							<id>_com_cordys_coe_ac_emailio_management_mgtSeachTriggers_vcmdemo10.caf</id>
+							<icon>/cordys/cas/xforms/images/form.gif</icon>
+							<url>/cordys/com/cordys/coe/ac/emailio/management/mgtSearchTriggers.caf</url>
+							<data>
+								<EmailBoxID/>
+							</data>
+							<frame
+								docked="true">main</frame>
+						</Application>
+					</xml>
+				</xml>
+			</xhead>
+			<xbody>
+				<xforms:group
+					wcpforms:layout="free"
+					id="xbody_group"
+					wcpforms:labelalign="ontop">
+					<xforms:group
+						appearance="box"
+						id="Find_EmailBoxModelGroup"
+						wcpforms:collapsible="true"
+						wcpforms:expanded="true"
+						requestModel="mdlEmailBox"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 130"
+						wcpforms:anchors="5px 5px 5px null"
+						wcpforms:position="5 5"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader collapse">Search for email boxes</xforms:label>
+						<xforms:input
+							id="_name"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Name</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="host"
+							ref="Host"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="5 22">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Host</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="_type"
+							ref="Type"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="350 null"
+							wcpforms:position="5 39">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Type</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="configuration"
+							ref="Configuration"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="1032 null"
+							wcpforms:anchors="5px 56px 6px null"
+							wcpforms:position="5 56">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Configuration</xforms:label>
+						</xforms:input>
+						<xforms:group
+							appearance="controlbox"
+							id="controlbox1"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="right_align"
+							wcpforms:size="149 22"
+							wcpforms:anchors="5px null null 5px"
+							wcpforms:position="5 81">
+							<xforms:trigger
+								id="button1"
+								wcpforms:class="h_button"
+								wcpforms:size="145 18">
+								<xforms:label>Search Email Boxes</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:button1_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+					</xforms:group>
+					<xforms:repeat
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						id="tblEmailBoxes"
+						model="mdlEmailBox"
+						synchronizedDialogFrame="main"
+						fixedWidth="true"
+						wcpforms:gridtype="navgrid"
+						wcpforms:checkboxes="true"
+						wcpforms:layout="vertical"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 290"
+						wcpforms:anchors="5px 140px 5px null"
+						wcpforms:position="5 140">
+						<xforms:group
+							appearance="elementbar"
+							id="_elementBar">
+							<xforms:group
+								appearance="controlbar"
+								id="_controlBar"
+								wcpforms:class="controlbar">
+								<xforms:trigger
+									id="navRefresh1"
+									standardid="navRefresh">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/action/refresh_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Refresh</xforms:hint>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:group
+								appearance="paginationbar"
+								id="_paginationBar"
+								wcpforms:class="paginationbar">
+								<xforms:trigger
+									id="navFirst1"
+									standardid="navFirst">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/first_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>First</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navPrevious1"
+									standardid="navPrevious">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/previous_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Previous</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navNext1"
+									standardid="navNext">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/next_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Next</xforms:hint>
+								</xforms:trigger>
+								<xforms:trigger
+									id="navLast1"
+									standardid="navLast">
+									<xforms:label>
+										<img
+											src="/cordys/wcp/icons/pagination/last_eb.gif"
+											xmlns=""
+										/>
+									</xforms:label>
+									<xforms:hint>Last</xforms:hint>
+								</xforms:trigger>
+							</xforms:group>
+						</xforms:group>
+						<xforms:input
+							id="_name1"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:size="100 null">
+							<xforms:label>Name</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="host1"
+							ref="Host"
+							wcpforms:textalign="left_align"
+							wcpforms:size="100 null">
+							<xforms:label>Host</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="pollinterval"
+							ref="PollInterval"
+							wcpforms:textalign="right_align"
+							wcpforms:size="100 null">
+							<xforms:label>PollInterval</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="port"
+							ref="Port"
+							wcpforms:textalign="right_align"
+							wcpforms:size="100 null">
+							<xforms:label>Port</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="username"
+							ref="Username"
+							wcpforms:textalign="left_align"
+							wcpforms:size="100 null">
+							<xforms:label>Username</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="_type1"
+							ref="Type"
+							wcpforms:textalign="left_align"
+							wcpforms:size="100 null">
+							<xforms:label>Type</xforms:label>
+						</xforms:input>
+						<xforms:input
+							id="configuration1"
+							ref="Configuration"
+							wcpforms:textalign="left_align">
+							<xforms:label>Configuration</xforms:label>
+						</xforms:input>
+					</xforms:repeat>
+					<xforms:group
+						appearance="box"
+						id="EmailBoxGrid"
+						wcpforms:displayContextMenu="true"
+						wcpforms:toggleColumns="true"
+						wcpforms:saveState="false"
+						model="mdlEmailBox"
+						synchronizedDialogFrame="main"
+						wcpforms:layout="free"
+						wcpforms:class="f_layout"
+						wcpforms:size="1045 442"
+						wcpforms:anchors="5px 440px 5px 5px"
+						wcpforms:position="5 440"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">Details of the email box</xforms:label>
+						<xforms:output
+							id="_name2"
+							ref="Name"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="260 null"
+							wcpforms:position="5 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Name</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="host2"
+							ref="Host"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="260 null"
+							wcpforms:position="5 23">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Host</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="pollinterval1"
+							ref="PollInterval"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="int"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="260 null"
+							wcpforms:position="5 41">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">PollInterval</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="port1"
+							ref="Port"
+							wcpforms:textalign="right_align"
+							wcpforms:dataType="int"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="112 null"
+							wcpforms:position="270 23">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="30 null">Port</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="username1"
+							ref="Username"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="260 null"
+							wcpforms:position="5 59">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Username</xforms:label>
+						</xforms:output>
+						<xforms:output
+							id="_type2"
+							ref="Type"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="220 null"
+							wcpforms:position="270 5">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="30 null">Type</xforms:label>
+						</xforms:output>
+						<xforms:textarea
+							id="txtConfiguration"
+							ref="Configuration"
+							wcpforms:textalign="left_align"
+							wcpforms:dataType="string"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="1033 337"
+							wcpforms:anchors="5px 78px 5px 5px"
+							wcpforms:position="5 78">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="90 null">Configuration</xforms:label>
+						</xforms:textarea>
+					</xforms:group>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[function Form_InitDone(eventObject)
+{
+    handleInitDone(eventObject);
+}
+function button1_Click(eventObject)
+{
+    handleSearchEmailBoxes();
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+		</xformhtml>
+	</content>
+</caf>

@@ -1,0 +1,55 @@
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP:Body>
+        <RegisterTrigger xmlns="http://emailioconnector.coe.cordys.com/2.0/inbound/dynamic">
+            <emailbox>XFDF_start</emailbox>
+            <trigger appliesTo="INBOX">
+                <name>TestDynamic</name>
+                <description>This trigger is used to test the dynamic trigger persistence store.</description>
+                <combineemails>false</combineemails>
+                <rules>
+                    <rule section="SUBJECT">
+                        <pattern type="REGEX">
+                            <value>mtm: 1</value>
+                            <store>
+                                <token>
+                                    <name>Subject</name>
+                                    <value>0</value>
+                                </token>
+                            </store>
+                        </pattern>
+                    </rule>
+                </rules>
+                <message>
+                    <method>ExecuteProcess</method>
+                    <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+                    <user>cn=prompt.med,cn=organizational users,o=SiemensHC,cn=cordys,o=ww001.siemens.net</user>
+                    <sync>true</sync>
+                    <namespacemappings>
+                        <namespacemapping>
+                            <prefix>ns</prefix>
+                            <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+                        </namespacemapping>
+                        <namespacemapping>
+                            <prefix>bpm</prefix>
+                            <namespace>http://schemas.cordys.com/bpm/dummy</namespace>
+                        </namespacemapping>
+                    </namespacemappings>
+                    <input>
+                        <type>definition</type>
+                        <receiver>3.Business Process Models/SiemensHC/RTE/BPM_RTE_PDF_Start_SiemensHC1.0.bpm</receiver>
+                        <message>
+                            <Dummy xmlns="http://schemas.cordys.com/bpm/dummy"/>
+                        </message>
+                        <source>Dummy</source>
+                    </input>
+                    <mappings>
+                        <mapping>
+                            <source>.//bpm:Dummy</source>
+                            <value src="Subject"/>
+                        </mapping>
+                    </mappings>
+                </message>
+            </trigger>
+        </RegisterTrigger>
+    </SOAP:Body>
+</SOAP:Envelope>
