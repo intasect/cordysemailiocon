@@ -1,0 +1,8 @@
+<wsappserver-content>
+    <content file="${src.content.xas}/runtime/com.cordys.coe.ac.emailio.objects.cmx"
+             key="/Cordys/WS-AppServer/runtime/classregistry/com.cordys.coe.ac.emailio.objects.cmx"
+             name="com.cordys.coe.ac.emailio.objects.cmx"/>
+    <content file="${src.content.xas}/runtime/com.cordys.coe.ac.emailio.storage.db.cmx"
+             key="/Cordys/WS-AppServer/runtime/classregistry/com.cordys.coe.ac.emailio.storage.db.cmx"
+             name="com.cordys.coe.ac.emailio.storage.db.cmx"/>
+</wsappserver-content>

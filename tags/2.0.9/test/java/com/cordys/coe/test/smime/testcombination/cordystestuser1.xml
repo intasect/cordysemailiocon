@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emailboxes xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://emailioconnector.coe.cordys.com/2.0/configuration ../../../../../../../docs/external/configuration.xsd ">
+  <emailbox>
+    <name>cordystestuser1</name>
+    <host>srv-nl-ces70</host>
+    <port>110</port>
+    <ssl>false</ssl>
+    <username>cordystestuser1</username>
+    <password>cordystestuser1</password>
+    <type>POP3</type>
+    <pollinterval>30000</pollinterval>
+    <folders>
+      <folder>INBOX</folder>
+    </folders>
+    <triggers>
+      <trigger appliesTo="INBOX">
+        <name>RestartSOAPProcessor</name>
+        <description>Test message to reset a SOAP processor</description>
+        <combineemails>false</combineemails>
+        <rules>
+          <rule section="HEADER">
+            <pattern optional="false" type="HEADER">
+              <name>MySOAPProcessorDN</name>
+              <value>(.+)</value>
+              <store>
+                <token>
+                  <name>SoapProcessorDN</name>
+                  <value src="PATTERN">1</value>
+                </token>
+              </store>
+            </pattern>
+          </rule>
+          <rule section="MULTIPART">
+          	<pattern type="REGEX">
+          		<value>.+%DN%.+</value>
+          		<replacement>
+	                <token>
+	                  <name>%DN%</name>
+	                  <value src="STORAGE">SoapProcessorDN</value>
+	                </token>
+          		</replacement>
+          	</pattern>
+          </rule>
+        </rules>
+        <message>
+          <method>Reset</method>
+          <namespace>http://schemas.cordys.com/1.0/monitor</namespace>
+          <sync>true</sync>
+          <namespacemappings>
+            <namespacemapping>
+              <prefix>mon</prefix>
+              <namespace>http://schemas.cordys.com/1.0/monitor</namespace>
+            </namespacemapping>
+          </namespacemappings>
+          <input>
+            <mon:dn xmlns:mon="http://schemas.cordys.com/1.0/monitor" />
+          </input>
+          <mappings>
+            <mapping>
+              <source>//mon:dn</source>
+              <value operation="STRING_REPLACE" src="SoapProcessorDN" />
+            </mapping>
+          </mappings>
+        </message>
+      </trigger>
+    </triggers>
+  </emailbox>
+</emailboxes>

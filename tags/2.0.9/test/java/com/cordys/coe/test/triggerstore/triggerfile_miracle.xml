@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<triggerfile
+	xmlns="http://emailioconnector.coe.cordys.com/2.0/configuration">
+  <trigger appliesTo="INBOX" onetimeonly="true">
+    <name>DynamicTrigger ETA Feedback</name>
+    <description>DynamicTrigger for ETA Feedback Mails</description>
+    <combineemails>false</combineemails>
+    <rules>
+      <rule section="SUBJECT">
+        <pattern type="REGEX">
+          <value>ETA Feedback identifier:ezlERTg5ODZELTFBMjQtNEI0Ni04NEExLTZDMUUzNTg2MzU2Q30=\s+choice:(.+)</value>
+          <store>
+            <token>
+              <name>ETAChoice</name>
+              <value>1</value>
+            </token>
+          </store>
+        </pattern>
+      </rule>
+      <rule section="MULTIPART">
+        <pattern type="REGEX">
+      <value>(.+)--</value>
+          <store>
+            <token>
+              <name>ETAComment</name>
+              <value>1</value>
+            </token>
+          </store>
+        </pattern>
+      </rule>
+    </rules>
+    <message>
+      <method>ExecuteProcess</method>
+      <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+      <user>cn=SYSTEM,cn=organizational users,o=SiemensHC,cn=cordys,o=ww001.siemens.net</user>
+      <sync>true</sync>
+      <namespacemappings>
+        <namespacemapping>
+          <prefix>ns</prefix>
+          <namespace>http://schemas.cordys.com/bpm/execution/1.0</namespace>
+        </namespacemapping>
+        <namespacemapping>
+          <prefix>bpm</prefix>
+          <namespace>http://schemas.cordys.com/bpm/SendAndCheckEmail</namespace>
+        </namespacemapping>
+      </namespacemappings>
+      <input>
+        <type>instance</type>
+        <receiver>3.Business Process Models/SiemensHC/SPE/BPM_SPE_MainProcess_SiemensHC10.bpm</receiver>
+        <message intValue="4">
+          <ETAFeedbackIntermediate xmlns="http://schemas.cordys.com/bpm/SendAndCheckEmail">
+						<ETAChoice/>
+            <ETAComment/>
+          </ETAFeedbackIntermediate>
+        </message>
+      <source>DynamicTrigger ETA Feedback</source>
+      </input>
+      <mappings>
+        <mapping>
+          <source>.//bpm:ETAChoice</source>
+         <value src="ETAChoice" />
+        </mapping>
+        <mapping>
+          <source>.//bpm:ETAComment</source>
+          <value src="ETAComment" />
+        </mapping>
+      </mappings>
+    </message>
+  </trigger>
+</triggerfile>

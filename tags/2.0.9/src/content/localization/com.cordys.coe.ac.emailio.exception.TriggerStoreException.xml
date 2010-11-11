@@ -1,0 +1,83 @@
+
+<MessageBundle id="com.cordys.coe.ac.emailio.exception.TriggerStoreException">
+    <Message id="TSE_TRIGGER_STORE_CLASS_COULD_NOT_BE_FOUND">
+        <MessageText><![CDATA[Trigger store class could not be found: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="STETRIGGER_STORE_CLASS_COULD_NOT_BE_INSTANCIATED">
+        <MessageText><![CDATA[Trigger store class {0} could not be instanciated: {1}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TSE_SPECIFIED_CLASS_DOES_NOT_IMPLEMENT_ITRIGGERSTORE_0">
+        <MessageText><![CDATA[Specified class does not implement ITriggerStore: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TSE_NO_CONFIGURATION_NODE_WAS_SPECIFIED">
+        <MessageText><![CDATA[No configuration node was specified.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="TSE_NO_TRIGGER_STORE_CLASS_WAS_SPECIFIED">
+        <MessageText><![CDATA[No trigger store class was specified.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FTS_COULD_NOT_DESERIALIZE_TRIGGER">
+        <MessageText><![CDATA[Could not deserialize trigger: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FTS_DIRECTORY_NOT_VALID">
+        <MessageText><![CDATA[The working directory exists, but it isn't a directory or can't be written to: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FTS_EMPTY_STRINGS_FILENAME">
+        <MessageText><![CDATA[Empty strings can't be used as file names.]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FTS_COULD_NOT_DELETE_TRIGGER_FILE">
+        <MessageText><![CDATA[Could not delete trigger file: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+    <Message id="FTS_EXCEPTION_DURING_TRIGGER_SERIALIZATION">
+        <MessageText><![CDATA[Unsupported exception during trigger serialization: {0}]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>
