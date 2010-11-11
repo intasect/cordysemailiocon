@@ -1,7 +1,8 @@
-/**
- * Copyright 2005 Cordys R&D B.V. 
+
+ /**
+ * Copyright 2007 Cordys R&D B.V. 
  * 
- * This file is part of the Cordys SAP Connector. 
+ * This file is part of the Cordys Email IO Connector. 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package com.cordys.coe.test;
+package com.cordys.coe.test;
 
 import com.cordys.coe.util.xml.nom.XPathHelper;
 
