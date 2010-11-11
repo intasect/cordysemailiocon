@@ -1,0 +1,139 @@
+Version="2.0.9" (released 2010-11-11)
+- Moved Email IO connector source code base to opensource model. The project is hosted @ code.google and changes are made in build scripts, svn:exteranal to point to opensourced Build Framework binaries etc.
+
+Version="2.0.8"(released 2010-05-21)
+- Fix:  If the subject was empty and there was a rule defined for the subject that the mail could not be processed.
+- Fix:  In some cases the message 'failure in Node.setAttribute' was observed in the log files. These have been fixed.
+
+Version="2.0.7"(released 2010-04-08)
+- Add:  The details about the storage are now also exposed in the RuleContext under the variable sysXMLStorageDetails.
+        The XML structure looks like this:
+	<container xmlns="http://emailioconnector.coe.cordys.com/2.0/data">
+		<id>{9082AA4B-D77E-45B9-BD38-B908D3B23EE1}</id>
+		<emails>
+			<email>
+				<id>{86CD4560-B760-48D5-A58B-57CCA99DF7EF}</id>
+			</email>
+		</emails>
+	</container>
+	NOTE: this only applies to the DBStorage provider!!
+- Fix:  he flag 'Compress Data' on the DB Storage provider now works. Also there is a global option to override this: -Dcom.cordys.coe.ac.emailio.nocompression=false/true If 
+	this property is set the 'Compress Data' on the DBStorageProvider is ignored.
+
+Version="2.0.6"(released 2010-04-01)
+- Add:  Added tested support for POP3 connections using SSL.
+
+Version="2.0.5"(released 2009-10-14)
+- Add:  Added proper ACL to the roles to open up the methods based on the role.
+
+Version="2.0.4"(released 2009-10-13)
+- Change:  keymanagers/keymanager element is no longer mandatory.
+- Fix:     The value for the bypass smime was ignored. This is fixed.
+
+Version="2.0.3"(released 2009-07-27)
+- Fix:     Fixed a bug in the configuration.xsd.
+- Update:  By default now S/MIME is not enabled.
+- Fix:     Fixed a bug when BypassSMIME was enabled and no private key was found.
+
+Version="2.0.2"(released 2009-07-27)
+- Add:     Added S/MIME support to the inbound part as well. When the connector receives a mail that is encrypted it will decrypt the message and then continute processing. If it detecs a mail is signed it will verify the signature.
+- Fix:     Fixed a bug in the compatibility mode.
+
+Version="2.0.1"(released 2009-07-23)
+- Change:  Renamed the Connector from Inbound Email Connector to Email IO connector.
+- Add:     Added outbound capabilities to the connector. Now it's possible to send mails using this connector as well. Note: you can also attach the standard Cordys SendMail method to this connector.
+
+Version="1.1.10"(released 2009-06-08)
+- Update:  Changed all varchar fields to nvarchar.
+
+Version="1.1.9"(released 2009-05-11)
+- Add:     Added some additional logging for tracing and troubleshooting.
+
+Version="1.1.8"(released 2009-04-17)
+- Add:     Added a new custom pattern called StoreRawMailContent. This pattern can be used to get the original text of the mail into the pattern context. Example configuration: <pattern type="CUSTOM"> <value>com.cordys.coe.ac.emailio.custompatterns.StoreRawMailContent</value> <store> <token> <name>MyRawMail</name> <value>string</value> </token> </store> </pattern>
+
+Version="1.1.7"(released 2009-04-17)
+- Fix:     Did some change to the XSD to make sure the name of the mailbox cannot be over 50 characters and the the name of a trigger cannot be more then 200 characters. This is to be consistent with the DB schema.
+- Update:  When the from address, to address or subject of a mail is over 200 chars then they will be truncated instead of throwing exceptions.
+
+Version="1.1.6"(released 2009-04-16)
+- Fix:     If the configuration contained an invalid action reference there was no clear error message.
+- Add:     Added the feature to check the configuration XML against the XSD to be able to find problems in an earlier stage.
+
+Version="1.1.5"(released 2009-04-15)
+- Add:     There was a problem with the configuration XSD and the ExecMessageGetter. There is now a tag called 
+           <custom /> 
+           under which custom patterns need to put their custom variables. This means the configuration has to be changed.
+
+Version="1.1.4"(released 2009-04-15)
+- Fix:     The database scripts were not packaged properly.
+
+Version="1.1.3"(released 2009-04-09)
+- Fix:     The IEC did not support XPaths like string(......) or boolean(....). This has been corrected.
+
+Version="1.1.2"(released 2009-04-08)
+- Fix:     The XPathPattern did not obey the character encoding. It always assumed UTF-8 even though the encoding was declared differently in the XML. So instead of using the doc.parseString() method we switched to the doc.load() using the encoding within the XML.
+
+Version="1.1.1"(released 2009-04-06)
+- Change:  Completely abstracted the storage needs. This allows multiple storage providers to be implemented. The aim is to deliver a working File-based and DB-based storage provider.
+- Update:  If the connector cannot start up an email box it will now log which mailbox it cannot start.
+- Add:     Added a management UI to see what was going on within the connector. It is also the place to restart failed messages.
+- Add:     Added archiving to the connector. Now it's possible to archive messages which are older then a certain date or have a certain status. There are 2 archive implementations available: write everything to the file system or write all data to a seperate database. Note: the archiving only works when you use a database for storage.
+- Add:     The connector will not start up if a message is configured which can never be sent. This might happen because: 1. If the organization DN exists. 2. If the user DN exists. 3. If there is a SOAP node actaully implementing the given method. 4. If the Soap processor/node exists.
+
+Version="1.0.14"(released 2009-04-06)  
+- Fix:     The trigger.toXML did not include the actions. 
+- Add:     Added a priority tag to the trigger definition. This allows the user to control the sequence in which triggers are executed. 
+- Fix:     It was possible that even though there was a onetimeonly trigger that it was applied to 2 different emails if they were processed in the same polling cycle. This will not happen anymore. 
+ 
+Version="1.0.13"(released 2009-03-26) 
+- Update:  When the thread that polls the email box was interrupted it would log an error. This message is now logged as a warning. 
+ 
+
+Version="1.0.12"(released 2009-03-17) 
+- Fix:     If you used xml:space="preserve" somewhere in the emailbox configuration you couldn't save the configuration anymore. This has been fixed. 
+ 
+Version="1.0.11"(released 2009-03-10) 
+- Fix:     Made sure that a MIME part can also be handled properly. It is now handled the same way as a multipart. 
+ 
+Version="1.0.10"(released 2009-03-06) 
+- Add:     In case of an error SendMail action the exception details will be put in the body of the mail. 
+- Add:     Added support for data with is offered as a stream from the JavaMail API 
+ 
+Version="1.0.9"(released 2009-03-04) 
+- Add:     Added a pattern which will split the from address into a from email address and from display name and store it in the context. The name of the class is com.cordys.coe.ac.emailio.custompatterns.SplitFromAddressPattern and an example can be found in the docs/samples/std_custom_patterns.txt 
+- Add:     Added a pattern which will execute any getter method on the javax.mail.Message object and store it into the rule context. The name of the class is com.cordys.coe.ac.emailio.custompatterns.ExecMessageGetter and an example can be found in the docs/samples/std_custom_patterns.txt 
+ 
+Version="1.0.8"(released 2009-03-04) 
+- Fix:     Fixed a small bug in the SendSOAPAction with regard to organizational context.
+- Add:     Added functionality to cope with UnsupportedEncoding exceptions. When the mail has some part with an unsupported encoding the connector will remove the mail from the inbox, write it to the error folder and trigger the error actions defined on the trigger. 
+ 
+Version="1.0.7"(released 2008-12-10) 
+- Add:     Updated the local FileTriggerStore 
+- Change:  Some cosmetic changes (logging, small code refactoring) 
+ 
+Version="1.0.6"(released 2008-12-10) 
+- Fix:     The GetConfiguration method did not return the name of the emailbox in the XML structure. 
+- Add:     Added the source to the distribution 
+- Change:  It's not mandatory anymore for an emailbox to have static trigger definitions. 
+- Add:     Added the triggerstore concept to be able to persist the dymanic triggers. For now no implementation is packaged, but the framework is there. 
+ 
+Version="1.0.5"(released 2008-11-03) 
+- Add:     Added OK and ERROR events to the processing. You can have 1 of these 3 actions executed when either a mail was processed successfully or not: 1. Forward the mail to an emailbox 2. Send a SOAP call 3. Write a custom action 
+- Add:     Added a new folder: errorfolder. Mails that are in this folder meet 1 of the following criteria: 1. The email is currently being processed. 2. The Soap Call has failed and there are no error actions defined. 3. The Soap Call has failed and none of the error actions was executed successfully. 
+ 
+Version="1.0.4"(released 2008-10-30) 
+- Add:     Added support for streamed content. 
+- Add:     Added different options to the mappings. Also added the option to build custom mappings 
+- Add:     Added support for optional patterns 
+ 
+Version="1.0.3"(released 2008-10-27) 
+- Fix:     Fixed the configuration XSD and the sample XMLs so that they properly validate. 
+- Fix:     Fixed some packaging issues 
+- Add:     Added a Demo flow for the dynamic triggers 
+ 
+Version="1.0.2"(released 2008-10-24) 
+- Update:  Upgraded connector to C3 
+- Update:  Updated coelib to version 1.1.6 
+
+
