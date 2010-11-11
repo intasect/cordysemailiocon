@@ -14,12 +14,8 @@
     <body>
         <release description="Development release" version="@NEXT@">
 				</release>
-				<release date="2010-11-10" description="Migration release" version="2.0.11">
-        <action dev="srkrishnan" type="migration">Moved EmailIO connector source code base to opensource model.</action>
-	</release>
-<release date="2010-11-10" description="Development release" version="2.0.10">
-				</release>
-<release date="2010-11-10" description="Development release" version="2.0.9">
+<release date="2010-11-11" description="Development release" version="2.0.9">
+<action dev="srkrishnan" type="migration">Moved EmailIO connector source code base to opensource model.</action>
 				</release>
 <release date="2010-05-21" description="Development release" version="2.0.8">
             <action dev="pgussow" type="fix">If the subject was empty and there was a rule defined for the subject that the mail could not be processed.</action>
