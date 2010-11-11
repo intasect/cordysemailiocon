@@ -1,6 +1,0 @@
-<methodsets>
-    <methodset file="${src.content.methodsets}/Method Set EmailIO Configuration.xml"/>
-    <methodset file="${src.content.methodsets}/Method Set EmailIO Inbound.xml"/>
-    <methodset file="${src.content.methodsets}/Method Set EmailIO Objects.xml"/>
-    <methodset file="${src.content.methodsets}/Method Set EmailIO Outbound.xml"/>
-</methodsets>
