@@ -1,4 +1,4 @@
-.cordys.coe.ac.emailio.tools;
+package com.cordys.coe.ac.emailio.tools;
 
 import java.io.File;
 import java.io.FilenameFilter;

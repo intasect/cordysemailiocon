@@ -1,27 +1,26 @@
-
-
- /**
- * Copyright 2007 Cordys R&D B.V. 
- * 
- * This file is part of the Cordys Email IO Connector. 
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+/**
+* Copyright 2007 Cordys R&D B.V.
+*
+* This file is part of the Cordys Email IO Connector.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.cordys.coe.ac.emailio.connection;
 
 import com.cordys.coe.ac.emailio.config.IEmailBox;
 import com.cordys.coe.ac.emailio.exception.EmailConnectionException;
 import com.cordys.coe.ac.emailio.localization.EmailConnectionExceptionMessages;
+import com.cordys.coe.ac.emailio.localization.LogMessages;
 import com.cordys.coe.ac.emailio.util.MailMessageUtil;
 
 import com.eibus.util.logger.CordysLogger;
@@ -40,6 +39,7 @@ import javax.mail.MethodNotSupportedException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
+import javax.mail.StoreClosedException;
 
 /**
  * This class holds the base functionality for the email connections.
@@ -58,8 +58,8 @@ abstract class BaseEmailConnection
      */
     private ArrayList<String> m_alMonitorFolders = new ArrayList<String>();
     /**
-     * Whether or not to reconnect for each and every action to the email server. When set to true
-     * it will disconnect and reconnect before every getEmailHeader() call.
+     * Whether or not to reconnect for each and every action to the email server. When set to true it will disconnect
+     * and reconnect before every getEmailHeader() call.
      */
     private boolean m_bAlwaysReconnect = false;
     /**
@@ -125,8 +125,8 @@ abstract class BaseEmailConnection
     }
 
     /**
-     * This method closes the current connection. NOTE: You MUST call this method when you're done.
-     * If you don't the messages at the server won't get updated.
+     * This method closes the current connection. NOTE: You MUST call this method when you're done. If you don't the
+     * messages at the server won't get updated.
      *
      * @throws  EmailConnectionException  In case of any exceptions.
      *
@@ -161,8 +161,7 @@ abstract class BaseEmailConnection
                 }
                 catch (MessagingException e)
                 {
-                    throw new EmailConnectionException(e,
-                                                       EmailConnectionExceptionMessages.ECE_ERROR_CLOSING_THE_FOLDER,
+                    throw new EmailConnectionException(e, EmailConnectionExceptionMessages.ECE_ERROR_CLOSING_THE_FOLDER,
                                                        fFolder.getFullName());
                 }
             }
@@ -170,11 +169,11 @@ abstract class BaseEmailConnection
     }
 
     /**
-     * This method gets whether or not to reconnect for each and every action to the email server.
-     * When set to true it will disconnect and reconnect before every getEmailHeader() call.
+     * This method gets whether or not to reconnect for each and every action to the email server. When set to true it
+     * will disconnect and reconnect before every getEmailHeader() call.
      *
-     * @return  Whether or not to reconnect for each and every action to the email server. When set
-     *          to true it will disconnect and reconnect before every getEmailHeader() call.
+     * @return  Whether or not to reconnect for each and every action to the email server. When set to true it will
+     *          disconnect and reconnect before every getEmailHeader() call.
      */
     public boolean getAlwaysReconnect()
     {
@@ -246,16 +245,38 @@ abstract class BaseEmailConnection
                                                    sFolderName);
             }
 
-            if (!fFolder.isOpen())
+            try
             {
-                fFolder.open(Folder.READ_WRITE);
+                if (!fFolder.isOpen())
+                {
+                    fFolder.open(Folder.READ_WRITE);
+                }
+            }
+            catch (StoreClosedException sce)
+            {
+                // The store appears to be closed. We'll try to reconnect.
+                if (LOG.isDebugEnabled())
+                {
+                    LOG.debug("The store is closed. Going to reconnect", sce);
+                }
+
+                try
+                {
+                    reconnect();
+                    fFolder = m_hmOpenFolder.get(sFolderName);
+                }
+                catch (Exception e)
+                {
+                    LOG.error(e, LogMessages.ERROR_RECONNECTING_FOLDER, sFolderName);
+                }
             }
 
             return fFolder.getMessages();
         }
         catch (MessagingException e)
         {
-            throw new EmailConnectionException(EmailConnectionExceptionMessages.ECE_ERROR_GETTING_THE_MESSAGES_FOR_THE_FOLDER,
+            throw new EmailConnectionException(e,
+                                               EmailConnectionExceptionMessages.ECE_ERROR_GETTING_THE_MESSAGES_FOR_THE_FOLDER,
                                                sFolderName);
         }
     }
@@ -311,12 +332,11 @@ abstract class BaseEmailConnection
     }
 
     /**
-     * This method sets wether or not to reconnect for each and every action to the email server.
-     * When set to true it will disconnect and reconnect before every getEmailHeader() call.
+     * This method sets wether or not to reconnect for each and every action to the email server. When set to true it
+     * will disconnect and reconnect before every getEmailHeader() call.
      *
-     * @param  bAlwaysReconnect  Whether or not to reconnect for each and every action to the email
-     *                           server. When set to true it will disconnect and reconnect before
-     *                           every getEmailHeader() call.
+     * @param  bAlwaysReconnect  Whether or not to reconnect for each and every action to the email server. When set to
+     *                           true it will disconnect and reconnect before every getEmailHeader() call.
      */
     public void setAlwaysReconnect(boolean bAlwaysReconnect)
     {
@@ -401,8 +421,7 @@ abstract class BaseEmailConnection
                             {
                                 StringBuilder sbTemp = new StringBuilder(2048);
                                 Flags f = message.getFlags();
-                                sbTemp.append("Answered: " + f.contains(Flags.Flag.ANSWERED))
-                                      .append(", ");
+                                sbTemp.append("Answered: " + f.contains(Flags.Flag.ANSWERED)).append(", ");
                                 sbTemp.append("Deleted: " + f.contains(Flags.Flag.DELETED)).append(", ");
                                 sbTemp.append("Draft: " + f.contains(Flags.Flag.DRAFT)).append(", ");
                                 sbTemp.append("Flagged: " + f.contains(Flags.Flag.FLAGGED)).append(", ");
@@ -434,8 +453,7 @@ abstract class BaseEmailConnection
                 }
                 catch (MessagingException e)
                 {
-                    throw new EmailConnectionException(e,
-                                                       EmailConnectionExceptionMessages.ECE_ERROR_CLOSING_THE_FOLDER,
+                    throw new EmailConnectionException(e, EmailConnectionExceptionMessages.ECE_ERROR_CLOSING_THE_FOLDER,
                                                        fFolder.getFullName());
                 }
             }
@@ -461,8 +479,7 @@ abstract class BaseEmailConnection
             }
             catch (MessagingException e)
             {
-                throw new EmailConnectionException(e,
-                                                   EmailConnectionExceptionMessages.ECE_ERROR_CLOSING_THE_STORE);
+                throw new EmailConnectionException(e, EmailConnectionExceptionMessages.ECE_ERROR_CLOSING_THE_STORE);
             }
         }
     }
@@ -488,8 +505,8 @@ abstract class BaseEmailConnection
     }
 
     /**
-     * This method can be overloaded for a connection to fill the list of properties with connection
-     * specific properties.
+     * This method can be overloaded for a connection to fill the list of properties with connection specific
+     * properties.
      *
      * @param  pJavaMailProperties  The current list of properties.
      */
@@ -498,8 +515,8 @@ abstract class BaseEmailConnection
     }
 
     /**
-     * This method makes the actual connection to the email box. If the connection was already open
-     * it will be closed to open a fresh connection.
+     * This method makes the actual connection to the email box. If the connection was already open it will be closed to
+     * open a fresh connection.
      *
      * @throws  EmailConnectionException  In case of any exceptions.
      */
@@ -566,8 +583,7 @@ abstract class BaseEmailConnection
         }
         catch (Exception e)
         {
-            throw new EmailConnectionException(e,
-                                               EmailConnectionExceptionMessages.ECE_ERROR_CONNECTING_TO_THE_MAILBOX);
+            throw new EmailConnectionException(e, EmailConnectionExceptionMessages.ECE_ERROR_CONNECTING_TO_THE_MAILBOX);
         }
     }
 
@@ -582,8 +598,7 @@ abstract class BaseEmailConnection
         pJavaMailProps.setProperty("mail.store.protocol", getStoreType());
 
         pJavaMailProps.setProperty("mail." + getStoreType() + ".host", m_ebBox.getHost());
-        pJavaMailProps.setProperty("mail." + getStoreType() + ".port",
-                                   String.valueOf(m_ebBox.getPort()));
+        pJavaMailProps.setProperty("mail." + getStoreType() + ".port", String.valueOf(m_ebBox.getPort()));
 
         fillAdditionalProperties(pJavaMailProps);
 

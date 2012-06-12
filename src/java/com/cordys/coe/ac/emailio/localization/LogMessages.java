@@ -530,5 +530,11 @@ public class LogMessages
 	 * This method tells the poller thread to immediately start polling the inbox
 	 */
 	public static final Message JMX_POLL_NOW = MESSAGE_SET.getMessage("JMX_POLL_NOW");
+	/**
+     * Holds the definition of the message with ID JMX_POLL_NOW.
+     * Message text:
+     * This method tells the poller thread to immediately start polling the inbox
+     */
+    public static final Message ERROR_RECONNECTING_FOLDER = MESSAGE_SET.getMessage("ERROR_RECONNECTING_FOLDER");
 
 }

@@ -3,7 +3,6 @@
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="test/java"/>
 	<classpathentry kind="src" path="src/tools"/>
-	<classpathentry kind="lib" path="platform/ext/log4j-1.2.14_cordys.jar"/>
 	<classpathentry kind="lib" path="lib/mail.jar"/>
 	<classpathentry kind="lib" path="lib/activation.jar"/>
 	<classpathentry kind="lib" path="platform/components/eibxml/eibxml.jar" sourcepath="D:/development/bcpsrc/c3bld411/eibxml/src/java"/>
@@ -20,5 +19,6 @@
 	<classpathentry kind="lib" path="lib/bcmail-jdk16-143.jar"/>
 	<classpathentry kind="lib" path="lib/bcprov-jdk16-143.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="platform/ext/log4j-1.2.15.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
