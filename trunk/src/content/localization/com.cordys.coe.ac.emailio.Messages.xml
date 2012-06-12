@@ -644,4 +644,12 @@ Email content:
             <DocumenationURL/>
         </Annotations>
     </Message>
+    <Message id="ERROR_RECONNECTING_FOLDER">
+        <MessageText><![CDATA[Error reconnecting because of Folder Closed exception]]></MessageText>
+        <Description>
+        </Description>
+        <Annotations>
+            <DocumenationURL/>
+        </Annotations>
+    </Message>
 </MessageBundle>

@@ -13,6 +13,7 @@
     </template>
     <body>
         <release description="Development release" version="@NEXT@">
+        <action dev="pgussow" type="fix">Added a fix to make sure that the connector will automatically reconnect when the opening of the folder fails</action>
 				</release>
 <release date="2010-11-11" description="Development release" version="2.0.9">
 <action dev="srkrishnan" type="migration">Moved EmailIO connector source code base to opensource model.</action>
