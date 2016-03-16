@@ -1,0 +1,1 @@
+The E-mail IO Connector wiki pages can be found in the [Cordys Professional Network](https://wiki.cordys.com/display/dsc/E-mail+IO+Connector)
